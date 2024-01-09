@@ -1,10 +1,11 @@
+import React from 'react'
+import MainSlider from './components/main-section/MainSlider'
+import Layout from './layout/Layout'
 
+const App = () => (
+   <Layout>
+      <MainSlider />
+   </Layout>
+)
 
-function App() {
-  return (
-    <div>
-    </div>
-  );
-}
-
-export default App;
+export default App

@@ -1,0 +1,39 @@
+.headerContent {
+   background-color: #1a1e29;
+}
+.headerLogo {
+   width: 99px;
+}
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+
+   li {
+      color: white;
+      list-style: none;
+   }
+
+   ul {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+   }
+}
+.headerIcon {
+   padding: 32px;
+
+   img {
+      width: 16px;
+      height: 16px;
+   }
+}
+
+.ulContainer {
+   display: flex;
+   gap: 47px;
+}
