@@ -1,0 +1,42 @@
+.menuProducts {
+   width: 100%;
+   position: absolute;
+   z-index: 1;
+   background-color: #2b3143;
+}
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   padding-top: 60px;
+   padding-bottom: 60px;
+}
+
+.containerMenuProducts li {
+   display: flex;
+   align-items: center;
+   gap: 24px;
+   color: white;
+   max-width: 600px;
+}
+.containerMenuProducts li img {
+   width: 96px;
+}
+
+.containerMenuProducts div {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+}
+
+.containerMenuProducts div h1 {
+   color: #ff850e;
+   font-size: 24px;
+   font-weight: 500;
+}
+
+.line {
+   border: 1px solid #3e465f;
+}
