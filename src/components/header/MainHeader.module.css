@@ -4,6 +4,9 @@
 .headerLogo {
    width: 99px;
 }
+.personalIcon {
+   display: none;
+}
 
 .container {
    max-width: 1440px;
@@ -12,7 +15,8 @@
    justify-content: space-between;
    align-items: center;
    flex-wrap: wrap;
-
+   padding-left: 10px;
+   padding-right: 10px;
    li {
       color: white;
       list-style: none;
@@ -32,8 +36,75 @@
       height: 16px;
    }
 }
+.burgerMenu {
+   display: none;
+}
 
 .ulContainer {
    display: flex;
    gap: 47px;
+}
+
+.divContainerUl {
+   display: flex;
+   align-items: center;
+}
+
+@media screen and (max-width: 768px) and (min-width: 0) {
+   .headerLogo {
+      width: 61px;
+   }
+   .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 50px;
+      padding-right: 50px;
+   }
+   .burgerMenu {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+   }
+   .burgerItem {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+   }
+   .burgerItem2 {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: white;
+   }
+   .ulContainer li {
+      display: none;
+   }
+   .divContainerUl li {
+      display: none;
+   }
+
+   .burgerMenu {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+   }
+   .burgerItem {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+   }
+   .burgerItem2 {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: white;
+   }
+   .personalIcon {
+      display: flex;
+      width: 24px;
+      height: 16px;
+   }
 }
