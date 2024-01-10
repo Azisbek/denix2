@@ -1,19 +1,44 @@
 .sliderContainer {
-   position: relative;
+   max-width: 1349px;
+}
+.sliderContainer h1 {
+   color: white;
+   font-size: 50px;
+   font-family: serif;
+   line-height: 45px;
+}
+.sliderContainer button {
+   margin: 36px 0px;
+   padding: 8px;
+   width: 187px;
+   height: 52px;
+   font-size: 18px;
+   font-weight: 700;
+   color: #ff7e00;
+   border-radius: 5px;
+   background: #fff;
+   border: none;
+   cursor: pointer;
+}
+.sliderImg {
+   background-image: url(../../assets/image/techslider2.png);
+   width: 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 343px;
+   padding: 54px 83px;
 }
 
-.slideContent {
-   position: relative;
-   width: 100%;
-   img {
-      width: 100%;
-   }
-}
-.textOverlay {
-   top: 0;
-   position: absolute;
-   color: #fff;
-   text-align: center;
+.fix {
    display: flex;
-   
+   gap: 5px;
+}
+.fixItem {
+   width: 10px;
+   height: 10px;
+   background-color: white;
+   border-radius: 50%;
+}
+.fixItemActive {
+   background-color: #ff7e00;;
 }
