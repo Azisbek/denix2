@@ -1,6 +1,6 @@
 import React from 'react'
-import tire from '../../../assets/tire.png'
-import wheels from '../../../assets/wheels 1.png'
+import tire from '../../../assets/image/tire.png'
+import wheels from '../../../assets/image/wheels 1.png'
 import classes from './MenuService.module.css'
 // import time from '../../../assets/icon/time.png'
 

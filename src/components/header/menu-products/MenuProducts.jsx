@@ -1,8 +1,8 @@
 import React from 'react'
-import car1 from '../../../assets/car1.png'
-import car2 from '../../../assets/car2.png'
-import car3 from '../../../assets/car3.png'
-import car4 from '../../../assets/car4.png'
+import car1 from '../../../assets/image/car1.png'
+import car2 from '../../../assets/image/car2.png'
+import car3 from '../../../assets/image/car3.png'
+import car4 from '../../../assets/image/car4.png'
 import classes from './MenuProducts.module.css'
 
 const MenuProducts = () => {
