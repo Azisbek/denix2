@@ -4,18 +4,24 @@
 .headerLogo {
    width: 99px;
 }
+.personalIcon {
+   display: none;
+}
 
 .container {
-   max-width: 1440px;
+   max-width: 1400px;
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
    align-items: center;
    flex-wrap: wrap;
+   padding-left: 20px;
+   padding-right: 20px;
 
    li {
       color: white;
       list-style: none;
+      cursor: pointer;
    }
 
    ul {
@@ -32,8 +38,116 @@
       height: 16px;
    }
 }
+.burgerMenu {
+   display: none;
+}
 
 .ulContainer {
    display: flex;
    gap: 47px;
+}
+
+.divContainerUl {
+   display: flex;
+   align-items: center;
+}
+.burgerContent {
+   display: none;
+}
+.menuDesctop {
+   display: block;
+}
+.burgerContent {
+   display: none;
+}
+
+@media screen and (max-width: 780px) and (min-width: 0) {
+   .mobileNavItem {
+      display: flex;
+   }
+   .burgerContent {
+      display: block;
+   }
+
+   .headerLogo {
+      width: 61px;
+   }
+   .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 50px;
+      padding-right: 50px;
+   }
+   .burgerMenu {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+   }
+   .burgerItem {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+   }
+   .burgerItem2 {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: white;
+   }
+   .ulContainer li {
+      display: none;
+   }
+   .divContainerUl li {
+      display: none;
+   }
+   .ulContainer.open li {
+      display: block;
+   }
+
+   .burgerMenu {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+   }
+   .burgerItem {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+   }
+   .burgerItem2 {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: white;
+   }
+   .personalIcon {
+      display: flex;
+      width: 24px;
+      height: 16px;
+   }
+   .burgerContent {
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      background-color: #2b3143;
+   }
+   .burgerContent li {
+      display: block;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+   }
+   .menuDesctop {
+      display: none;
+   }
+   .burgerContent {
+      padding: 0px 40px;
+   }
+}
+
+.line {
+   border: 1px solid #3e465f;
 }
