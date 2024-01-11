@@ -34,7 +34,6 @@ import yokohama from '../../assets/image/yokohama.png'
 const Partners = () => {
    return (
       <section className={classes.contentPartners}>
-         <h2>Наши партнеры</h2>
          <div className={classes.boxPartners}>
             <div className={classes.columnPartners}>
                <img src={sitec} alt="Наш партнер" />
