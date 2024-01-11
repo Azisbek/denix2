@@ -36,12 +36,14 @@
 
 .boxReview {
     display: flex;
+    align-items: center;
     gap: 16px;
     margin-bottom: 17px;
 }
 
 .boxComment {
     display: flex;
+    align-items: center;
     gap: 4px;
     img {
         width: 16px;
