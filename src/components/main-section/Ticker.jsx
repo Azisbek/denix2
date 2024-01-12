@@ -34,39 +34,191 @@ import yokohama from '../../assets/image/yokohama.png'
 const Ticker = () => {
    return (
       <section className={classes.tickerContent}>
-         <h2>Нам доверяют</h2>
+         <h2>Наши партнеры</h2>
          <div className={classes.tickerContainer}>
             <div className={classes.ticker}>
-               <img src={sitec} alt="Наш партнер" />
-               <img src={bushRanger} alt="Наш партнер" />
-               <img src={delta} alt="Наш партнер" />
-               <img src={goform} alt="Наш партнер" />
-               <img src={unitto} alt="Наш партнер" />
-               <img src={tigar} alt="Наш партнер" />
-               <img src={turvana} alt="Наш партнер" />
-               <img src={michelin} alt="Наш партнер" />
-               <img src={continental} alt="Наш партнер" />
-               <img src={goodRide} alt="Наш партнер" />
-               <img src={nokianTyres} alt="Наш партнер" />
-               <img src={toyoTires} alt="Наш партнер" />
-               <img src={gerat} alt="Наш партнер" />
-               <img src={barum} alt="Наш партнер" />
-               <img src={dunlop} alt="Наш партнер" />
-               <img src={goodYear} alt="Наш партнер" />
-               <img src={nokianTyresGrey} alt="Наш партнер" />
-               <img src={triangle} alt="Наш партнер" />
-               <img src={liquiMoly} alt="Наш партнер" />
-               <img src={bfGoodrich} alt="Наш партнер" />
-               <img src={generalTire} alt="Наш партнер" />
-               <img src={kumhoTyre} alt="Наш партнер" />
-               <img src={pirelli} alt="Наш партнер" />
-               <img src={uniroyal} alt="Наш партнер" />
-               <img src={arb} alt="Наш партнер" />
-               <img src={bridgestone} alt="Наш партнер" />
-               <img src={gislaved} alt="Наш партнер" />
-               <img src={matador} alt="Наш партнер" />
-               <img src={roadcruza} alt="Наш партнер" />
-               <img src={yokohama} alt="Наш партнер" />
+               {/* Бегущие картинки */}
+               <div className={classes.tickerItem}>
+                  <img src={sitec} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bushRanger} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={delta} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goform} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={unitto} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={tigar} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={turvana} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={michelin} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={continental} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goodRide} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={nokianTyres} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={toyoTires} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={gerat} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={barum} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={dunlop} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goodYear} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={nokianTyresGrey} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={triangle} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={liquiMoly} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bfGoodrich} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={generalTire} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={kumhoTyre} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={pirelli} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={uniroyal} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={arb} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bridgestone} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={gislaved} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={matador} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={roadcruza} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={yokohama} alt="Наш партнер" />
+               </div>
+               {/* Бегущие картинки */}
+               <div className={classes.tickerItem}>
+                  <img src={sitec} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bushRanger} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={delta} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goform} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={unitto} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={tigar} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={turvana} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={michelin} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={continental} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goodRide} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={nokianTyres} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={toyoTires} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={gerat} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={barum} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={dunlop} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={goodYear} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={nokianTyresGrey} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={triangle} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={liquiMoly} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bfGoodrich} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={generalTire} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={kumhoTyre} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={pirelli} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={uniroyal} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={arb} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={bridgestone} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={gislaved} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={matador} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={roadcruza} alt="Наш партнер" />
+               </div>
+               <div className={classes.tickerItem}>
+                  <img src={yokohama} alt="Наш партнер" />
+               </div>
             </div>
          </div>
       </section>
