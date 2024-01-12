@@ -12,7 +12,6 @@
 
 .boxImage img {
    width: 241px;
-   height: 241px;
    transition: 300ms;
 }
 
@@ -27,9 +26,8 @@
 #summerIcon {
    width: 34px;
    height: 34px;
-   position: relative;
-   top: 32px;
-   right: 14px;
+   position: absolute;
+   transform: translate(110px, 35px);
 }
 
 .boxReview {
@@ -59,13 +57,16 @@
    }
 }
 
-.cardProduct h4 {
+.cardProduct h3 {
+   display: inline-block;
+   width: 224px;
+   word-break: break-all;
    color: #1a1e29;
    font-size: 24px;
    font-style: normal;
    font-weight: 500;
    line-height: 32px;
-   margin-bottom: 41px;
+   padding-bottom: 41px;
 }
 
 .cardProduct p {
