@@ -1,0 +1,31 @@
+.sectionOptions button {
+   color: #fff;
+   font-family: IBM Plex Sans;
+   font-size: 14px;
+   font-weight: 500;
+   border-radius: 5px;
+   background: #ff7e00;
+   padding: 9px 46px;
+   margin: 0 auto;
+}
+
+.optionsItem {
+   display: flex;
+   justify-content: center;
+   gap: 55px;
+}
+.sectionOptions {
+   /* height: 170px; */
+   background-color: #ff7e00;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.optionsItem select {
+   padding: 12px 13px;
+   background: #f5f5f5;
+   border: none;
+}
+.optionsItem select:hover {
+   background: white;
+}

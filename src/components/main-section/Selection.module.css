@@ -1,0 +1,30 @@
+.optionsTitle h1 {
+    color: #1a1e29;
+    font-family: IBM Plex Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    /* border-bottom: ; */
+ }
+ .optionsTitle {
+    width: 1192px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 23px 0px;
+    background: red;
+    position: absolute;
+    bottom: 46px;
+    left: 6%;
+ }
+ 
+.optionsTitle .dashed {
+   color: #4c65bd;
+   border-bottom:  dashed rgb(153, 153, 204);
+   border-width: 1px;
+}
+.optionsTitle .solid {
+   border-bottom:  solid #ff7e00;
+   border-width: 1px;
+}
