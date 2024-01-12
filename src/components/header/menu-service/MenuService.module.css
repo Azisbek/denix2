@@ -1,0 +1,98 @@
+@keyframes slideDown {
+   from {
+      transform: translateY(-100%);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+
+.menuProducts {
+   width: 100%;
+   position: absolute;
+   z-index: 1;
+   background-color: #2b3143;
+   display: block;
+   padding-bottom: 30px;
+   animation: slideDown 0.3s ease-in-out;
+}
+
+.container {
+   padding-top: 60px;
+   max-width: 1440px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   padding: 0 20px;
+}
+
+.containerProductsTire li {
+   display: flex;
+   align-items: center;
+   gap: 24px;
+   color: white;
+   max-width: 600px;
+   padding-bottom: 23px;
+   padding-top: 23px;
+}
+
+.containerProductsTire li img {
+   width: 96px;
+}
+
+.containerProductsTire div a {
+   color: #ff850e;
+   font-size: 24px;
+   font-weight: 500;
+   text-decoration: none;
+}
+
+.line {
+   border: 1px solid #3e465f;
+}
+
+.containerProductsMenu {
+   margin-top: 30px;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+
+.containerProductsMenu li {
+   list-style: none;
+}
+
+.containerProductsMenu li a {
+   font-size: 16px;
+   padding-right: 100px;
+   color: #fff;
+   list-style: none;
+   text-decoration: none;
+   font-weight: 500;
+   line-height: 24px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 0) {
+   .containerProductsTire {
+      display: none;
+   }
+
+   .container {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+   }
+
+   .menuProducts {
+      position: relative;
+      animation: none;
+   }
+}
+@media screen and (max-width: 1180px) and (min-width: 820px) {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+   }
+}

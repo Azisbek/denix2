@@ -1,0 +1,74 @@
+.section {
+   padding: 22px 50px;
+}
+
+.content {
+   margin: 0 auto;
+   /* width: 1350px; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.content h2 {
+   color: black;
+   text-align: center;
+   font-size: 32px;
+   font-weight: 600;
+   line-height: 48px;
+   margin-bottom: 15px;
+}
+
+.selection {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 25px;
+}
+
+.btnSelection {
+   padding: 10px 16px;
+   background-color: white;
+   border: none;
+   color: #4c65bd;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+   border-bottom: 1px solid #e5e5e5;
+   cursor: pointer;
+}
+
+.activeBtnSelection {
+   padding: 10px 16px;
+   background-color: white;
+   border: none;
+   color: #ff7e00;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+   border-bottom: 1px solid #ff7e00;
+   cursor: pointer;
+}
+
+.cardProducts {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 30px;
+   margin-bottom: 34px;
+}
+
+@media screen and (max-width: 768px) {
+   .cardProducts {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .selection {
+      display: flex;
+      flex-wrap: wrap;
+   }
+}

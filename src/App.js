@@ -1,12 +1,10 @@
 import React from 'react'
-// import MainSlider from './components/main-section/MainSlider'
+import HomePage from './components/home/HomePage'
 import Layout from './layout/Layout'
-import Sale from './components/sale-section/Sale'
 
 const App = () => (
    <Layout>
-      {/* <MainSlider /> */}
-      <Sale />
+      <HomePage />
    </Layout>
 )
 
