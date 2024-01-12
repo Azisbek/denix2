@@ -9,16 +9,24 @@ import classes from './MainHeader.module.css'
 import {
    burgerClickHandler,
    toggleClickHandler,
+   toggleCompanyHandler,
+   togglePersonalHandler,
    toggleServiceHandler,
 } from '../../store/toggleSlice'
 import MenuProducts from './menu-products/MenuProducts'
 import MenuService from './menu-service/MenuService'
+import MenuCompany from './menu-company/MenuCompany'
+import MenuPersonal from './menu-personal/MenuPersonal'
 
 const MainHeader = () => {
    const dispatch = useDispatch()
-   const { productsToggleMobile, burger, service } = useSelector(
-      (state) => state.toggle
-   )
+   const {
+      personalToggle,
+      productsToggle,
+      burgerToggle,
+      serviceToggle,
+      companyToggle,
+   } = useSelector((state) => state.toggle)
 
    const burgerHandler = () => {
       dispatch(burgerClickHandler())
@@ -29,6 +37,12 @@ const MainHeader = () => {
    }
    const serviceClickHandler = () => {
       dispatch(toggleServiceHandler())
+   }
+   const companyClickHandler = () => {
+      dispatch(toggleCompanyHandler())
+   }
+   const personalClickHandler = () => {
+      dispatch(togglePersonalHandler())
    }
 
    return (
@@ -51,7 +65,7 @@ const MainHeader = () => {
                <ul className={classes.ulContainer}>
                   <li onClick={productsClickHandler}>Товары</li>
                   <li onClick={serviceClickHandler}>Услуги</li>
-                  <li className={classes.mobileNavItem}>Компания</li>
+                  <li onClick={companyClickHandler}>Компания</li>
                </ul>
 
                <div>
@@ -62,11 +76,15 @@ const MainHeader = () => {
                      <img src={search} alt="search" />
                   </li>
                   <li className={classes.personalIcon}>
-                     <img src={personal} alt="personal" />
+                     <img
+                        src={personal}
+                        alt="personal"
+                        onClick={personalClickHandler}
+                     />
                   </li>
 
                   <div className={classes.divContainerUl}>
-                     <li>Личный кабинет</li>
+                     <li onClick={personalClickHandler}>Личный кабинет</li>
 
                      <li className={classes.headerIcon}>
                         <img src={like} alt="" />
@@ -80,26 +98,40 @@ const MainHeader = () => {
             </div>
          </header>
 
-         {productsToggleMobile && (
+         {productsToggle && (
             <div className={classes.menuDesctop}>
                <MenuProducts />
             </div>
          )}
-         {service && (
+
+         {personalToggle && (
+            <div>
+               <MenuPersonal />
+            </div>
+         )}
+
+         {serviceToggle && (
             <div className={classes.menuDesctop}>
                <MenuService />
             </div>
          )}
 
-         {burger && (
+         {companyToggle && (
+            <div className={classes.menuDesctop}>
+               <MenuCompany />
+            </div>
+         )}
+
+         {burgerToggle && (
             <ul className={classes.burgerContent}>
                <li onClick={productsClickHandler}>Товары</li>
                <div className={classes.line} />
-               {productsToggleMobile && <MenuProducts />}
+               {productsToggle && <MenuProducts />}
                <li onClick={serviceClickHandler}>Услуги</li>
                <div className={classes.line} />
-               {service && <MenuService />}
-               <li className={classes.mobileNavItem}>Компания</li>
+               {serviceToggle && <MenuService />}
+               <li onClick={companyClickHandler}>Компания</li>
+               {companyToggle && <MenuCompany />}
                <div className={classes.line} />
             </ul>
          )}

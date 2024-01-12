@@ -5,7 +5,7 @@ import classes from './MenuService.module.css'
 // import time from '../../../assets/icon/time.png'
 
 const MenuService = () => (
-   <div className={`${classes.menuProducts} ${classes.show}`}>
+   <nav className={`${classes.menuProducts} ${classes.show}`}>
       <div className={classes.container}>
          <ul className={classes.containerProductsTire}>
             <li>
@@ -40,22 +40,22 @@ const MenuService = () => (
                </a>
             </li>
 
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
 
             <li>
                <a href="/accessories">Аккумуляторы</a>
             </li>
 
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
 
             <li>
                <a href="/accessories">Автомасла</a>
             </li>
 
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
          </ul>
       </div>
-   </div>
+   </nav>
 )
 
 export default MenuService

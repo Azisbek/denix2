@@ -1,10 +1,8 @@
 .btnToggleTires {
    padding: 15px 13px;
-   width: 196px;
    border: 1px solid #ff7e00;
    background: #fff;
    color: #ff7e00;
-   margin-bottom: 22px;
    cursor: pointer;
 }
 
