@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Sale.module.css'
-import tire from '../../assets/image/tire.png'
+import proverka from '../../assets/image/proverka.png'
 import time from '../../assets/icon/time.png'
 
 const Sale = () => (
@@ -8,7 +8,7 @@ const Sale = () => (
       <h4 className={classes.h4}>Акции</h4>
       <div className={classes.container}>
          <div className={classes.option}>
-            <img className={classes.img} src={tire} alt="tire" />
+            <img className={classes.img} src={proverka} alt="tire" />
             <h5>Тормозные колодки со скидкой 10%</h5>
             <span>
                <p>Диски</p>
@@ -21,7 +21,7 @@ const Sale = () => (
             </div>
          </div>
          <div className={classes.option}>
-            <img className={classes.img} src={tire} alt="tire" />
+            <img className={classes.img} src={proverka} alt="tire" />
             <h5>Тормозные колодки со скидкой 10%</h5>
             <span>
                <p>Диски</p>
@@ -34,7 +34,7 @@ const Sale = () => (
             </div>
          </div>
          <div className={classes.option}>
-            <img className={classes.img} src={tire} alt="tire" />
+            <img className={classes.img} src={proverka} alt="tire" />
             <h5>Тормозные колодки со скидкой 10%</h5>
             <span>
                <p>Диски</p>
