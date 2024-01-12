@@ -9,6 +9,9 @@
    display: flex;
    gap: 53px;
    padding: 33px 0 145px 0;
+   flex-wrap: wrap;
+   margin: 0 auto;
+   justify-content: center;
 }
 
 .columnPartners {
