@@ -1,19 +1,91 @@
 .sliderContainer {
+   max-width: 1366px;
    position: relative;
+   overflow: hidden;
+}
+.sliderInfo {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-35%, -50%); /* Центрирование по вертикали и горизонтали */
+  }
+.sliderInfo h1 {
+   color: white;
+   font-size: 45px;
+   font-family: serif;
+   line-height: 45px;
+}
+.sliderInfo button {
+   margin: 36px 0px;
+   padding: 18px 44px;
+   font-size: 18px;
+   font-weight: 700;
+   color: #ff7e00;
+   border-radius: 5px;
+   background: #fff;
+   border: none;
+   cursor: pointer;
+}
+.blockSlider {
+   width: 100%;
+   height: 100%;
 }
 
-.slideContent {
-   position: relative;
-   width: 100%;
-   img {
-      width: 100%;
-   }
-}
-.textOverlay {
-   top: 0;
-   position: absolute;
-   color: #fff;
-   text-align: center;
+.fix {
    display: flex;
-   
+   gap: 5px;
+}
+.fixItem {
+   width: 10px;
+   height: 10px;
+   background-color: white;
+   border-radius: 50%;
+}
+.fixItemActive {
+   background-color: #ff7e00;
+}
+
+@media (max-width: 1084px) {
+    .sliderContainer {
+        max-width: 1084px;
+        height: 354px;
+        position: relative;
+     }
+     .sliderInfo {
+        position: absolute;
+        top: 50%;
+        left: 26%;
+        /* transform: translate(-35%, -50%); Центрирование по вертикали и горизонтали */
+      }
+}
+@media (max-width: 768px) {
+    .sliderInfo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Центрирование по вертикали и горизонтали */
+        text-align: center; /* Центрирование текста */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+   .sliderInfo h1 {
+      font-size: 24px;
+      line-height: 26px;
+   }
+   .sliderInfo button {
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 12px 24px;
+   }
+   .fixItem {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+ }
+ .fixItemActive {
+    background-color: #ff7e00;
+ }
 }
