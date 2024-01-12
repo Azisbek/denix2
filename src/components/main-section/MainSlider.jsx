@@ -1,4 +1,3 @@
-// Slider.jsx
 import React from 'react'
 import img from '../../assets/image/slider1.png'
 import classes from './MainSlider.module.css'

@@ -4,11 +4,14 @@
    overflow: hidden;
 }
 .sliderInfo {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-35%, -50%); /* Центрирование по вертикали и горизонтали */
-  }
+   position: absolute;
+   top: 50%;
+   left: 20%;
+   transform: translate(
+      -35%,
+      -50%
+   ); /* Центрирование по вертикали и горизонтали */
+}
 .sliderInfo h1 {
    color: white;
    font-size: 45px;
@@ -46,30 +49,33 @@
 }
 
 @media (max-width: 1084px) {
-    .sliderContainer {
-        max-width: 1084px;
-        height: 354px;
-        position: relative;
-     }
-     .sliderInfo {
-        position: absolute;
-        top: 50%;
-        left: 26%;
-        /* transform: translate(-35%, -50%); Центрирование по вертикали и горизонтали */
-      }
+   .sliderContainer {
+      max-width: 1084px;
+      height: 354px;
+      position: relative;
+   }
+   .sliderInfo {
+      position: absolute;
+      top: 50%;
+      left: 26%;
+      /* transform: translate(-35%, -50%); Центрирование по вертикали и горизонтали */
+   }
 }
 @media (max-width: 768px) {
-    .sliderInfo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Центрирование по вертикали и горизонтали */
-        text-align: center; /* Центрирование текста */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+   .sliderInfo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(
+         -50%,
+         -50%
+      ); /* Центрирование по вертикали и горизонтали */
+      text-align: center; /* Центрирование текста */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+   }
    .sliderInfo h1 {
       font-size: 24px;
       line-height: 26px;
@@ -80,12 +86,12 @@
       padding: 12px 24px;
    }
    .fixItem {
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border-radius: 50%;
- }
- .fixItemActive {
-    background-color: #ff7e00;
- }
+      width: 8px;
+      height: 8px;
+      background-color: white;
+      border-radius: 50%;
+   }
+   .fixItemActive {
+      background-color: #ff7e00;
+   }
 }
