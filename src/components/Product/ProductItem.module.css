@@ -1,111 +1,110 @@
 .cardProduct {
-    border: 1px solid #E5E5E5;
-    display: flex;
-    flex-direction: column;
-    /* width: 290px;
-    height: 513px; */
-    padding: 20px;
+   border: 1px solid #e5e5e5;
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
 }
 
 .boxImage {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .boxImage img {
-    width: 241px;
-    height: 241px;
-    transition: 300ms;
+   width: 241px;
+   transition: 300ms;
 }
 
 .boxImage img:hover {
-    transform: scale(1.1);
+   transform: scale(1.1);
 }
 
 .boxImage img:not(:hover) {
-    transform: scale(1);
+   transform: scale(1);
 }
 
 #summerIcon {
-    width: 34px;
-    height: 34px;
-    position: relative;
-    top: 32px;
-    right: 14px;
+   width: 34px;
+   height: 34px;
+   position: absolute;
+   transform: translate(110px, 35px);
 }
 
 .boxReview {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 17px;
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   margin-bottom: 17px;
 }
 
 .boxComment {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    img {
-        width: 16px;
-        height: 16px;
-    }
+   display: flex;
+   align-items: center;
+   gap: 4px;
+   img {
+      width: 16px;
+      height: 16px;
+   }
 }
 
 .boxRating {
-    display: flex;
-    gap: 4px;
-    img {
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-    }
+   display: flex;
+   gap: 4px;
+   img {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+   }
 }
 
-.cardProduct h4 {
-    color: #1A1E29;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 32px; 
-    margin-bottom: 41px;
+.cardProduct h3 {
+   display: inline-block;
+   width: 224px;
+   word-break: break-all;
+   color: #1a1e29;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 32px;
+   padding-bottom: 41px;
 }
 
 .cardProduct p {
-    color: #6A6A6A;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    margin-bottom: 8px;
+   color: #6a6a6a;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 16px;
+   margin-bottom: 8px;
 }
 
 .boxButton {
-    display: flex;
-    gap: 10px;
+   display: flex;
+   gap: 10px;
 
-    img {
-        width: 20px;
-        height: 20px;
-    }
+   img {
+      width: 20px;
+      height: 20px;
+   }
 
-    button {
-        padding: 12px 73px;
-        border-radius: 5px;
-        background: #FF7E00;
-        border: none;
-        color: #FFF;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 16px;
-        cursor: pointer;
-    }
+   button {
+      padding: 12px 73px;
+      border-radius: 5px;
+      background: #ff7e00;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px;
+      cursor: pointer;
+   }
 }
 
 #btnLike {
-    padding: 13px 9px 8px 13px;
-    border-radius: 5px;
-    border: 1px solid #FF7E00;
-    background: #FFF;
-    cursor: pointer;
+   padding: 13px 9px 8px 13px;
+   border-radius: 5px;
+   border: 1px solid #ff7e00;
+   background: #fff;
+   cursor: pointer;
 }

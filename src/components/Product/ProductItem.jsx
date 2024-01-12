@@ -27,7 +27,7 @@ const ProductItem = () => {
                <img src={ratingHalfIcon} alt="Иконка рейтинга" />
             </div>
          </div>
-         <h4>Goodyear Vector 4Seasons</h4>
+         <h3>Goodyear Vector 4Seasons</h3>
          <p>
             В наличии: <span>14</span> шт.
          </p>
