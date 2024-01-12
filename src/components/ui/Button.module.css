@@ -9,4 +9,5 @@
 .btnToggleTires:hover {
    color: #fff;
    background-color: #ff7e00;
+   transition: 0.4s;
 }
