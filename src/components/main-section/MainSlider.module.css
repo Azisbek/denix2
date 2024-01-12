@@ -1,17 +1,23 @@
 .sliderContainer {
-   max-width: 1349px;
+   max-width: 1366px;
+   position: relative;
+   overflow: hidden;
 }
-.sliderContainer h1 {
+.sliderInfo {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-35%, -50%); /* Центрирование по вертикали и горизонтали */
+  }
+.sliderInfo h1 {
    color: white;
-   font-size: 50px;
+   font-size: 45px;
    font-family: serif;
    line-height: 45px;
 }
-.sliderContainer button {
+.sliderInfo button {
    margin: 36px 0px;
-   padding: 8px;
-   width: 187px;
-   height: 52px;
+   padding: 18px 44px;
    font-size: 18px;
    font-weight: 700;
    color: #ff7e00;
@@ -20,13 +26,9 @@
    border: none;
    cursor: pointer;
 }
-.sliderImg {
-   background-image: url(../../assets/image/techslider2.png);
+.blockSlider {
    width: 100%;
-   background-repeat: no-repeat;
-   background-size: cover;
-   height: 343px;
-   padding: 54px 83px;
+   height: 100%;
 }
 
 .fix {
@@ -40,5 +42,50 @@
    border-radius: 50%;
 }
 .fixItemActive {
-   background-color: #ff7e00;;
+   background-color: #ff7e00;
+}
+
+@media (max-width: 1084px) {
+    .sliderContainer {
+        max-width: 1084px;
+        height: 354px;
+        position: relative;
+     }
+     .sliderInfo {
+        position: absolute;
+        top: 50%;
+        left: 26%;
+        /* transform: translate(-35%, -50%); Центрирование по вертикали и горизонтали */
+      }
+}
+@media (max-width: 768px) {
+    .sliderInfo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Центрирование по вертикали и горизонтали */
+        text-align: center; /* Центрирование текста */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+   .sliderInfo h1 {
+      font-size: 24px;
+      line-height: 26px;
+   }
+   .sliderInfo button {
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 12px 24px;
+   }
+   .fixItem {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+ }
+ .fixItemActive {
+    background-color: #ff7e00;
+ }
 }
