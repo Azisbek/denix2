@@ -2,8 +2,8 @@
     border: 1px solid #E5E5E5;
     display: flex;
     flex-direction: column;
-    width: 290px;
-    height: 513px;
+    /* width: 290px;
+    height: 513px; */
     padding: 20px;
 }
 
