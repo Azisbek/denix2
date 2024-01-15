@@ -11,6 +11,7 @@ const CatalogPage = () => {
             <CatalodSideBar />
             <ProductList />
          </div>
+
          <CatalogDescription />
       </div>
    )
