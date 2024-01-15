@@ -97,57 +97,56 @@
       gap: 20px;
       padding: 0px 2px;
    }
-   .form {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
+   @media screen and (max-width: 768px) and (min-width: 0) {
+      .container {
+         display: flex;
+         flex-direction: column;
+      }
+      .form {
+         display: flex;
+         gap: 20px;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+      }
+      .blockForm {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: wrap;
+         gap: 16px;
+         align-items: center;
+      }
    }
-   .blockForm {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-   }
-}
 
-@media screen and (min-width: 770px) and (max-width: 1000px) {
-   .container {
-      display: block;
+   @media screen and (min-width: 770px) and (max-width: 1000px) {
+      .container {
+         display: block;
+      }
+      .form {
+         display: flex;
+         gap: 20px;
+         flex-wrap: wrap;
+         justify-content: center;
+      }
    }
-   .form {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-   }
-   .blockForm {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-   }
-}
 
-@media screen and (max-width: 1180px) and (min-width: 820px) {
-   .container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-   }
-   .blockForm {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
-   .blockForm {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
+   @media screen and (max-width: 1180px) and (min-width: 820px) {
+      .container {
+         display: flex;
+         justify-content: center;
+         gap: 30px;
+      }
+      .blockForm {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+      .blockForm {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: wrap;
+         gap: 16px;
+         align-items: center;
+      }
    }
 }
