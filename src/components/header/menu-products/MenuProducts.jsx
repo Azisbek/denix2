@@ -1,4 +1,3 @@
-// MenuProducts.jsx
 import React from 'react'
 import classes from './MenuProducts.module.css'
 import TireImage1 from '../../../assets/image/car1.png'

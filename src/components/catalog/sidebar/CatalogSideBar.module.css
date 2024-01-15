@@ -1,64 +1,62 @@
 .tieresSpan {
-    font-size: 10px;
-    color: #C4C4C4;
-    border: 1px solid;
-    padding: 2px 6px;
-    border-radius: 50%;
+   font-size: 10px;
+   color: #c4c4c4;
+   border: 1px solid;
+   padding: 2px 6px;
+   border-radius: 50%;
 }
-.tieresTitle{
-    color: grey;
+.tieresTitle {
+   color: grey;
 }
 
 .tieres select {
-    padding: 10px 117px 10px 0px;
-    width: 287px;
-    text-align: start;
-    font-size: 17px;
-    border-color: #E5E5E5;
+   padding: 10px 117px 10px 0px;
+   width: 287px;
+   text-align: start;
+   font-size: 17px;
+   border-color: #e5e5e5;
 }
-.tieres{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-left: 86px;
+.tieres {
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
 }
-.tieres p{
-    font-size: 14px;
-    color: #6A6A6A;
+.tieres p {
+   font-size: 14px;
+   color: #6a6a6a;
 }
 .price input {
-    outline: none;
-    border-color: #eee5e5;
-    border-width: 1px;
-    padding: 10px 0px 10px 15px;
-    width: 144px;
-    font-size: 17px;
+   outline: none;
+   border-color: #eee5e5;
+   border-width: 1px;
+   padding: 10px 0px 10px 15px;
+   width: 144px;
+   font-size: 17px;
 }
- .price input::placeholder{
-    font-weight: bold;
-    color: #1A1E29;
+.price input::placeholder {
+   font-weight: bold;
+   color: #1a1e29;
 }
 label {
-    display: flex;
-    gap: 10px;
-    margin: 9px 0px;
+   display: flex;
+   gap: 10px;
+   margin: 9px 0px;
 }
 .inputContainer {
-    position: relative;
-    width: 300px; 
-  }
+   position: relative;
+   width: 300px;
+}
 
-  .icon {
-    position: absolute;
-    top: 20;
-    left: 47%;
-    transform: translateX(-50%);
-  }
+.icon {
+   position: absolute;
+   top: 20;
+   left: 47%;
+   transform: translateX(-50%);
+}
 
-  @media (max-width: 768px) {
-    .tieres{
-        display: grid;
-        justify-content: center;
-    }
-  }
-
+@media (max-width: 768px) {
+   .tieres {
+      display: grid;
+      justify-content: center;
+   }
+}

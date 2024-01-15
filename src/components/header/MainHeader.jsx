@@ -17,7 +17,7 @@ import MenuProducts from './menu-products/MenuProducts'
 import MenuService from './menu-service/MenuService'
 import MenuCompany from './menu-company/MenuCompany'
 import MenuPersonal from './menu-personal/MenuPersonal'
-import Arrow from '../ui/arrow/Arrow'
+import Arrow from '../arrow/Arrow'
 
 const MainHeader = () => {
    const dispatch = useDispatch()

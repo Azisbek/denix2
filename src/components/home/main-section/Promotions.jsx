@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '../ui/Button'
+import Button from '../../ui/Button'
 import classes from './Promotions.module.css'
-import Promotion from '../Product/Promotion'
+import Promotion from '../../Product/Promotion'
 
 const Promotions = () => {
    return (
