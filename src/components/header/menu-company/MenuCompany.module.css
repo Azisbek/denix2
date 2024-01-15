@@ -32,6 +32,8 @@
    gap: 24px;
    color: white;
    max-width: 600px;
+   width: 100%;
+   padding-bottom: 13px;
 }
 .containerProductsTire li img {
    width: 96px;
@@ -78,7 +80,7 @@
    line-height: 24px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 0) {
+@media screen and (max-width: 850px) and (min-width: 0) {
    .containerProductsTire {
       display: none;
    }
@@ -93,4 +95,3 @@
       flex-direction: column;
    }
 }
-

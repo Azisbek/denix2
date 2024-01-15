@@ -1,3 +1,4 @@
+/* Keyframes for sliding animation */
 @keyframes slideDown {
    from {
       transform: translateY(-100%);
@@ -7,6 +8,16 @@
    }
 }
 
+@keyframes slideUp {
+   from {
+      transform: translateY(0);
+   }
+   to {
+      transform: translateY(-100%);
+   }
+}
+
+/* Styling for the menu container */
 .menuProducts {
    animation: slideDown 0.3s ease-in-out;
    width: 100%;
@@ -15,8 +26,15 @@
    background-color: #2b3143;
    display: block;
    padding-bottom: 30px;
+   overflow: hidden; /* Hide content during animation */
 }
 
+/* Styling for the closing animation */
+.close {
+   animation: slideUp 0.3s ease-in-out;
+}
+
+/* Container styling */
 .container {
    padding-top: 60px;
    max-width: 1340px;
@@ -24,19 +42,21 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-
    padding: 0 20px;
+   overflow: hidden; /* Hide content during animation */
 }
 
+/* Styling for tire products */
 .containerProductsTire li {
    display: flex;
    align-items: center;
    gap: 24px;
    color: white;
    max-width: 600px;
-   padding-bottom: 23px;
+   padding-bottom: 13px;
    padding-top: 23px;
 }
+
 .containerProductsTire li img {
    width: 96px;
 }
@@ -47,21 +67,21 @@
    flex-wrap: wrap;
    gap: 16px;
 }
+
 .containerProductsTire div a {
    color: #ff850e;
    font-size: 24px;
    font-weight: 500;
    text-decoration: none;
-   /* text-wrap: wrap; */
 }
 
-.line {
-   border: 1px solid #3e465f;
-}
+/* Styling for lines */
+.line,
 .lineMenu {
    border: 1px solid #3e465f;
 }
 
+/* Styling for the menu items */
 .containerProductsMenu {
    margin-top: 30px;
    display: flex;
@@ -72,6 +92,7 @@
 .containerProductsMenu li {
    list-style: none;
 }
+
 .containerProductsMenu li a {
    font-size: 16px;
    padding-right: 100px;
@@ -82,21 +103,24 @@
    line-height: 24px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 0) {
+/* Media queries for responsive design */
+@media screen and (max-width: 850px) and (min-width: 0) {
    .containerProductsTire {
       display: none;
    }
+
    .container {
       padding: 0;
       display: flex;
       flex-direction: column;
-      /* align-items: center; */
    }
+
    .menuProducts {
       position: relative;
       animation: none;
    }
 }
+
 @media screen and (max-width: 1180px) and (min-width: 820px) {
    .container {
       display: flex;
