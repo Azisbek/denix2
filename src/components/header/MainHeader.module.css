@@ -102,7 +102,7 @@
    display: block;
 }
 
-@media screen and (max-width: 850px) and (min-width: 0) {
+@media screen and (max-width: 870px) and (min-width: 0) {
    @keyframes slideDown {
       from {
          transform: translateY(-100%);
@@ -219,12 +219,6 @@
 
 .line {
    border: 1px solid #3e465f;
-}
-
-@media screen and (max-width: 1180px) and (min-width: 820px) {
-   .headerLogo {
-      width: 99px;
-   }
 }
 
 @media screen and (max-width: 1180px) and (min-width: 820px) {

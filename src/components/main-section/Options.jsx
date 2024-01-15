@@ -36,8 +36,10 @@ const Options = () => {
                <option value="Производитель">Производитель</option>
                <option value="Производитель">Производитель</option>
             </select>
+            <div>
+               <Button className={classes.optionsButton}>Подобрать</Button>
+            </div>
          </div>
-         <Button className={classes.optionsButton}>Подобрать</Button>
       </nav>
    )
 }

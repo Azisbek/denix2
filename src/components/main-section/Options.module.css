@@ -1,31 +1,67 @@
-.sectionOptions button {
+.sectionOptions {
+   display: flex;
+   justify-content: center;
+   padding-bottom: 72px;
+}
+
+.optionsItem {
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: 10px;
+   max-width: 800px;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   row-gap: 29px;
+}
+
+.optionsButton {
    color: #fff;
-   font-family: IBM Plex Sans;
    font-size: 14px;
    font-weight: 500;
    border-radius: 5px;
    background: #ff7e00;
    padding: 9px 46px;
-   margin: 0 auto;
 }
 
-.optionsItem {
-   display: flex;
-   justify-content: center;
-   gap: 55px;
-}
-.sectionOptions {
-   /* height: 170px; */
-   background-color: #ff7e00;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-}
 .optionsItem select {
    padding: 12px 13px;
    background: #f5f5f5;
    border: none;
 }
+
 .optionsItem select:hover {
    background: white;
+}
+
+@media screen and (max-width: 868px) {
+   .optionsItem {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+   }
+
+   .optionsItem button {
+      padding: 9px 36px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .optionsItem {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+   }
+
+   .optionsItem select {
+      width: 100%;
+   }
+}
+@media screen and (max-width: 310px) {
+   .optionsItem {
+      display: grid;
+      grid-template-columns: 1fr;
+   }
+
+   .optionsItem select {
+      width: 100%;
+   }
 }
