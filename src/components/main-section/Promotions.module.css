@@ -1,0 +1,27 @@
+.promotionsContainer {
+   max-width: 1350px;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 22px 48px 22px 50px;
+
+   h2 {
+      color: #1a1e29;
+      text-align: center;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 48px;
+   }
+}
+
+.boxPromotions {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 35px;
+   padding: 81px 0 19px;
+}
+
