@@ -159,7 +159,7 @@ const MainHeader = () => {
 
          {productsToggle && (
             <div className={classes.menuDesctop}>
-               <MenuProducts productsToggle={productsToggle} />
+               <MenuProducts />
             </div>
          )}
 
