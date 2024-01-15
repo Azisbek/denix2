@@ -3,6 +3,7 @@ import CatalodSideBar from './sidebar/CatalodSideBar'
 import ProductList from './ProductList'
 import classes from './CatalogPage.module.css'
 import CatalogDescription from './CatalogDescription'
+import CatalogBanner from './CatalogBanner'
 
 const CatalogPage = () => {
    return (
@@ -11,6 +12,7 @@ const CatalogPage = () => {
             <CatalodSideBar />
             <ProductList />
          </div>
+         <CatalogBanner />
          <CatalogDescription />
       </div>
    )
