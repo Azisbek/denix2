@@ -5,8 +5,8 @@ import Layout from './layout/Layout'
 
 const App = () => (
    <Layout>
-      <CatalogPage />
       {/* <HomePage /> */}
+      <CatalogPage />
    </Layout>
 )
 
