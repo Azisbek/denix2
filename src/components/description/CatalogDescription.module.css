@@ -1,0 +1,47 @@
+.container {
+   max-width: 912px;
+   width: 100%;
+   padding: 24px 32px;
+   margin-left: auto;
+}
+.contentDiscription {
+   padding: 24px 32px;
+   background: #f8f8f8;
+}
+.titleDiscription {
+   color: #1a1e29;
+   font-size: 32px;
+   font-weight: 500;
+   line-height: 48px; 
+}
+.textDiscription {
+   color: #6a6a6a;
+   font-size: 16px;
+   font-weight: 400;
+   padding-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+   .container {
+      text-align: center;
+   }
+   .contentDiscription {
+      max-width: 398px;
+      width: 100%;
+      border-radius: 10px;
+      background: rgba(255, 126, 0, 0.25);
+      backdrop-filter: blur(116.5px);
+   }
+   .titleDiscription {
+      color: #1a1e29;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 30px; 
+   }
+   .textDiscription {
+      color: #6a6a6a;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px; 
+   }
+}
