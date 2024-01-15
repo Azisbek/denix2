@@ -2,6 +2,7 @@ import React from 'react'
 import CatalodSideBar from './sidebar/CatalodSideBar'
 import ProductList from './ProductList'
 import classes from './CatalogPage.module.css'
+import CatalogDescription from './CatalogDescription'
 
 const CatalogPage = () => {
    return (
@@ -10,6 +11,7 @@ const CatalogPage = () => {
             <CatalodSideBar />
             <ProductList />
          </div>
+         <CatalogDescription />
       </div>
    )
 }
