@@ -1,6 +1,6 @@
 import React from 'react'
-import ProductItem from '../../Product/ProductItem'
 import classes from './ProductList.module.css'
+import ProductItem from '../Product/ProductItem'
 
 const ProductList = () => {
    return (

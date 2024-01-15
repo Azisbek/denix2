@@ -1,4 +1,3 @@
-// MenuProducts.jsx
 import React from 'react'
 import classes from './MenuProducts.module.css'
 import TireImage1 from '../../../assets/image/car1.png'
@@ -6,7 +5,7 @@ import TireImage2 from '../../../assets/image/car2.png'
 import TireImage3 from '../../../assets/image/car3.png'
 import TireImage4 from '../../../assets/image/car4.png'
 
-const MenuProducts = ({ productsToggle }) => (
+const MenuProducts = () => (
    <nav className={`${classes.menuProducts} ${classes.show}`}>
       <div className={classes.container}>
          <ul className={classes.containerProductsTire}>

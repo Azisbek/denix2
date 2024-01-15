@@ -25,7 +25,8 @@
       background-color: red;
    }
 
-   p, span {
+   p,
+   span {
       color: #6a6a6a;
       text-align: right;
       font-size: 14px;
@@ -36,11 +37,8 @@
 }
 
 .list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 33px 20px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 33px 20px;
 }
-
-
-
