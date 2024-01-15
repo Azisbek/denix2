@@ -1,46 +1,62 @@
+/* Keyframes for sliding animation */
 @keyframes slideDown {
    from {
-      transform: translateY(3%);
+      transform: translateY(-100%);
    }
    to {
       transform: translateY(0);
    }
 }
 
+@keyframes slideUp {
+   from {
+      transform: translateY(0);
+   }
+   to {
+      transform: translateY(-100%);
+   }
+}
+
+/* Styling for the menu container */
 .menuProducts {
-   animation: slideDown 0.3s ease-out;
+   animation: slideDown 0.3s ease-in-out;
    width: 100%;
-   position: relative;
+   position: absolute;
    z-index: 1;
    background-color: #2b3143;
    display: block;
-
    padding-bottom: 30px;
-}
-.closed {
-   animation-direction: reverse;
+   overflow: hidden; /* Hide content during animation */
 }
 
+/* Styling for the closing animation */
+.close {
+   animation: slideUp 0.3s ease-in-out;
+}
+
+/* Container styling */
 .container {
    padding-top: 60px;
-   max-width: 1440px;
+   max-width: 1340px;
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   padding-left: 20px;
-   padding-right: 20px;
+   padding: 0 20px;
+   overflow: hidden; /* Hide content during animation */
 }
 
+/* Styling for tire products */
 .containerProductsTire li {
    display: flex;
    align-items: center;
    gap: 24px;
    color: white;
    max-width: 600px;
-   padding-bottom: 23px;
+   padding-bottom: 13px;
    padding-top: 23px;
 }
+
 .containerProductsTire li img {
    width: 96px;
 }
@@ -51,23 +67,21 @@
    flex-wrap: wrap;
    gap: 16px;
 }
+
 .containerProductsTire div a {
    color: #ff850e;
    font-size: 24px;
    font-weight: 500;
    text-decoration: none;
-   /* text-wrap: wrap; */
 }
 
-.line {
-   border: 1px solid #3e465f;
-   max-width: 600px;
-}
+/* Styling for lines */
+.line,
 .lineMenu {
    border: 1px solid #3e465f;
-   max-width: 492px;
 }
 
+/* Styling for the menu items */
 .containerProductsMenu {
    margin-top: 30px;
    display: flex;
@@ -78,6 +92,7 @@
 .containerProductsMenu li {
    list-style: none;
 }
+
 .containerProductsMenu li a {
    font-size: 16px;
    padding-right: 100px;
@@ -88,16 +103,28 @@
    line-height: 24px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 0) {
+/* Media queries for responsive design */
+@media screen and (max-width: 850px) and (min-width: 0) {
    .containerProductsTire {
       display: none;
    }
+
    .container {
-      padding-top: 0;
+      padding: 0;
       display: flex;
+      flex-direction: column;
    }
+
    .menuProducts {
       position: relative;
-      /* display: flex; */
+      animation: none;
+   }
+}
+
+@media screen and (max-width: 1180px) and (min-width: 820px) {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
    }
 }

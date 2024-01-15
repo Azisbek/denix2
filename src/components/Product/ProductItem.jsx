@@ -5,7 +5,7 @@ import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
 import ratingIcon from '../../assets/icon/ratingIcon.png'
 import ratingHalfIcon from '../../assets/icon/ratingHalfIcon.png'
-import likeIcon from '../../assets/icon/likeIcon.svg'
+import likeIcon from '../../assets/icon/likeIcon.png'
 
 const ProductItem = () => {
    return (
@@ -27,7 +27,7 @@ const ProductItem = () => {
                <img src={ratingHalfIcon} alt="Иконка рейтинга" />
             </div>
          </div>
-         <h4>Goodyear Vector 4Seasons</h4>
+         <h3>Goodyear Vector 4Seasons</h3>
          <p>
             В наличии: <span>14</span> шт.
          </p>

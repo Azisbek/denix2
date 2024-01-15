@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './PopTires.module.css'
-import ProductItem from './ProductItem'
 import Button from '../ui/Button'
+import ProductItem from '../Product/ProductItem'
 
 const PopTires = () => {
    return (

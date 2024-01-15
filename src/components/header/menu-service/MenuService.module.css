@@ -1,6 +1,6 @@
 @keyframes slideDown {
    from {
-      transform: translateY(3%);
+      transform: translateY(-100%);
    }
    to {
       transform: translateY(0);
@@ -8,31 +8,32 @@
 }
 
 .menuProducts {
-   animation: slideDown 0.3s ease-out;
    width: 100%;
-   position: relative;
+   position: absolute;
    z-index: 1;
    background-color: #2b3143;
    display: block;
    padding-bottom: 30px;
+   animation: slideDown 0.3s ease-in-out;
 }
+
 .container {
    padding-top: 60px;
-   max-width: 1440px;
+   max-width: 1340px;
    margin: 0 auto;
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   padding-left: 20px;
-   padding-right: 20px;
+   padding: 0 20px;
 }
+
 .containerProductsTire li {
    display: flex;
    align-items: center;
    gap: 24px;
    color: white;
    max-width: 600px;
-   padding-bottom: 23px;
+   padding-bottom: 13px;
    padding-top: 23px;
 }
 
@@ -45,16 +46,10 @@
    font-size: 24px;
    font-weight: 500;
    text-decoration: none;
-   /* text-wrap: wrap; */
-}
-.line {
-   border: 1px solid #3e465f;
-   max-width: 600px;
 }
 
-.lineMenu {
+.line {
    border: 1px solid #3e465f;
-   max-width: 492px;
 }
 
 .containerProductsMenu {
@@ -63,6 +58,7 @@
    flex-direction: column;
    gap: 12px;
 }
+
 .containerProductsMenu li {
    list-style: none;
 }
@@ -77,14 +73,26 @@
    line-height: 24px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 0) {
+@media screen and (max-width: 850px) and (min-width: 0) {
    .containerProductsTire {
       display: none;
    }
+
    .container {
-      padding-top: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
    }
+
    .menuProducts {
       position: relative;
+      animation: none;
+   }
+}
+@media screen and (max-width: 1180px) and (min-width: 820px) {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
    }
 }
