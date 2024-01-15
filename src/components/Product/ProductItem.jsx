@@ -5,7 +5,7 @@ import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
 import ratingIcon from '../../assets/icon/ratingIcon.png'
 import ratingHalfIcon from '../../assets/icon/ratingHalfIcon.png'
-import likeIcon from '../../assets/icon/likeIcon.svg'
+import likeIcon from '../../assets/icon/likeIcon.png'
 
 const ProductItem = () => {
    return (

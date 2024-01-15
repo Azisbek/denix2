@@ -1,16 +1,12 @@
 import React from 'react'
-import MainSlider from './components/main-section/MainSlider'
+import HomePage from './components/home/HomePage'
+// import CatalogPage from './components/catalog/CatalogPage'
 import Layout from './layout/Layout'
-import Selection from './components/main-section/Selection'
-import Options from './components/main-section/Options'
-import PopTires from './components/main-section/PopTires'
 
 const App = () => (
    <Layout>
-      <MainSlider />
-      <Selection />
-      <Options />
-      <PopTires />
+      <HomePage />
+      {/* <CatalogPage /> */}
    </Layout>
 )
 

@@ -7,7 +7,7 @@ import classes from './MenuProducts.module.css'
 
 const MenuProducts = () => {
    return (
-      <div className={`${classes.menuProducts} ${classes.show}`}>
+      <nav className={`${classes.menuProducts} ${classes.show}`}>
          <div className={classes.container}>
             <ul className={classes.containerProductsTire}>
                <li>
@@ -28,10 +28,10 @@ const MenuProducts = () => {
                      <img src={car2} alt="" />
                   </div>
                   <div>
-                     <a href="/">Грузовые шины</a>
+                     <a href="/">Автомобильные шины</a>
                      <p>
-                        Ведущие Универсальные Рулевые Прицеп Рулевые + прицеп
-                        R13 R22,5 R24 R21 R20 R19,5
+                        Летние Зимние Шипованые Фрикционные Б/у <br /> R13 R14
+                        R15 R16 R17 R18 R19 R20
                      </p>
                   </div>
                </li>
@@ -116,7 +116,7 @@ const MenuProducts = () => {
                <div className={classes.lineMenu} />
             </ul>
          </div>
-      </div>
+      </nav>
    )
 }
 

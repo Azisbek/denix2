@@ -1,4 +1,12 @@
-.sectionOptions button {
+.optionsItem {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   gap: 10px;
+   max-width: 800px;
+   justify-items: center;
+   margin: 0 auto;
+}
+.optionsButton {
    color: #fff;
    font-family: IBM Plex Sans;
    font-size: 14px;
@@ -6,20 +14,6 @@
    border-radius: 5px;
    background: #ff7e00;
    padding: 9px 46px;
-   margin: 0 auto;
-}
-
-.optionsItem {
-   display: flex;
-   justify-content: center;
-   gap: 55px;
-}
-.sectionOptions {
-   /* height: 170px; */
-   background-color: #ff7e00;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
 }
 .optionsItem select {
    padding: 12px 13px;
@@ -28,4 +22,20 @@
 }
 .optionsItem select:hover {
    background: white;
+}
+
+@media screen and (max-width: 868px) {
+   .optionsItem {
+      grid-template-columns: repeat(3, 1fr);
+   }
+   .optionsItem button {
+      padding: 9px 36px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .optionsItem {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-evenly;
+   }
 }
