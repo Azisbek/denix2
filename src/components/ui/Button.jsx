@@ -7,7 +7,7 @@ const Button = ({ children, className, id, type, onClick }) => {
          onClick={onClick}
          type={type || 'button'}
          id={id}
-         className={`${classes.btnToggleTires} ${className}`}
+         className={`${classes.button} ${className}`}
       >
          {children}
       </button>
