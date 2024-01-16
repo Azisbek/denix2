@@ -66,6 +66,19 @@ label {
    transform: translateX(-50%);
 }
 
+.uiButtonContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+.uiButtonContainer button {
+   border-radius: 2px;
+}
+
+.uiButtonContainer button:hover {
+   background-color: #ff7e00;
+}
+
 @media (max-width: 900px) {
    .tieres {
       display: grid;

@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './CatalogSideBar.module.css'
+import Button from '../../ui/Button'
 
 const CatalodSideBar = () => {
    return (
@@ -182,9 +183,9 @@ const CatalodSideBar = () => {
                </div>
                <input type="range" />
             </div>
-            <div>
-               <button>Подобрать</button>
-               <button>Сбросить все</button>
+            <div className={classes.uiButtonContainer}>
+               <Button>Подобрать</Button>
+               <Button>Сбросить все</Button>
             </div>
          </div>
       </form>
