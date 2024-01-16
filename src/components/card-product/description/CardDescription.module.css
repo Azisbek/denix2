@@ -1,0 +1,42 @@
+.blockCard {
+   display: flex;
+   gap: 24px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+.block {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+.titleCard {
+   color: #1a1e29;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+}
+.textCard {
+   color: #6a6a6a;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   padding-top: 16px;
+   padding-bottom: 24px;
+}
+@media screen and (max-width: 900px) {
+   .container {
+   }
+   .textCard {
+      padding: 0;
+   }
+   .titleCard {
+      /* text-align: center; */
+      padding-top: 20px;
+      padding-bottom: 16px;
+   }
+
+   .blockCard {
+      display: flex;
+      flex-direction: column;
+   }
+}
