@@ -77,98 +77,97 @@ const CatalodSideBar = () => {
          </div>
          <div>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Nokian
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Pirelli
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Hankook
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Michelin
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Cordiant
             </label>
-            <a href="https://www.example.com">
-               Показать все <span>(12)</span>
-            </a>
+            <a href="https://www.example.com">Показать все</a>
+            <span>(12)</span>
          </div>
          <div>
             <p>Скидки</p>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Да
             </label>
             <p>
-               Скидки <span className={classes.tieresSpan}>?</span>
+               Runflat <span className={classes.tieresSpan}>?</span>
             </p>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Да
             </label>
             <p>
-               Скидки <span className={classes.tieresSpan}>?</span>
+               Off-Road <span className={classes.tieresSpan}>?</span>
             </p>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> Да
             </label>
          </div>
          <div>
             <p className={classes.tieresTitle}>
-               Профиль <span className={classes.tieresSpan}>?</span>
+               Индекс скорости <span className={classes.tieresSpan}>?</span>
             </p>
-            <select name="Все" id="">
-               <option value="Все">Все</option>
+            <select name="H(934)" id="">
+               <option value="Все">H (934)</option>
                <option value="Все">Все</option>
                <option value="Все">Все</option>
             </select>
          </div>
-         <div>
+         <div className={classes.price}>
             <input type="text" placeholder="от 1234" />
             <input type="text" placeholder="до 50234" /> <br />
             <input type="range" />
          </div>
          <div>
-            <p>Выберите опции:</p>
+            <p>Топливная экономичность</p>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> A
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> B
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> C
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> D
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> E
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> F
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> G
             </label>
-            <p>Выберите опции:</p>
+            <p>Сцепление с мокрой поверхностью</p>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
-            </label>
-            <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> A
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> B
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> C
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> D
             </label>
             <label>
-               <input type="checkbox" name="option1" /> Опция 1
+               <input type="checkbox" name="option1" /> E
+            </label>
+            <label>
+               <input type="checkbox" name="option1" /> F
             </label>
          </div>
          <div>

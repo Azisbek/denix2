@@ -21,12 +21,12 @@
    max-width: 1340px;
    width: 100%;
    margin: 0 auto;
+   padding: 32px 20px;
    display: flex;
    justify-content: space-between;
-   flex-wrap: wrap;
-   padding: 32px 20px;
-   display: grid;
-   grid-template-columns: 5fr 3fr;
+   /* display: grid; */
+   /* grid-template-columns: 5fr 3fr; */
+   gap: 20px;
 }
 
 .blockForm {
@@ -94,59 +94,44 @@
    .container {
       display: flex;
       flex-direction: column;
+   }
+   .form {
+      display: flex;
       gap: 20px;
-      padding: 0px 2px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
    }
-   @media screen and (max-width: 768px) and (min-width: 0) {
-      .container {
-         display: flex;
-         flex-direction: column;
-      }
-      .form {
-         display: flex;
-         gap: 20px;
-         flex-wrap: wrap;
-         justify-content: center;
-         align-items: center;
-      }
-      .blockForm {
-         display: flex;
-         flex-direction: column;
-         flex-wrap: wrap;
-         gap: 16px;
-         align-items: center;
-      }
+   .blockForm {
+      display: flex;
+      align-items: center;
+   }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1000px) {
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .form {
+      display: flex;
+      gap: 20px;
+      /* flex-wrap: wrap; */
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width: 1180px) and (min-width: 820px) {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
    }
 
-   @media screen and (min-width: 770px) and (max-width: 1000px) {
-      .container {
-         display: block;
-      }
-      .form {
-         display: flex;
-         gap: 20px;
-         flex-wrap: wrap;
-         justify-content: center;
-      }
-   }
-
-   @media screen and (max-width: 1180px) and (min-width: 820px) {
-      .container {
-         display: flex;
-         justify-content: center;
-         gap: 30px;
-      }
-      .blockForm {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-      }
-      .blockForm {
-         display: flex;
-         flex-direction: column;
-         flex-wrap: wrap;
-         gap: 16px;
-         align-items: center;
-      }
+   .form {
+      display: flex;
+      gap: 20px;
+      /* flex-wrap: wrap; */
+      justify-content: center;
    }
 }

@@ -64,35 +64,35 @@ const MenuProducts = () => (
                   Аксессуары для шин, дисков и шиномонтажа
                </a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Аккумуляторы</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Автомасла</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Автоэлектроника</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Автохимия и автокосметика</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Внешний декор, тюнинг, защита</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Инструменты и техническая помощь</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
             <li>
                <a href="/accessories">Компрессоры</a>
             </li>
-            <div className={classes.lineMenu} />
+            <div className={classes.line} />
          </ul>
       </div>
    </nav>
