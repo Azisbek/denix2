@@ -15,6 +15,7 @@
    text-align: start;
    font-size: 17px;
    border-color: #e5e5e5;
+   outline: none;
 }
 .tieres {
    display: flex;
@@ -46,11 +47,15 @@ label {
    position: relative;
    width: 300px;
 }
-
+.inputContainer input {
+    max-width: 287px;
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+}
 .icon {
    position: absolute;
-   top: 20;
-   left: 47%;
+   top: 26px;
+   left: 85%;
    transform: translateX(-50%);
 }
 
@@ -59,4 +64,8 @@ label {
       display: grid;
       justify-content: center;
    }
-}
+} 
+
+
+  
+  
