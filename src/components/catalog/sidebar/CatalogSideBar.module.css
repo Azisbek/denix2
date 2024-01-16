@@ -10,8 +10,9 @@
 }
 
 .tieres select {
-   padding: 10px 117px 10px 0px;
-   width: 287px;
+   padding: 10px 0px 10px 16px;
+   max-width: 287px;
+   width: 100%;
    text-align: start;
    font-size: 17px;
    border-color: #e5e5e5;
@@ -45,12 +46,12 @@ label {
 }
 .inputContainer {
    position: relative;
-   width: 300px;
+   max-width: 300px;
 }
 .inputContainer input {
-    max-width: 287px;
-    width: 100%;
-    padding: 10px 0px 10px 10px;
+   max-width: 287px;
+   width: 100%;
+   padding: 10px 0px 10px 10px;
 }
 .icon {
    position: absolute;
@@ -64,8 +65,4 @@ label {
       display: grid;
       justify-content: center;
    }
-} 
-
-
-  
-  
+}
