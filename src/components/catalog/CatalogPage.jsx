@@ -8,6 +8,7 @@ import CatalogBanner from './main-section/CatalogBanner'
 const CatalogPage = () => {
    return (
       <div className={classes.container}>
+         <h1>Шины в Бишкеке</h1>
          <div className={classes.block}>
             <CatalodSideBar />
             <ProductList />

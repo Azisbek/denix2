@@ -5,7 +5,6 @@ const CatalodSideBar = () => {
    return (
       <form>
          <div className={classes.tieres}>
-            <h1>Шины в Бишкеке</h1>
             <p className={classes.tieresTitle}>
                Ширина <span className={classes.tieresSpan}>?</span>
             </p>
