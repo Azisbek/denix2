@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './ProductList.module.css'
 import ProductItem from '../Product/ProductItem'
+import Pagination from './Pagination'
 
 const ProductList = () => {
    return (
@@ -18,7 +19,10 @@ const ProductList = () => {
                <ProductItem />
                <ProductItem />
                <ProductItem />
+               <ProductItem />
+               <ProductItem />
             </div>
+            <Pagination />
          </div>
       </section>
    )
