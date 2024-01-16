@@ -4,7 +4,7 @@ import Button from '../../ui/Button'
 
 const MenuPersonal = () => {
    return (
-      <form className={`${classes.menuProducts}`}>
+      <form className={classes.menuProducts}>
          <div className={classes.container}>
             <div className={classes.blockForm}>
                <div>
@@ -14,7 +14,6 @@ const MenuPersonal = () => {
                   <div>
                      <input type="text" placeholder="Ваш телефон" />
                   </div>
-
                   <Button className={classes.buttonFormPersonal}>
                      Получить код
                   </Button>

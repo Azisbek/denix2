@@ -151,6 +151,9 @@
    .ulContainer.open li {
       display: block;
    }
+   .ulContainer li p {
+      display: block;
+   }
 
    .burgerMenu {
       display: flex;
@@ -206,6 +209,7 @@
       font-weight: 500;
       display: flex;
       justify-content: space-between;
+      /* z-index: 3; */
 
       img {
          width: 16px;
@@ -232,3 +236,4 @@
       width: 61px;
    }
 }
+
