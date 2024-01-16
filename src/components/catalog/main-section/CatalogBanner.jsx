@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './CatalogBanner.module.css'
-import Button from '../ui/Button'
+import Button from '../../ui/Button'
 
 const CatalogBanner = () => {
    return (

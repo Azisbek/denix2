@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './ProductList.module.css'
-import ProductItem from '../Product/ProductItem'
+import ProductItem from '../../Product/ProductItem'
 import Pagination from './Pagination'
 
 const ProductList = () => {

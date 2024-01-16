@@ -1,16 +1,16 @@
 import React from 'react'
 import CatalodSideBar from './sidebar/CatalodSideBar'
-// import ProductList from './ProductList'
+import ProductList from './main-section/ProductList'
 import classes from './CatalogPage.module.css'
-import CatalogDescription from './CatalogDescription'
-import CatalogBanner from './CatalogBanner'
+import CatalogDescription from './main-section/CatalogDescription'
+import CatalogBanner from './main-section/CatalogBanner'
 
 const CatalogPage = () => {
    return (
       <div className={classes.container}>
          <div className={classes.block}>
             <CatalodSideBar />
-            {/* <ProductList /> */}
+            <ProductList />
          </div>
          <CatalogBanner />
          <CatalogDescription />

@@ -1,9 +1,9 @@
 .container {
    max-width: 912px;
    width: 100%;
+   padding: 24px 32px;
    margin-left: auto;
    margin-top: 51px;
-   margin-bottom: 36px;
 }
 .contentDiscription {
    padding: 24px 32px;

@@ -31,8 +31,10 @@ const CatalodSideBar = () => {
          </select>
          <p className={classes.tieresTitle}>Цена</p>
          <div className={classes.price}>
-            <input type="text" placeholder="от 1234" />
-            <input type="text" placeholder="до 50234" /> <br />
+            <div className={classes.priceitemInput}>
+               <input type="text" placeholder="от 1234" />
+               <input type="text" placeholder="до 50234" />
+            </div>
             <input type="range" name="" id="" />
          </div>
          <div className={classes.tireType}>
@@ -123,8 +125,10 @@ const CatalodSideBar = () => {
             </select>
          </div>
          <div className={classes.price}>
-            <input type="text" placeholder="от 1234" />
-            <input type="text" placeholder="до 50234" /> <br />
+            <div className={classes.priceitemInput}>
+               <input type="text" placeholder="от 1234" />
+               <input type="text" placeholder="до 50234" />
+            </div>
             <input type="range" />
          </div>
          <div>
@@ -170,10 +174,12 @@ const CatalodSideBar = () => {
                <input type="checkbox" name="option1" /> F
             </label>
          </div>
-         <div>
+         <div className={classes.price}>
             <p>Уровень внешнего шума</p>
-            <input type="text" placeholder="от 1234" />
-            <input type="text" placeholder="до 50234" /> <br />
+            <div className={classes.priceitemInput}>
+               <input type="text" placeholder="от 1234" />
+               <input type="text" placeholder="до 50234" />
+            </div>
             <input type="range" />
          </div>
          <div>

@@ -22,7 +22,7 @@
    right: 0;
    bottom: 0;
    left: 0;
-   background-image: url('../../assets/image/bannerCatalog.jpg');
+   background-image: url('../../../assets/image/bannerCatalog.jpg');
    background-size: auto 100%;
    background-repeat: no-repeat;
    background-position: left center;
@@ -55,7 +55,7 @@
 
 @media screen and (max-width: 500px) and (min-width: 0) {
    .banner::before {
-      background-image: url('../../assets/image/bannerCatalogMobile.jpg');
+      background-image: url('../../../assets/image/bannerCatalogMobile.jpg');
    }
 }
 
