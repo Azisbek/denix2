@@ -5,7 +5,8 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   padding: 22px 48px 22px 50px;
+   padding: 0 30px;
+   padding-top: 44px;
 
    h2 {
       color: #1a1e29;
@@ -24,4 +25,3 @@
    gap: 35px;
    padding: 81px 0 19px;
 }
-

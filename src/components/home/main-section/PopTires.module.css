@@ -1,6 +1,5 @@
 .content {
    margin: 0 auto;
-   /* width: 1350px; */
    display: flex;
    flex-direction: column;
    align-items: center;
