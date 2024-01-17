@@ -1,4 +1,4 @@
-.SimivarProductTitle {
+.simivarProductTitle {
    text-align: center;
    color: #1a1e29;
    font-size: 32px;
@@ -13,11 +13,11 @@
    flex-wrap: wrap;
    justify-content: center;
 }
-.productButton{
-    display: flex;
-    justify-content: center;
-    padding: 37px 0px;
+.productButton {
+   display: flex;
+   justify-content: center;
+   padding: 37px 0px;
 }
 .productButtonItem {
-    padding: 12px 24px;
+   padding: 12px 24px;
 }

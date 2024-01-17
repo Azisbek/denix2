@@ -5,8 +5,8 @@ import Button from '../../ui/Button'
 
 const SimivarProducts = () => {
    return (
-      <section className={classes.SimilarItemsPanel}>
-         <h1 className={classes.SimivarProductTitle}>Похожие товары</h1>
+      <section className={classes.similarItemsPanel}>
+         <h1 className={classes.simivarProductTitle}>Похожие товары</h1>
          <div className={classes.productList}>
             <ProductItem />
             <ProductItem />
