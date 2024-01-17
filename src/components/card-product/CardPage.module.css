@@ -4,6 +4,11 @@
    padding: 0 30px;
 }
 
+.informationContainer {
+   display: flex;
+   align-items: center;
+}
+
 @media screen and (max-width: 870px) and (min-width: 0) {
    .container {
       padding: 0 30px;
