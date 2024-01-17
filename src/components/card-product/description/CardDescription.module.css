@@ -1,3 +1,41 @@
+.tabsFlex{
+   display: flex;
+   flex-wrap: wrap;
+   list-style: none;
+   gap: 30px;
+   border-bottom: 1px solid #E5E5E5;
+   padding: 35px 10px 12px;
+   color: #4C65BD;
+}
+.tabsItem{
+   position: relative;
+}
+.tabsItem:hover{
+   color: #FF7E00;
+}
+.tabsItem::before{
+   content: '';
+   width: 100%;
+   height: 1px;
+   background: #FF7E00;
+   position: absolute;
+   left: 0;bottom: -14px;
+   transform: scaleX(0);
+   transition: transform 0.25s;
+   transform-origin: left;
+}
+.tabsItem:hover::before{
+   content: '';
+   width: 100%;
+   height: 3px;
+   background: #FF7E00;
+   position: absolute;
+   left: 0;
+   bottom: -14px;
+   transform: scaleX(1);
+   transition: transform 0.25s;
+   transform-origin: left;
+}
 .blockCard {
    display: flex;
    gap: 24px;
@@ -8,6 +46,7 @@
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
+   padding-top: 24px;
 }
 .titleCard {
    color: #1a1e29;
@@ -24,7 +63,8 @@
    padding-bottom: 24px;
 }
 @media screen and (max-width: 900px) {
-   .container {
+   .tabsFlex{
+      justify-content: center;
    }
    .textCard {
       padding: 0;
