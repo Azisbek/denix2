@@ -3,7 +3,15 @@ import classes from './CardDescription.module.css'
 
 const CardDescription = () => {
    return (
-      <div className={classes.container}>
+      <div className={classes.tabs}>
+         <ul className={classes.tabsFlex}>
+            <li className={classes.tabsItem}>Общая информация</li>
+            <li className={classes.tabsItem}>Характеристики</li>
+            <li className={classes.tabsItem}>Гарантия</li>
+            <li className={classes.tabsItem}>Оплата</li>
+            <li className={classes.tabsItem}>Совместимость</li>
+            <li className={classes.tabsItem}>Отзывы (2)</li>
+         </ul>
          <div className={classes.block}>
             <h1 className={classes.titleCard}>
                Описание модели Cordiant Business CA1 185/75 R16C 104Q
