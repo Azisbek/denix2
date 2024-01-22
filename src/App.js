@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from './layout/Layout'
-import CartPage from './components/cart/CartPage'
+// import CartPage from './components/cart/CartPage'
 // import FavoritesPage from './components/favorites/FavoritesPage'
 // import HomePage from './components/home/HomePage'
 // import CatalogPage from './components/catalog/CatalogPage'
@@ -12,7 +12,7 @@ const App = () => (
       {/* <CatalogPage /> */}
       {/* <CardPage /> */}
       {/* <FavoritesPage /> */}
-      <CartPage />
+      {/* <CartPage /> */}
    </Layout>
 )
 
