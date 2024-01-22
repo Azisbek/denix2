@@ -1,0 +1,246 @@
+.container {
+   max-width: 1340px;
+   margin: 0 auto;
+   padding: 0 30px;
+}
+
+.titleMain {
+   color: #1a1e29;
+   font-size: 40px;
+   font-weight: 500;
+   line-height: 48px;
+}
+.block1 {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.titlePersonal {
+   color: #1a1e29;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+   margin-bottom: 24px;
+   margin-top: 32px;
+}
+.personalData input {
+   max-width: 24.5rem;
+   width: 100%;
+   flex-shrink: 0;
+   color: #1a1e29;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 16px;
+   padding: 12px 16px;
+   border-radius: 2px;
+   border: 1px solid #e5e5e5;
+   background: #fff;
+}
+.personalData {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 16px;
+}
+.buttons {
+   display: flex;
+   /* flex-wrap: wrap; */
+
+   gap: 16px;
+   margin-top: 24px;
+}
+
+.buttons button:first-child {
+   border-radius: 2px;
+   background: #ff7e00;
+   padding: 12px 24px;
+   color: white;
+}
+.buttons button:last-child {
+   border-radius: 2px;
+   background: white;
+   padding: 12px 24px;
+   color: white;
+   color: #ff7e00;
+}
+/* -----------2-блок-------------------------------------- */
+.block2 {
+}
+.block2 > h1 {
+   color: #1a1e29;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+   padding: 12px 13px;
+   margin-top: 32px;
+   border-left: 2px solid #ff7e00;
+}
+.block2 > p {
+   color: #4c65bd;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+   padding: 12px 13px;
+   border-left: 2px solid #e5e5e5;
+}
+
+/* -----------3-блок------- */
+
+.block3 {
+   color: #1a1e29;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+}
+.paid {
+   color: #12bb9d;
+}
+.cancelled {
+   color: #df3c18;
+}
+.mainList {
+   /* width: 808px;
+   display: flex;
+   justify-content: space-between; */
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.containerList {
+   list-style: none;
+}
+.containerList > li {
+   padding: 12px 16px;
+}
+.namesList {
+   background: #ffe9d5;
+   padding: 12px 16px;
+}
+.iconArrow {
+   width: 16px;
+   height: 16px;
+}
+.showMore {
+   padding: 12px 24px;
+   border-radius: 2px;
+   border: 1px solid #efd8c3;
+   background: #fff;
+   color: #ff7e00;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+}
+/* -----4-блок-------------- */
+.block4 > div > p > a {
+   text-decoration: none;
+   color: #4c65bd;
+}
+.block4 > div > p {
+   padding-top: 25px;
+}
+.square {
+   width: 152px;
+   height: 96px;
+   border-radius: 2px;
+   border: 1px solid #ff7e00;
+   margin-bottom: 8px;
+}
+.square > h1 {
+   color: #1a1e29;
+   text-align: center;
+   font-size: 48px;
+   font-weight: 500;
+   line-height: 48px;
+   padding-top: 16px;
+}
+.block4 {
+   display: flex;
+   gap: 19px;
+}
+.square > p {
+   color: #1a1e29;
+   text-align: center;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+}
+.rules {
+   display: flex;
+   height: 16px;
+   flex-direction: column;
+   gap: 10px;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 16px;
+   border: none;
+   border-bottom: 1px dashed #4c65bd;
+   width: 112px;
+}
+.rules::placeholder {
+   color: #4c65bd;
+}
+.question {
+   display: flex;
+   gap: 4px;
+}
+
+@media screen and (max-width: 870px) {
+   .titleMain {
+      text-align: center;
+   }
+   .titlePersonal {
+      text-align: center;
+   }
+   .personalData {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+   }
+   .form {
+      margin: 0 auto;
+   }
+   .buttons {
+      justify-content: center;
+      gap: 26px;
+   }
+   .saveBtn {
+      width: 194px;
+      height: 35px;
+      flex-shrink: 0;
+   }
+   .cancelBtn {
+      width: 172px;
+      height: 35px;
+      flex-shrink: 0;
+      border: 1px solid #ff7e00;
+   }
+   .block2 {
+      display: none;
+   }
+   .block3 {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+   }
+   .showMore {
+      display: none;
+   }
+   .block4 {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 30px;
+   }
+   .block4 > div > p {
+      padding-top: 10px;
+   }
+   .square {
+      margin: auto;
+      text-align: center;
+      margin-bottom: 8px;
+   }
+   .question {
+      justify-content: center;
+   }
+}
