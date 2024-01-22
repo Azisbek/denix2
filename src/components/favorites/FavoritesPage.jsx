@@ -14,8 +14,6 @@ const FavoritesPage = () => {
             <ProductItem />
             <ProductItem />
             <ProductItem />
-            <ProductItem />
-            <ProductItem />
          </div>
       </div>
    )
