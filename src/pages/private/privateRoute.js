@@ -6,6 +6,7 @@ import FavoritesPage from '../../components/favorites/FavoritesPage'
 import CartPage from '../../components/cart/CartPage'
 import AboutCompany from '../../components/about-company/AboutCompanyPage'
 import Contacts from '../../components/contacts/Сontacts'
+import OrderPage from '../../components/order-page/OrderPage'
 
 const privateRoute = () => {
    return (
@@ -17,6 +18,7 @@ const privateRoute = () => {
          <Route path="/cart" element={<CartPage />} />
          <Route path="/company" element={<AboutCompany />} />
          <Route path="/contacts" element={<Contacts />} />
+         <Route path="/order" element={<OrderPage />} />
       </Routes>
    )
 }

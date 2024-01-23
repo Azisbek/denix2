@@ -6,7 +6,7 @@ import classes from './PaymentPath.module.css'
 const PaymentPath = () => {
    const navigate = useNavigate()
    const clickNavigateShopHandler = () => {
-      navigate('')
+      navigate('/order')
    }
 
    return (
