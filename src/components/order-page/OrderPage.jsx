@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './OrderPage.module.css'
 import icon from '../../assets/image/Шины (Copy)/Icon 16/ok.png'
 import icon2 from '../../assets/image/Шины (Copy) (1)/Icon 16/time.png'
+import Button from '../ui/Button'
 
 const OrderPage = () => {
    return (
@@ -204,7 +205,37 @@ const OrderPage = () => {
                   </label>
                </form>
             </div>
-            {/* <div className={classes.contactsItem}>2</div> */}
+            <div className={classes.contactsItem}>
+               <div className={classes.blockPaymentPath}>
+                  <div className={classes.totalQuantityBox}>
+                     <p>Стоимость</p>
+                     <span>12 560 C</span>
+                  </div>
+                  <div className={classes.totalQuantityBox}>
+                     <p>Скидка</p>
+                     <span>-845 C</span>
+                  </div>
+                  <div className={classes.totalQuantityBox}>
+                     <p>Итоговая цена</p>
+                     <span>123 000 C</span>
+                  </div>
+                  <Button id={classes.btnPaymentPath}>Перейти к оплате</Button>
+                  <label>
+                     <input type="checkbox" />Я согласен получать новости об
+                     акциях и новинках интернет-магазина
+                  </label>
+                  <label>
+                     <input type="checkbox" />
+                     <span>
+                        Я согласен c{' '}
+                        <span className={classes.span}>
+                           условиями публичной оферты
+                        </span>
+                        {'  '}и правилами продажи товаров
+                     </span>
+                  </label>
+               </div>
+            </div>
          </div>
       </div>
    )
