@@ -1,7 +1,8 @@
 import React from 'react'
+import { Routes } from 'react-router-dom'
 
 const allRoutes = () => {
-   return <div>allRoutes</div>
+   return <Routes></Routes>
 }
 
 export default allRoutes

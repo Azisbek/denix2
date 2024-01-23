@@ -1,0 +1,211 @@
+.container {
+   max-width: 1340px;
+   margin: 0 auto;
+   padding-top: 23px;
+   padding-bottom: 72px;
+   padding-left: 30px;
+   padding-right: 30px;
+}
+.container h1 {
+   padding-bottom: 24px;
+   color: #1a1e29;
+   font-size: 40px;
+   font-weight: 500;
+   line-height: 48px;
+}
+
+.blcok {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 24px;
+}
+
+.blockContacts {
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+}
+.blockContacts div :first-child {
+   color: #1a1e29;
+   font-size: 18px;
+   font-weight: 500;
+   line-height: 24px;
+}
+.blockContacts div {
+   color: #6a6a6a;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+.socialMedia div {
+   display: flex;
+   gap: 18px;
+}
+.socialMedia {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.socialMedia div img {
+   width: 32px;
+   height: 32px;
+   color: #ff7e00;
+   cursor: pointer;
+}
+
+.indentation {
+   display: flex;
+   flex-direction: column;
+}
+
+.emailText {
+   color: #4c65bd;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   text-decoration: none;
+}
+
+.border {
+   margin-top: 40px;
+   border: 2px solid #ff7e00;
+   display: flex;
+   flex-direction: column;
+   /* align-items: center; */
+   padding-left: 102.52px;
+   padding-right: 112px;
+   padding-top: 32px;
+   padding-bottom: 40px;
+   text-align: center;
+}
+
+.bannerImg {
+   max-width: 808px;
+   width: 100%;
+}
+
+.containerForm {
+   display: flex;
+   justify-content: space-between;
+   /* flex-wrap: wrap; */
+   /* background-color: red; */
+}
+
+.formProblems {
+   display: flex;
+   flex-direction: column;
+   /* align-items: center; */
+   gap: 16px;
+}
+.formProblems input {
+   width: 392px;
+   padding: 12px 16px;
+}
+.formProblems button {
+   border-radius: 2px;
+   background: #ff7e00;
+   color: white;
+}
+
+.messageInput {
+   height: 120px;
+   padding: 12px 25px;
+}
+
+.message img {
+   width: 120px;
+   height: 120px;
+}
+
+.telegram {
+   display: flex;
+   flex-flow: column-reverse;
+}
+.telegram img {
+   width: 120px;
+   height: 120px;
+}
+@media screen and (max-width: 1180px) and (min-width: 0) {
+   .blcok {
+      display: grid;
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width: 880px) and (min-width: 0) {
+   .message {
+      display: none;
+   }
+   .telegram {
+      position: relative;
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+   }
+   .telegram img {
+      position: absolute;
+      width: 65.762px;
+      height: 57.06px;
+      /* right: 20px; */
+   }
+   .formProblems {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+   }
+
+   .border {
+      margin-top: 40px;
+      border: 2px solid #ff7e00;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 32px;
+      padding-bottom: 40px;
+      align-items: center;
+   }
+   .container h1 {
+      text-align: center;
+   }
+}
+
+@media screen and (max-width: 527px) and (min-width: 380px) {
+   .telegram img {
+      position: absolute;
+      width: 65.762px;
+      height: 57.06px;
+      left: -10px;
+   }
+}
+
+@media screen and (max-width: 500px) and (min-width: 0) {
+   .formProblems input {
+      width: 267px;
+      padding: 12px 16px;
+   }
+   .border {
+      margin-top: 40px;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 32px;
+      padding-bottom: 40px;
+      text-align: center;
+   }
+   .telegram img {
+      display: none;
+   }
+}
+
+@media screen and (max-width: 650px) and (min-width: 0) {
+   .border {
+      border: none;
+   }
+}

@@ -1,5 +1,6 @@
 .promotionsContainer {
    max-width: 1350px;
+   width: 100%;
    margin: 0 auto;
    display: flex;
    flex-direction: column;
@@ -21,7 +22,31 @@
 .boxPromotions {
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
    gap: 35px;
    padding: 81px 0 19px;
+}
+@media screen and (max-width: 615px) {
+   .boxPromotions {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width: 960px) and (min-width: 615px) {
+   .boxPromotions {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 18rem);
+   }
+}
+
+@media screen and (max-width: 1310px) and (min-width: 960px) {
+   .boxPromotions {
+      display: grid;
+      grid-template-columns: repeat(2, 24.6rem);
+      align-items: center;
+      justify-content: baseline;
+   }
 }

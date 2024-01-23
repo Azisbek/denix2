@@ -21,3 +21,16 @@
 .productButtonItem {
    padding: 12px 24px;
 }
+
+@media screen and (max-width: 931px) and (min-width: 0) {
+   .productList {
+      display: flex;
+      flex-wrap: wrap;
+   }
+}
+@media screen and (max-width: 1280px) and (min-width: 931px) {
+   .productList {
+      display: grid;
+      grid-template-columns: repeat(3, 18.12rem);
+   }
+}

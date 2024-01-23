@@ -3,9 +3,8 @@ import classes from './ProductItem.module.css'
 import poptiresImage from '../../assets/image/poptiresImage.png'
 import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
-import ratingIcon from '../../assets/icon/ratingIcon.png'
-import ratingHalfIcon from '../../assets/icon/ratingHalfIcon.png'
-import likeIcon from '../../assets/icon/likeIcon.png'
+import { Rating } from '../svg/Rating'
+import Like from '../svg/Like'
 
 const ProductItem = () => {
    return (
@@ -20,11 +19,11 @@ const ProductItem = () => {
                <span>2</span>
             </div>
             <div className={classes.boxRating}>
-               <img src={ratingIcon} alt="Иконка рейтинга" />
-               <img src={ratingIcon} alt="Иконка рейтинга" />
-               <img src={ratingIcon} alt="Иконка рейтинга" />
-               <img src={ratingIcon} alt="Иконка рейтинга" />
-               <img src={ratingHalfIcon} alt="Иконка рейтинга" />
+               <Rating />
+               <Rating />
+               <Rating />
+               <Rating />
+               <Rating />
             </div>
          </div>
          <h3>Goodyear Vector 4Seasons</h3>
@@ -33,9 +32,9 @@ const ProductItem = () => {
          </p>
          <div className={classes.boxButton}>
             <button>5600c</button>
-            <button id={classes.btnLike}>
-               <img src={likeIcon} alt="Иконка лайка" />
-            </button>
+            <div id={classes.btnLike}>
+               <Like />
+            </div>
          </div>
       </div>
    )

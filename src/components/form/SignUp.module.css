@@ -1,0 +1,129 @@
+.form {
+   display: flex;
+   justify-content: center;
+   padding-top: 94px;
+   padding-bottom: 260px;
+}
+
+.container {
+   border-radius: 10px;
+   background-color: rgba(26, 30, 41, 0.15);
+   backdrop-filter: blur(2px);
+   display: flex;
+   flex-direction: column;
+   /* align-items: center; */
+   padding: 38px 97px 54px 97px;
+}
+.container h2 {
+   color: #000;
+   font-size: 32px;
+   font-weight: 500;
+   line-height: 24px;
+   text-align: center;
+}
+
+.blockText {
+   padding-top: 30px;
+   width: 395px;
+}
+
+.blockText a {
+   color: #ff7e00;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 24px;
+   text-decoration: none;
+}
+.blockText p {
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+}
+
+.containerForm {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 35px;
+   padding-top: 20px;
+   padding-bottom: 26px;
+}
+
+.containerForm .passwordField {
+   position: relative;
+}
+
+.containerForm input {
+   width: 372px;
+   padding: 12px 40px 12px 16px;
+   border-radius: 5px;
+   outline: none;
+   border: none;
+}
+
+.containerForm .passwordField .togglePassword {
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   transform: translateY(-50%);
+   cursor: pointer;
+}
+
+.containerForm .passwordField .togglePassword img {
+   width: 20px;
+   height: 20px;
+   user-select: none;
+}
+
+.button {
+   width: 75%;
+   margin: 0 auto;
+   padding: 12px;
+   background-color: #ff7e00;
+   color: white;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.containerPath {
+   padding-top: 26px;
+   gap: 34px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.containerPath p {
+   color: #000;
+   font-size: 22px;
+   font-weight: 500;
+   line-height: 24px;
+}
+
+.containerPath div a img {
+   width: 25px;
+}
+.containerPath div {
+   display: flex;
+   gap: 19px;
+}
+
+.errorMessage {
+   text-align: center;
+   color: red;
+}
+
+@media screen and (max-width: 550px) and (min-width: 0) {
+   .container {
+      padding: 35px 35px 54px 39px;
+   }
+   .containerForm input {
+      width: 280px;
+   }
+   .blockText {
+      width: 275px;
+      text-align: center;
+   }
+}
