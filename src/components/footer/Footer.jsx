@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
 import classes from './Footer.module.css'
 import instagram from '../../assets/icon/instagram.png'
@@ -62,12 +63,12 @@ const Footer = () => {
             <div className={classes.boxCompanyPrivate}>
                <div className={classes.columnCompany}>
                   <h4>Компания</h4>
-                  <a href="/">О компании</a>
+                  <Link to="/company">О компании</Link>
                   <a href="/">Оплата</a>
                   <a href="/">Доставка</a>
                   <a href="/">Статьи и новости</a>
                   <a href="/">Акции и скидки</a>
-                  <a href="/">Контакты</a>
+                  <Link to="/contacts">Контакты</Link>
                   <a href="/">Кредит</a>
                   <a href="/">Гарантия</a>
                   <a href="/">Подарочные сертификаты</a>
@@ -76,7 +77,7 @@ const Footer = () => {
                </div>
                <div className={classes.columnPrivate}>
                   <h4>Личный кабинет</h4>
-                  <a href="/">Корзина</a>
+                  <Link to="/cart">Корзина</Link>
                   <a href="/">Баллы</a>
                   <a href="/">Гараж</a>
                </div>

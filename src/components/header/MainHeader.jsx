@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/icon/logo.png'
-import like from '../../assets/icon/like.png'
-import shop from '../../assets/icon/shop.png'
 import search from '../../assets/icon/serch.png'
 import personal from '../../assets/icon/personal.png'
 import classes from './MainHeader.module.css'
@@ -18,6 +17,8 @@ import MenuService from './menu-service/MenuService'
 import MenuCompany from './menu-company/MenuCompany'
 import MenuPersonal from './menu-personal/MenuPersonal'
 import Arrow from '../svg/Arrow'
+import Like from '../svg/Like'
+import Shop from '../svg/Shop'
 
 const MainHeader = () => {
    const dispatch = useDispatch()
@@ -113,7 +114,13 @@ const MainHeader = () => {
                </ul>
 
                <div>
-                  <img className={classes.headerLogo} src={logo} alt="logo" />
+                  <Link to="/home">
+                     <img
+                        className={classes.headerLogo}
+                        src={logo}
+                        alt="logo"
+                     />
+                  </Link>
                </div>
                <ul>
                   <li className={classes.headerIcon}>
@@ -146,11 +153,15 @@ const MainHeader = () => {
                      </li>
 
                      <li className={classes.headerIcon}>
-                        <img src={like} alt="" />
+                        <Link to="/favorites">
+                           <Like stroke="white" />
+                        </Link>
                      </li>
 
                      <li className={classes.headerIcon}>
-                        <img src={shop} alt="" />
+                        <Link to="/cart">
+                           <Shop />
+                        </Link>
                      </li>
                   </div>
                </ul>
