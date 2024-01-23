@@ -1,8 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../ui/Button'
 import classes from './PaymentPath.module.css'
 
 const PaymentPath = () => {
+   const navigate = useNavigate()
+   const clickNavigateShopHandler = () => {
+      navigate('')
+   }
+
    return (
       <div>
          <div className={classes.blockPaymentPath}>
@@ -18,7 +24,12 @@ const PaymentPath = () => {
                <p>Итоговая цена</p>
                <span>123 000 C</span>
             </div>
-            <Button id={classes.btnPaymentPath}>Оформить заказ</Button>
+            <Button
+               onClick={clickNavigateShopHandler}
+               id={classes.btnPaymentPath}
+            >
+               Оформить заказ
+            </Button>
             <form className={classes.iconLabel}>
                <input
                   type="text"

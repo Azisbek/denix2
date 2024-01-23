@@ -1,8 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import classes from './Options.module.css'
 import Button from '../../ui/Button'
 
 const Options = () => {
+   const navigate = useNavigate()
+
+   const navigateCatalogClickHandler = () => {
+      navigate('/catalog')
+   }
+
    return (
       <nav className={classes.sectionOptions}>
          <div className={classes.optionsItem}>
@@ -37,7 +44,12 @@ const Options = () => {
                <option value="Производитель">Производитель</option>
             </select>
             <div>
-               <Button className={classes.optionsButton}>Подобрать</Button>
+               <Button
+                  onClick={navigateCatalogClickHandler}
+                  className={classes.optionsButton}
+               >
+                  Подобрать
+               </Button>
             </div>
          </div>
       </nav>

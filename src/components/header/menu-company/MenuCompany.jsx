@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './MenuCompany.module.css'
 
 const MenuCompany = () => {
@@ -7,13 +8,13 @@ const MenuCompany = () => {
          <div className={classes.container}>
             <ul className={classes.containerProductsMenu}>
                <li>
-                  <a href="/accessories">О компании</a>
+                  <Link to="/company">О компании</Link>
                </li>
 
                <div className={classes.line} />
 
                <li>
-                  <a href="/accessories">Контакты</a>
+                  <Link to="/contacts">Контакты</Link>
                </li>
 
                <div className={classes.line} />

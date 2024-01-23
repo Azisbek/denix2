@@ -1,9 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import classes from './PopTires.module.css'
 import Button from '../../ui/Button'
 import ProductItem from '../../Product/ProductItem'
 
 const PopTires = () => {
+   const navigate = useNavigate()
+   const clickCatalogHandler = () => {
+      navigate('/catalog')
+   }
+
    return (
       <section className={classes.section}>
          <div className={classes.content}>
@@ -24,7 +30,7 @@ const PopTires = () => {
                <ProductItem />
                <ProductItem />
             </div>
-            <Button>Посмотреть все шины</Button>
+            <Button onClick={clickCatalogHandler}>Посмотреть все шины</Button>
          </div>
       </section>
    )
