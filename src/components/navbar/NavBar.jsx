@@ -1,43 +1,62 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useMatch } from 'react-router-dom'
 import classes from './NavBar.module.css'
-import NavBarArrow from '../svg/NavBarArrow'
+import CustomLink from '../ui/CustomLink'
 
 const NavBar = () => {
-   const location = useLocation()
+   const match = {
+      home: useMatch('/home'),
+      catalog: useMatch('/catalog'),
+      cart: useMatch('/cart'),
+      order: useMatch('/order'),
+      favorites: useMatch('/favorites'),
+      company: useMatch('/company'),
+      contacts: useMatch('/contacts'),
+   }
+   const matchMerged = match.cart || match.order
+
    return (
-      <nav
-         className={`${
-            location.pathname === '/' || '/home' ? classes.none : classes.navbar
-         }`}
-      >
-         <ul>
-            <li>
-               <NavBarArrow />
-               <a to="/">Главная</a>
-            </li>
-            <li>
-               <NavBarArrow />
-               <a to="/catalog">Каталог</a>
-            </li>
-            <li>
-               <NavBarArrow />
-               <a to="/cardproduct">Карточка товара</a>
-            </li>
-            <li>
-               <NavBarArrow />
-               <a to="/cart">Корзина</a>
-            </li>
-            <li>
-               <NavBarArrow />
-               <a to="/#">Оформление заказа</a>
-            </li>
-            <li>
-               <NavBarArrow />
-               <a to="/favorites">Избранное</a>
-            </li>
-         </ul>
-      </nav>
+      !match.home && (
+         <nav className={classes.navbar}>
+            <ul>
+               <li>
+                  <CustomLink to="/home">Главная</CustomLink>
+               </li>
+               {match.catalog && (
+                  <li>
+                     <CustomLink to="/catalog">Каталог</CustomLink>
+                  </li>
+               )}
+               {matchMerged && (
+                  <li>
+                     <CustomLink to="/cart">Корзина</CustomLink>
+                  </li>
+               )}
+               {match.order && (
+                  <li>
+                     <CustomLink to="/order">Оформление заказа</CustomLink>
+                  </li>
+               )}
+               {match.favorites && (
+                  <li>
+                     <CustomLink to="/favorites">Избранное</CustomLink>
+                  </li>
+               )}
+               {match.company && (
+                  <li>
+                     <CustomLink to="/company">О компании</CustomLink>
+                  </li>
+               )}
+               {match.contacts && (
+                  <li>
+                     <CustomLink to="/contacts">
+                        Контактная информация
+                     </CustomLink>
+                  </li>
+               )}
+            </ul>
+         </nav>
+      )
    )
 }
 

@@ -10,28 +10,18 @@
       padding: 16px 0;
       display: flex;
       gap: 8px;
-
-      li {
-         display: flex;
-         align-items: center;
-         gap: 4px;
-         cursor: pointer;
-
-         a {
-            color: #6a6a6a;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 16px;
-         }
-      }
+   }
+   li {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
    }
 }
 
-.block {
-   display: block;
+#navigate {
 }
 
-.none {
+#none {
    display: none;
 }
