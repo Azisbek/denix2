@@ -1,0 +1,17 @@
+.notActive {
+   color: #6a6a6a;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   text-decoration: none;
+}
+
+.active {
+   color: #FF7E00;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   text-decoration: none;
+}
