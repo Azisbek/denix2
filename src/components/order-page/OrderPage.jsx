@@ -227,11 +227,11 @@ const OrderPage = () => {
                   <label>
                      <input type="checkbox" />
                      <span>
-                        Я согласен c{' '}
+                        Я согласен c
                         <span className={classes.span}>
                            условиями публичной оферты
                         </span>
-                        {'  '}и правилами продажи товаров
+                        и правилами продажи товаров
                      </span>
                   </label>
                </div>
