@@ -8,6 +8,7 @@ import AboutCompany from '../../components/about-company/AboutCompanyPage'
 import Contacts from '../../components/contacts/Сontacts'
 import OrderPage from '../../components/order-page/OrderPage'
 import PersonalAccount from '../../components/personal-area/PersonalAccount'
+import NotFoundPage from '../../components/notfoundpage/NotFoundPage'
 
 const privateRoute = () => {
    return (
@@ -21,7 +22,7 @@ const privateRoute = () => {
          <Route path="/contacts" element={<Contacts />} />
          <Route path="/order" element={<OrderPage />} />
          <Route path="/personal" element={<PersonalAccount />} />
-         <Route path="*" element={<div>Not found 404</div>} />
+         <Route path="*" element={<NotFoundPage />} />
       </Routes>
    )
 }
