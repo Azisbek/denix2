@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import Select from 'react-select'
 import classes from './AddNewProducts.module.css'
 import {
@@ -18,28 +17,26 @@ import {
    noiseLevelOption,
 } from './OptionSelect'
 
-import {
-   setState,
-   setProfile,
-   setDiameter,
-   setPrice,
-   setWidth,
-   setTireType,
-   setSeason,
-   setManufacturer,
-   setSpeedIndex,
-   setLoadIndex,
-   setFuelEconomy,
-   setWetGrip,
-   setNoiseLevel,
-} from '../../store/optionSlice'
 import Button from '../ui/Button'
 
 const AddNewProducts = () => {
-   const dispatch = useDispatch()
-
    const [selectedImage, setSelectedImage] = useState(null)
    const [selectedImages, setSelectedImages] = useState([])
+   const [formData, setFormData] = useState({
+      width: null,
+      profile: null,
+      diameter: null,
+      price: null,
+      tireType: null,
+      seasonality: null,
+      state: null,
+      manufacturer: null,
+      speedIndex: null,
+      loadIndex: null,
+      fuelEconomy: null,
+      wetGrip: null,
+      noiseLevel: null,
+   })
 
    const handleImageUpload = (e) => {
       const file = e.target.files[0]
@@ -48,8 +45,8 @@ const AddNewProducts = () => {
 
    const handleImageUploadArray = (e) => {
       const images = e.target.files
-      const id = Math.random().toString()
-      selectedImages.push(id)
+      // const id = Math.random().toString()
+      // selectedImages.push(id)
       if (selectedImages.length + images.length > 4) {
          return
       }
@@ -58,55 +55,60 @@ const AddNewProducts = () => {
    }
 
    const widthHandleChange = (selectedOption) => {
-      dispatch(setWidth(selectedOption))
+      setFormData({ ...formData, width: selectedOption })
    }
 
    const profileHandleChange = (selectedOption) => {
-      dispatch(setProfile(selectedOption))
+      setFormData({ ...formData, profile: selectedOption })
    }
 
    const diametrHandleChange = (selectedOption) => {
-      dispatch(setDiameter(selectedOption))
+      setFormData({ ...formData, diameter: selectedOption })
    }
 
    const priceHandleChange = (selectedOption) => {
-      dispatch(setPrice(selectedOption))
+      setFormData({ ...formData, price: selectedOption })
    }
 
    const tireTypeHandleChange = (selectedOption) => {
-      dispatch(setTireType(selectedOption))
+      setFormData({ ...formData, tireType: selectedOption })
    }
 
    const seasonalityHandleChange = (selectedOption) => {
-      dispatch(setSeason(selectedOption))
+      setFormData({ ...formData, seasonality: selectedOption })
    }
 
    const stateHandleChange = (selectedOption) => {
-      dispatch(setState(selectedOption))
+      setFormData({ ...formData, state: selectedOption })
    }
 
    const manufacturerOptionHandleChange = (selectedOption) => {
-      dispatch(setManufacturer(selectedOption))
+      setFormData({ ...formData, manufacturer: selectedOption })
    }
 
    const speedHandleChange = (selectedOption) => {
-      dispatch(setSpeedIndex(selectedOption))
+      setFormData({ ...formData, speedIndex: selectedOption })
    }
 
    const loadIndexHandleChange = (selectedOption) => {
-      dispatch(setLoadIndex(selectedOption))
+      setFormData({ ...formData, loadIndex: selectedOption })
    }
 
    const fuelEconomyHandleChange = (selectedOption) => {
-      dispatch(setFuelEconomy(selectedOption))
+      setFormData({ ...formData, fuelEconomy: selectedOption })
    }
 
    const wetGripyHandleChange = (selectedOption) => {
-      dispatch(setWetGrip(selectedOption))
+      setFormData({ ...formData, wetGrip: selectedOption })
    }
 
    const noiseLevelHandleChange = (selectedOption) => {
-      dispatch(setNoiseLevel(selectedOption))
+      setFormData({ ...formData, noiseLevel: selectedOption })
+   }
+
+   const formSubmitHandler = (e) => {
+      e.preventDefault()
+      console.log(formData)
    }
 
    return (
@@ -352,9 +354,8 @@ const AddNewProducts = () => {
                   </label>
 
                   <div className={classes.imageContainer2}>
-                     {selectedImages.map((image, index, { id }) => (
+                     {selectedImages.map((image, index) => (
                         <img
-                           key={id}
                            className={classes.image2}
                            src={URL.createObjectURL(image)}
                            alt={`Preview ${index + 1}`}
@@ -369,8 +370,8 @@ const AddNewProducts = () => {
                      placeholder="описания товара"
                   />
                   <div className={classes.containerButton}>
-                     <Button>Сохранить</Button>
-                     <Button>Сбросить</Button>
+                     <Button onClick={formSubmitHandler}>Сохранить</Button>
+                     <Button type="submit">Сбросить</Button>
                   </div>
                </div>
             </div>
