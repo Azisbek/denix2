@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Select from 'react-select'
 import classes from './AddNewProducts.module.css'
 import {
@@ -18,8 +19,10 @@ import {
 } from './OptionSelect'
 
 import Button from '../ui/Button'
+import { postProduct } from '../../store/addNewProductSlice'
 
 const AddNewProducts = () => {
+   const dispatch = useDispatch()
    const [selectedImage, setSelectedImage] = useState(null)
    const [selectedImages, setSelectedImages] = useState([])
    const [formData, setFormData] = useState({
@@ -37,6 +40,26 @@ const AddNewProducts = () => {
       wetGrip: null,
       noiseLevel: null,
    })
+   const [formErrors, setFormErrors] = useState({
+      width: false,
+      profile: false,
+      diameter: false,
+      price: false,
+      tireType: false,
+      seasonality: false,
+      state: false,
+      manufacturer: false,
+      speedIndex: false,
+      loadIndex: false,
+      fuelEconomy: false,
+      wetGrip: false,
+      noiseLevel: false,
+      images: false,
+      discount: false,
+      runflat: false,
+      offRoad: false,
+      description: false,
+   })
 
    const handleImageUpload = (e) => {
       const file = e.target.files[0]
@@ -45,8 +68,6 @@ const AddNewProducts = () => {
 
    const handleImageUploadArray = (e) => {
       const images = e.target.files
-      // const id = Math.random().toString()
-      // selectedImages.push(id)
       if (selectedImages.length + images.length > 4) {
          return
       }
@@ -55,60 +76,94 @@ const AddNewProducts = () => {
    }
 
    const widthHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, width: !selectedOption })
       setFormData({ ...formData, width: selectedOption })
    }
 
    const profileHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, profile: !selectedOption })
       setFormData({ ...formData, profile: selectedOption })
    }
 
    const diametrHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, diameter: !selectedOption })
       setFormData({ ...formData, diameter: selectedOption })
    }
 
    const priceHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, price: !selectedOption })
       setFormData({ ...formData, price: selectedOption })
    }
 
    const tireTypeHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, tireType: !selectedOption })
       setFormData({ ...formData, tireType: selectedOption })
    }
 
    const seasonalityHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, seasonality: !selectedOption })
       setFormData({ ...formData, seasonality: selectedOption })
    }
 
    const stateHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, state: !selectedOption })
       setFormData({ ...formData, state: selectedOption })
    }
 
    const manufacturerOptionHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, manufacturer: !selectedOption })
       setFormData({ ...formData, manufacturer: selectedOption })
    }
 
    const speedHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, speedIndex: !selectedOption })
       setFormData({ ...formData, speedIndex: selectedOption })
    }
 
    const loadIndexHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, loadIndex: !selectedOption })
       setFormData({ ...formData, loadIndex: selectedOption })
    }
 
    const fuelEconomyHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, fuelEconomy: !selectedOption })
       setFormData({ ...formData, fuelEconomy: selectedOption })
    }
 
    const wetGripyHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, wetGrip: !selectedOption })
       setFormData({ ...formData, wetGrip: selectedOption })
    }
 
    const noiseLevelHandleChange = (selectedOption) => {
+      setFormErrors({ ...formErrors, noiseLevel: !selectedOption })
       setFormData({ ...formData, noiseLevel: selectedOption })
    }
 
    const formSubmitHandler = (e) => {
       e.preventDefault()
-      console.log(formData)
+      const formDataToSend = {
+         width: formData.width?.value,
+         profile: formData.profile?.value,
+         diameter: formData.diameter?.value,
+         price: formData.price?.value,
+         tireType: formData.tireType?.value,
+         seasonality: formData.seasonality?.value,
+         state: formData.state?.value,
+         manufacturer: formData.manufacturer?.value,
+         speedIndex: formData.speedIndex?.value,
+         loadIndex: formData.loadIndex?.value,
+         fuelEconomy: formData.fuelEconomy?.value,
+         wetGrip: formData.wetGrip?.value,
+         noiseLevel: formData.noiseLevel?.value,
+      }
+      if (Object.values(formErrors).some((error) => error)) {
+         alert(
+            'Пожалуйста, заполните все поля и загрузите изображения перед отправкой.'
+         )
+         return
+      }
+      dispatch(postProduct(formDataToSend))
    }
 
    return (
@@ -126,6 +181,9 @@ const AddNewProducts = () => {
                      onChange={widthHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.width && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Профиль</label>
@@ -137,6 +195,9 @@ const AddNewProducts = () => {
                      onChange={profileHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.profile && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Диаметр</label>
@@ -148,6 +209,9 @@ const AddNewProducts = () => {
                      onChange={diametrHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.diameter && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Цена</label>
@@ -160,6 +224,9 @@ const AddNewProducts = () => {
                      onChange={priceHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.price && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Тип шины</label>
@@ -171,6 +238,9 @@ const AddNewProducts = () => {
                      onChange={tireTypeHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.tireType && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Сезонность</label>
@@ -182,6 +252,9 @@ const AddNewProducts = () => {
                      onChange={seasonalityHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.seasonality && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Состояние</label>
@@ -193,6 +266,9 @@ const AddNewProducts = () => {
                      onChange={stateHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.state && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div className={classes.blockCheckboxSelect}>
                   <div>
@@ -205,6 +281,9 @@ const AddNewProducts = () => {
                         onChange={manufacturerOptionHandleChange}
                         placeholder="Search for an option..."
                      />
+                     {formErrors.manufacturer && (
+                        <p className={classes.errorText}>Выберите опцию</p>
+                     )}
                   </div>
 
                   <div className={classes.containerCheckbox}>
@@ -244,6 +323,9 @@ const AddNewProducts = () => {
                      onChange={speedHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.speedIndex && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
 
                <div>
@@ -256,6 +338,9 @@ const AddNewProducts = () => {
                      onChange={loadIndexHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.loadIndex && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
 
                <div>
@@ -268,6 +353,9 @@ const AddNewProducts = () => {
                      onChange={fuelEconomyHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.fuelEconomy && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
 
                <div>
@@ -282,6 +370,9 @@ const AddNewProducts = () => {
                      onChange={wetGripyHandleChange}
                      placeholder="Search for an option..."
                   />
+                  {formErrors.wetGrip && (
+                     <p className={classes.errorText}>Выберите опцию</p>
+                  )}
                </div>
                <div className={classes.blockCheckboxSelect}>
                   <div>
@@ -294,6 +385,9 @@ const AddNewProducts = () => {
                         onChange={noiseLevelHandleChange}
                         placeholder="Search for an option..."
                      />
+                     {formErrors.noiseLevel && (
+                        <p className={classes.errorText}>Выберите опцию</p>
+                     )}
                   </div>
 
                   <div className={classes.containerCheckbox}>
