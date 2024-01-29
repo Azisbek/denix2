@@ -9,6 +9,8 @@ import Contacts from '../../components/contacts/Сontacts'
 import OrderPage from '../../components/order-page/OrderPage'
 import PersonalAccount from '../../components/personal-area/PersonalAccount'
 import AddNewProducts from '../../components/admin/AddNewProducts'
+import NotFoundPage from '../../components/notfoundpage/NotFoundPage'
+import AddNews from '../../components/admin/AddNews'
 
 const privateRoute = () => {
    return (
@@ -22,8 +24,9 @@ const privateRoute = () => {
          <Route path="/contacts" element={<Contacts />} />
          <Route path="/order" element={<OrderPage />} />
          <Route path="/personal" element={<PersonalAccount />} />
-         <Route path="new-post" element={<AddNewProducts />} />
-         <Route path="*" element={<div>Not found 404</div>} />
+         <Route path="/new-product" element={<AddNewProducts />} />
+         <Route path="/new-news" element={<AddNews />} />
+         <Route path="*" element={<NotFoundPage />} />
       </Routes>
    )
 }

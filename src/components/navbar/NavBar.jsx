@@ -5,7 +5,6 @@ import CustomLink from '../ui/CustomLink'
 
 const NavBar = () => {
    const match = {
-      home: useMatch('/home'),
       catalog: useMatch('/catalog'),
       cart: useMatch('/cart'),
       order: useMatch('/order'),
@@ -14,9 +13,16 @@ const NavBar = () => {
       contacts: useMatch('/contacts'),
    }
    const matchMerged = match.cart || match.order
+   const matchGeneral =
+      match.catalog ||
+      match.company ||
+      match.contacts ||
+      match.favorites ||
+      match.order ||
+      matchMerged
 
    return (
-      !match.home && (
+      matchGeneral && (
          <nav className={classes.navbar}>
             <ul>
                <li>
