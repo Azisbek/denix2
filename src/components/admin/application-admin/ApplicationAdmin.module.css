@@ -1,0 +1,62 @@
+.applicationAdminContainer {
+   background: #3e465f;
+   padding: 40px 0px 60px;
+   text-align: center;
+}
+.applicationAdminContainer h1 {
+   color: #fff;
+   font-family: 'IBM Plex Sans';
+   font-size: 64px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   text-align: center;
+   padding-bottom: 60px;
+} 
+.tableContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 60px;
+}
+
+.myTable {
+   border-collapse: collapse;
+   max-width: 667px;
+   width: 100%;
+}
+
+.myTable,
+.myTable th,
+.myTable td {
+   border: 1px solid #fff;
+   padding: 8px;
+   color: #fff;
+   text-align: left;
+}
+
+.myTable th {
+   font-weight: 500;
+   text-align: left;
+   font-size: 20px;
+}
+
+.initialData {
+   font-size: 14px;
+   color: #fff;
+}
+.applicationAdminContainer Button {
+   width: 249px;
+   padding: 12px 0px;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 600;
+   line-height: 16px;
+   margin-bottom: 10px;
+}
+td.rejected{
+   color: red;
+}
+td.response{
+    color: #FF7E00;
+}

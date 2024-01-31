@@ -1,0 +1,31 @@
+.adminPanelContainer {
+   background: #3e465f;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   padding: 50px 0px 100px;
+}
+.adminPanelContainer h1 {
+   font-size: 44px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+}
+.adminPanelContainer div {
+    border: 3px solid white;
+    padding: 15px 43px;
+    font-size: 20px;
+    text-align: center;
+    width: 283px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.6s, transform 0.3s;
+}
+.adminPanelContainer div:hover{
+    color: black;
+    background: orange;
+    transform: scale(1.1); 
+}
