@@ -1,0 +1,78 @@
+.container {
+   display: flex;
+   justify-content: space-between;
+}
+.main {
+   width: 392px;
+   /* height: 448px; */
+   border-radius: 2px;
+   border: 1px solid #e5e5e5;
+   background: #fff;
+   margin-bottom: 24px;
+}
+
+.mainFoto {
+   width: 392px;
+   height: 272px;
+}
+.text {
+   color: #1a1e29;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+   padding: 8px 31px 8px 31px;
+}
+.receptionBtn {
+   border: none;
+   padding: 0px 4px;
+   color: #ff7e00;
+   font-size: 10px;
+   font-weight: 400;
+   line-height: 16px;
+   border-radius: 2px;
+   background: #ffe9d5;
+   margin-left: 31px;
+}
+.timeDate {
+   color: #6a6a6a;
+   font-size: 14px;
+   line-height: 16px;
+   display: flex;
+   margin: 16px 0 32px 31px;
+   gap: 8px;
+}
+.timeChess {
+   width: 16px;
+}
+.mainFoto2 {
+   display: none;
+}
+@media screen and (max-width: 870px) {
+   .mainFoto {
+      display: none;
+   }
+   .mainFoto2 {
+      display: block;
+   }
+   .container {
+      margin: 0 auto;
+      width: 289px;
+      margin-bottom: 8px;
+   }
+   .titleMain {
+      text-align: center;
+   }
+   .main {
+      margin: 0 auto;
+      width: 289px;
+      height: 540px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+   }
+   Button {
+      margin-top: 29px;
+   }
+}
+
+/* ------------------------------------------------------- */
