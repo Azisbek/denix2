@@ -74,6 +74,7 @@
    display: flex;
    flex-direction: column;
    padding-bottom: 12px;
+   padding-top: 10px;
 
    h3 {
       color: #fff;
@@ -106,26 +107,47 @@
    background: #d9d9d9;
    width: 19.6rem;
    height: 16rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
    img {
       width: 100%;
       height: 100%;
    }
+
+   p {
+      color: red;
+      font-size: 20px;
+   }
+}
+
+.none {
+   display: none;
 }
 
 .gallery {
    display: grid;
    grid-template-columns: repeat(2, 120px);
-   justify-content: center;
    gap: 20px 9px;
+}
+
+.galleryItem {
    background: #d9d9d9;
-   padding: 10px 0;
-   width: 19.6rem;
-   height: 360px;
+   width: 120px;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
    img {
-      width: 120px;
-      height: 100px;
+      width: 100%;
+      height: 100%;
+   }
+
+   p {
+      color: red;
+      font-size: 15px;
    }
 }
 
@@ -156,8 +178,10 @@
    line-height: 16px;
 }
 
-.tag {
+.tags {
    display: flex;
+   flex-wrap: wrap;
+   width: 35rem;
    gap: 8px;
 
    span {
@@ -170,6 +194,16 @@
       font-weight: 400;
       line-height: 16px;
    }
+
+   button {
+      outline: none;
+      border: none;
+      border-radius: 2px;
+      background: #ff7e00;
+      padding: 0 10px;
+      color: #fff;
+      cursor: pointer;
+   }
 }
 
 @media screen and (max-width: 1280px) {
@@ -180,6 +214,10 @@
 
 @media screen and (max-width: 570px) {
    .boxInput {
+      width: 19.6rem;
+   }
+
+   .tag {
       width: 19.6rem;
    }
 }
