@@ -3,7 +3,7 @@ import { BASE_URL } from '../utils/constants'
 
 export const postProduct = createAsyncThunk(
    'products/postProduct',
-   async function (value, { rejectWithValue }) {
+   async function asyncPostProduct(value, { rejectWithValue }) {
       try {
          const response = await fetch(`${BASE_URL}/products.json`, {
             method: 'POST',
@@ -25,7 +25,7 @@ export const postProduct = createAsyncThunk(
 
 export const getProducts = createAsyncThunk(
    'productsGet/getProdicts',
-   async function (_, { rejectWithValue }) {
+   async function asycGetProducts(_, { rejectWithValue }) {
       try {
          const response = await fetch(`${BASE_URL}/products.json`)
          if (!response.ok) {

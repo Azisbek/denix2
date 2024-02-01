@@ -11,7 +11,6 @@ const CardPage = () => {
    const dispatch = useDispatch()
    const { data, isLoading } = useSelector((state) => state.newPage)
    const { id } = useParams()
-   console.log(data)
 
    useEffect(() => {
       dispatch(getProdictItem(id))

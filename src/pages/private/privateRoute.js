@@ -28,12 +28,12 @@ const privateRoute = () => {
          <Route path="/contacts" element={<Contacts />} />
          <Route path="/order" element={<OrderPage />} />
          <Route path="/personal" element={<PersonalAccount />} />
-         <Route path="/new-news" element={<AddNews />} />
          <Route path="*" element={<NotFoundPage />} />
 
-         <Route path="/admin/new-product" element={<AddNewProducts />} />
          <Route path="/admin" element={<AdminPanel />} />
+         <Route path="/admin/new-product" element={<AddNewProducts />} />
          <Route path="/admin/application" element={<ApplicationAdmin />} />
+         <Route path="/admin/new-news" element={<AddNews />} />
       </Routes>
    )
 }

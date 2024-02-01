@@ -3,7 +3,7 @@ import { BASE_URL } from '../utils/constants'
 
 export const getProdictItem = createAsyncThunk(
    'cartItem/getProdictItem',
-   async function (id, { rejectWithValue, dispatch }) {
+   async function asyncGetProduct(id, { rejectWithValue, dispatch }) {
       try {
          const response = await fetch(`${BASE_URL}/products/${id}.json`)
          if (!response.ok) {
