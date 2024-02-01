@@ -1,0 +1,33 @@
+.container {
+   margin: 0 auto;
+   max-width: 1340px;
+   padding: 0 30px;
+}
+
+.block {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+}
+.titleMain {
+   color: #1a1e29;
+   font-size: 40px;
+   font-weight: 500;
+   line-height: 48px;
+   padding-bottom: 24px;
+}
+.lastBtn{
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   margin: 8px 0 72px; 
+ 
+ }
+ .lastBtn button{
+ padding: 12px 24px;
+ }
+ .mainFoto2{
+   display: none;
+}
+
+
