@@ -11,6 +11,7 @@ import PersonalAccount from '../../components/personal-area/PersonalAccount'
 import AddNewProducts from '../../components/admin/AddNewProducts'
 import NotFoundPage from '../../components/notfoundpage/NotFoundPage'
 import AddNews from '../../components/admin/AddNews'
+import CardPageIffor from '../../components/card-product/CardPageInffor'
 
 const privateRoute = () => {
    return (
@@ -18,6 +19,7 @@ const privateRoute = () => {
          <Route path="/" element={<Navigate to="/home" />} />
          <Route path="/home" element={<HomePage />} />
          <Route path="/catalog" element={<CatalogPage />} />
+         <Route path="/catalog/:id" element={<CardPageIffor />} />
          <Route path="/favorites" element={<FavoritesPage />} />
          <Route path="/cart" element={<CartPage />} />
          <Route path="/company" element={<AboutCompany />} />

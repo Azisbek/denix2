@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import Select from 'react-select'
 import classes from './AddNewProducts.module.css'
+
 import {
    widthOption,
    profileOption,
@@ -23,8 +24,26 @@ import { postProduct } from '../../store/addNewProductSlice'
 
 const AddNewProducts = () => {
    const dispatch = useDispatch()
+
+   const titleInputNameTireRef = useRef()
+
    const [selectedImage, setSelectedImage] = useState(null)
-   const [selectedImages, setSelectedImages] = useState([])
+
+   const generateUniqueId = () => {
+      return `_${Math.random().toString(36).substring(2, 9)}`
+   }
+
+   const inputFileRef = useRef()
+
+   const [galleryIsValid, setGalleryIsValid] = useState(false)
+   const [notEqualNull, setNotEqualNull] = useState(null)
+
+   const [galleryNews, setGalleryNews] = useState(
+      new Array(6)
+         .fill(null)
+         .map(() => ({ id: generateUniqueId(), image: null }))
+   )
+
    const [formData, setFormData] = useState({
       width: null,
       profile: null,
@@ -66,13 +85,22 @@ const AddNewProducts = () => {
       setSelectedImage(file)
    }
 
-   const handleImageUploadArray = (e) => {
-      const images = e.target.files
-      if (selectedImages.length + images.length > 4) {
-         return
-      }
+   const galleryChangeHandler = (event) => {
+      const file = event.target.files[0]
+      if (file) {
+         const newGalleryNews = [...galleryNews]
+         const emptyContainer = newGalleryNews.find(
+            (container) => !container.image
+         )
 
-      setSelectedImages([...selectedImages, ...Array.from(images)])
+         if (emptyContainer) {
+            emptyContainer.image = URL.createObjectURL(file)
+            setGalleryNews(newGalleryNews)
+         }
+      }
+      inputFileRef.current.value = null
+      const notEqual = galleryNews.find((container) => container.image !== null)
+      setNotEqualNull(notEqual)
    }
 
    const widthHandleChange = (selectedOption) => {
@@ -142,7 +170,26 @@ const AddNewProducts = () => {
 
    const formSubmitHandler = (e) => {
       e.preventDefault()
+
+      const formErrorsCopy = {} // Declare formErrorsCopy here
+      let hasErrors = false // Declare hasErrors here
+
+      const firstImg = galleryNews[0].image
+
+      if (firstImg === null) {
+         setGalleryIsValid((prevState) => !prevState)
+         return
+      }
+
+      if (selectedImage === null) {
+         formErrorsCopy.images = true
+         hasErrors = true
+      } else {
+         formErrorsCopy.images = false
+      }
+
       const formDataToSend = {
+         title: titleInputNameTireRef.current.value,
          width: formData.width?.value,
          profile: formData.profile?.value,
          diameter: formData.diameter?.value,
@@ -156,13 +203,28 @@ const AddNewProducts = () => {
          fuelEconomy: formData.fuelEconomy?.value,
          wetGrip: formData.wetGrip?.value,
          noiseLevel: formData.noiseLevel?.value,
+         img: URL.createObjectURL(selectedImage),
+         images: galleryNews,
       }
-      if (Object.values(formErrors).some((error) => error)) {
+
+      Object.keys(formData).forEach((key) => {
+         if (formData[key] === null || formData[key]?.value === null) {
+            formErrorsCopy[key] = true
+            hasErrors = true
+         } else {
+            formErrorsCopy[key] = false
+         }
+      })
+
+      setFormErrors(formErrorsCopy)
+
+      if (hasErrors) {
          alert(
             'Пожалуйста, заполните все поля и загрузите изображения перед отправкой.'
          )
          return
       }
+
       dispatch(postProduct(formDataToSend))
    }
 
@@ -171,6 +233,16 @@ const AddNewProducts = () => {
          <h1>Добавить товар</h1>
          <form>
             <div className={classes.blcokInput}>
+               <div>
+                  <label htmlFor="nameTire">Названия Шины</label>
+                  <input
+                     ref={titleInputNameTireRef}
+                     required
+                     className={classes.nameInput}
+                     type="text"
+                     placeholder="Названия шины"
+                  />
+               </div>
                <div>
                   <label htmlFor="searchSelect">Ширина</label>
                   <Select
@@ -220,7 +292,7 @@ const AddNewProducts = () => {
                      className={classes.select}
                      id="searchSelect"
                      options={priceOption}
-                     // isSearchable
+                     isSearchable
                      onChange={priceHandleChange}
                      placeholder="Search for an option..."
                   />
@@ -433,27 +505,28 @@ const AddNewProducts = () => {
                   )}
                </div>
                <div>
-                  <label htmlFor="imageInput2">
+                  <div id={classes.topPadding} className={classes.boxInputFile}>
                      <h3>Галерия</h3>
-                     <span>+ добавить картинку</span>
+                     <label htmlFor="addGallery">+ добавить картинки</label>
                      <input
+                        onChange={galleryChangeHandler}
+                        ref={inputFileRef}
                         type="file"
-                        id="imageInput2"
-                        name="image"
-                        accept="image/*"
-                        onChange={handleImageUploadArray}
-                        style={{ display: 'none' }}
-                        multiple
+                        id="addGallery"
                      />
-                  </label>
-
-                  <div className={classes.imageContainer2}>
-                     {selectedImages.map((image, index) => (
-                        <img
-                           className={classes.image2}
-                           src={URL.createObjectURL(image)}
-                           alt={`Preview ${index + 1}`}
-                        />
+                  </div>
+                  <div className={classes.gallery}>
+                     {galleryNews.map((container) => (
+                        <div key={container.id} className={classes.galleryItem}>
+                           {container.image && (
+                              <img src={container.image} alt="Gallery" />
+                           )}
+                           {galleryIsValid && (
+                              <p className={notEqualNull && classes.none}>
+                                 Добавьте фото!
+                              </p>
+                           )}
+                        </div>
                      ))}
                   </div>
 

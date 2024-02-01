@@ -15,7 +15,7 @@ export const diameterOption = [
 ]
 
 export const priceOption = [
-   { value: 'option1', label: 'Option 1' },
+   { value: 1, label: 1 },
    { value: 'option2', label: 'Option 2' },
 ]
 

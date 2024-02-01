@@ -3,14 +3,13 @@ import classes from './Characteristics.module.css'
 import season from '../../../assets/icon/season.png'
 import checkmark from '../../../assets/icon/checkmark.png'
 import commentIcon from '../../../assets/icon/commentIcon.png'
-import characteristics from '../../../assets/image/characteristics.png'
 import { Rating } from '../../svg/Rating'
 import PathBasket from './PathBasket'
 
-const Characteristics = () => {
+const Characteristics = ({ data }) => {
    return (
       <div className={classes.block}>
-         <h1>Шины летние Cordiant Sport 3 PS2 215/65 R16 102V</h1>
+         <h1>{data.title}</h1>
          <div className={classes.boxIcons}>
             <div className={classes.boxImage}>
                <img src={season} alt="Icon season" />
@@ -34,7 +33,7 @@ const Characteristics = () => {
          <div className={classes.blockContainer}>
             <div className={classes.boxCharacteristics}>
                <div className={classes.img}>
-                  <img src={characteristics} alt="Фото характеристика" />
+                  <img src={data.img} alt="Фото характеристика" />
                </div>
                <div className={classes.shortDescription}>
                   <h3>Краткое описание</h3>

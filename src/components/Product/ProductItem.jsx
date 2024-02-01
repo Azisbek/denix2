@@ -6,7 +6,7 @@ import commentIcon from '../../assets/icon/commentIcon.png'
 import { Rating } from '../svg/Rating'
 import Like from '../svg/Like'
 
-const ProductItem = () => {
+const ProductItem = ({ titleName, price }) => {
    return (
       <div className={classes.cardProduct}>
          <div className={classes.boxImage}>
@@ -26,12 +26,12 @@ const ProductItem = () => {
                <Rating />
             </div>
          </div>
-         <h3>Goodyear Vector 4Seasons</h3>
+         <h3>{titleName}</h3>
          <p>
             В наличии: <span>14</span> шт.
          </p>
          <div className={classes.boxButton}>
-            <button>5600c</button>
+            <button>{price}</button>
             <div id={classes.btnLike}>
                <Like />
             </div>

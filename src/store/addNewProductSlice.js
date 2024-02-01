@@ -16,8 +16,47 @@ export const postProduct = createAsyncThunk(
             throw new Error('server not found')
          }
          const data = await response.json()
-         console.log(data)
-         return data // Add this line to return a value
+         return data
+      } catch (error) {
+         return rejectWithValue(error.message)
+      }
+   }
+)
+
+export const getProducts = createAsyncThunk(
+   'productsGet/getProdicts',
+   async function (_, { rejectWithValue }) {
+      try {
+         const response = await fetch(`${BASE_URL}/products.json`)
+         if (!response.ok) {
+            throw new Error('Server error')
+         }
+         const data = await response.json()
+         const transformDataProducts = []
+
+         Object.keys(data).forEach((key) => {
+            transformDataProducts.push({
+               id: key,
+               width: data[key].width,
+               wetGrip: data[key].wetGrip,
+               title: data[key].title,
+               tireType: data[key].tireType,
+               state: data[key].state,
+               speedIndex: data[key].speedIndex,
+               seasonality: data[key].seasonality,
+               profile: data[key].profile,
+               price: data[key].price,
+               noiseLevel: data[key].noiseLevel,
+               manufacturer: data[key].manufacturer,
+               loadIndex: data[key].loadIndex,
+               diameter: data[key].diameter,
+               fuelEconomy: data[key].fuelEconomy,
+               images: data[key].images,
+               img: data[key].img,
+            })
+         })
+
+         return transformDataProducts
       } catch (error) {
          return rejectWithValue(error.message)
       }
@@ -26,7 +65,28 @@ export const postProduct = createAsyncThunk(
 
 export const addNewProductSlice = createSlice({
    name: 'products',
-   initialState: {},
-   reducers: {},
-   extraReducers() {},
+   initialState: {
+      products: [],
+      selectedProduct: null,
+      loading: false,
+      error: null,
+   },
+
+   extraReducers(builder) {
+      builder
+         .addCase(getProducts.pending, (state) => {
+            state.error = null
+            state.loading = true
+         })
+         .addCase(getProducts.fulfilled, (state, action) => {
+            state.loading = false
+            state.products = action.payload
+         })
+         .addCase(getProducts.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.payload
+         })
+   },
 })
+
+export const { selectedProduct } = addNewProductSlice.actions
