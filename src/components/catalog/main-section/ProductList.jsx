@@ -18,10 +18,6 @@ const ProductList = () => {
       dispatch(fetchFavorites())
    }, [dispatch])
 
-   // const handleToggleFavorite = (itemId, isFavorite) => {
-   //    dispatch(toggleFavorite({ itemId, isFavorite }))
-   // }
-
    return (
       <section>
          <div className={classes.container}>
