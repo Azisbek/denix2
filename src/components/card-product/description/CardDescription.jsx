@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './CardDescription.module.css'
 
-const CardDescription = () => {
+const CardDescription = ({ data }) => {
    return (
       <div className={classes.tabs}>
          <ul className={classes.tabsFlex}>
@@ -13,19 +13,9 @@ const CardDescription = () => {
             <li className={classes.tabsItem}>Отзывы (2)</li>
          </ul>
          <div className={classes.block}>
-            <h1 className={classes.titleCard}>
-               Описание модели Cordiant Business CA1 185/75 R16C 104Q
-            </h1>
+            <h1 className={classes.titleCard}>Описание модели {data.title}</h1>
             <div className={classes.blockCard}>
-               <p className={classes.textCard}>
-                  Чувствительность к командам водителя, а также устойчивость
-                  автомобиля гарантируют установленные под специальным уклоном к
-                  центру тяжести автомобиля грани средних ребер и элементов
-                  грунтозацепов. Широкие борозды в форме трапеции, которые
-                  покрывают внешний слой модели, помогают шине самоочищаться.
-                  Они сгоняют воду и грязь под шину, что также помогает не
-                  впитывать лишнюю влагу.
-               </p>
+               <p className={classes.textCard}>{data.description}</p>
                <p className={classes.textCard}>
                   Новаторская технология двух слоев каркаса, которые усиливают
                   материал, помогает машине служить намного дольше и защищает от

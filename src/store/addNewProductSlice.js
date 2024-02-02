@@ -53,6 +53,7 @@ export const getProducts = createAsyncThunk(
                fuelEconomy: data[key].fuelEconomy,
                images: data[key].images,
                img: data[key].img,
+               description: data[key].description,
             })
          })
 

@@ -1,16 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './ProductItem.module.css'
-import poptiresImage from '../../assets/image/poptiresImage.png'
 import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
 import { Rating } from '../svg/Rating'
 import Like from '../svg/Like'
 
-const ProductItem = ({ titleName, price }) => {
+const ProductItem = ({ titleName, price, img, id }) => {
    return (
       <div className={classes.cardProduct}>
          <div className={classes.boxImage}>
-            <img src={poptiresImage} alt="Популярная шина" />
+            <img src={img} alt="Популярная шина" />
             <img id={classes.summerIcon} src={summerIcon} alt="Иконка летняя" />
          </div>
          <div className={classes.boxReview}>
@@ -31,7 +31,10 @@ const ProductItem = ({ titleName, price }) => {
             В наличии: <span>14</span> шт.
          </p>
          <div className={classes.boxButton}>
-            <button>{price}</button>
+            <Link to={`/catalog/${id}`}>
+               <button>{price}</button>
+            </Link>
+
             <div id={classes.btnLike}>
                <Like />
             </div>

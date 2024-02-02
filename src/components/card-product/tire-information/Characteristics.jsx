@@ -47,27 +47,27 @@ const Characteristics = ({ data }) => {
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Сезонность</p>
-                     <span>Всесезонные</span>
+                     <span>{data.seasonality}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Ширина</p>
-                     <span>185</span>
+                     <span>{data.width}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Профиль</p>
-                     <span>75 %</span>
+                     <span>{data.profile}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Диаметр</p>
-                     <span>16C</span>
+                     <span>{data.diameter}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Индекс скорости</p>
-                     <span>Q (до 160 км/ч)</span>
+                     <span>{data.speedIndex}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Индекс нагрузки</p>
-                     <span>104 (до 900 кг)</span>
+                     <span>{data.loadIndex}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Индекс нагрузки для сдвоенных</p>
@@ -76,7 +76,7 @@ const Characteristics = ({ data }) => {
                   <a href="#/">Перейти ко всем характеристикам (12)</a>
                </div>
             </div>
-            <PathBasket />
+            <PathBasket data={data} />
          </div>
       </div>
    )

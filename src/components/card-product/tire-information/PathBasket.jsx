@@ -6,17 +6,17 @@ import Guarantee from '../../../assets/icon/Guarantee.png'
 import dostavka from '../../../assets/icon/dostavka.png'
 import price from '../../../assets/icon/price.png'
 
-const PathBasket = () => {
+const PathBasket = ({ data }) => {
    return (
       <div className={classes.container}>
          <div>
             <p className={classes.numberThrough}>8 790 С</p>
          </div>
          <div className={classes.price}>
-            <p>4 790 С</p> <p>за 1 шт.</p>
+            <p>{data.price}</p> <p>за 1 шт.</p>
          </div>
          <div className={classes.math}>
-            <p>4 790 × 4 = 19160</p>
+            <p>{data.price} × 4 = 19160</p>
          </div>
          <div className={classes.blockUi}>
             <div>

@@ -24,8 +24,8 @@ const CardPage = () => {
             data && (
                <>
                   <Characteristics data={data} />
-                  <CardDescription />
-                  <SimivarProducts />
+                  <CardDescription data={data} />
+                  <SimivarProducts data={data} />
                </>
             )
          )}

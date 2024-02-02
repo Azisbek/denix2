@@ -26,6 +26,7 @@ const AddNewProducts = () => {
    const dispatch = useDispatch()
 
    const titleInputNameTireRef = useRef()
+   const descriptionTire = useRef()
 
    const [selectedImage, setSelectedImage] = useState(null)
 
@@ -190,6 +191,7 @@ const AddNewProducts = () => {
 
       const formDataToSend = {
          title: titleInputNameTireRef.current.value,
+         description: descriptionTire.current.value,
          width: formData.width?.value,
          profile: formData.profile?.value,
          diameter: formData.diameter?.value,
@@ -535,6 +537,7 @@ const AddNewProducts = () => {
                      className={classes.messageInput}
                      type="text"
                      placeholder="описания товара"
+                     ref={descriptionTire}
                   />
                   <div className={classes.containerButton}>
                      <Button onClick={formSubmitHandler}>Сохранить</Button>
