@@ -1,21 +1,29 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import classes from './CartCard.module.css'
 import cart from '../../../assets/image/cart.png'
 import dostavka from '../../../assets/icon/dostavka.png'
 import close from '../../../assets/icon/close.png'
 import Checkmark from '../../svg/Checkmark'
 import InputNumber from '../../ui/InputNumber'
+import { cardDeleteAsync } from '../../../store/cardSlice'
 
-const CartCard = () => {
+const CartCard = ({ title, price, id }) => {
+   const dispatch = useDispatch()
+
+   const deleteCart = (id) => {
+      dispatch(cardDeleteAsync(id)) // Dispatch cardDeleteAsync instead of removeItem
+   }
+
    return (
       <div className={classes.cart}>
          <div className={classes.cartImg}>
             <img src={cart} alt="Картинка товара" />
          </div>
          <div className={classes.description}>
-            <h4>Goodyear Vector 4Seasons SUV Gen-2</h4>
+            <h4>{title}</h4>
             <p>
-               Код товара: <span>170852529</span>
+               Код товара: <span>{id}</span>
             </p>
             <div className={classes.checkmark}>
                <Checkmark />
@@ -29,23 +37,17 @@ const CartCard = () => {
                <a href="#/">Условия доставки</a>
             </div>
             {/* Для мобилки */}
-            <div className={classes.boxQuantityMb}>
-               <div className={classes.priceMb}>
-                  <span>123 000 ₽</span>
-               </div>
-               <InputNumber />
-            </div>
          </div>
          <div className={classes.boxQuantity}>
             <InputNumber />
             <div className={classes.price}>
-               <span>123 000 ₽</span>
+               <span>{price}</span>
             </div>
          </div>
          <div>
-            <div className={classes.icon}>
+            <button className={classes.icon} onClick={() => deleteCart(id)}>
                <img src={close} alt="Icon close" />
-            </div>
+            </button>
          </div>
       </div>
    )

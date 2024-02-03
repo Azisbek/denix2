@@ -4,10 +4,6 @@ import classes from './ProductList.module.css'
 import ProductItem from '../../Product/ProductItem'
 import Pagination from './Pagination'
 import { getProducts } from '../../../store/addNewProductSlice'
-import {
-   fetchFavorites,
-   // toggleFavorite,
-} from '../../../store/likeProductsSlice'
 
 const ProductList = () => {
    const dispatch = useDispatch()
@@ -15,7 +11,6 @@ const ProductList = () => {
 
    useEffect(() => {
       dispatch(getProducts())
-      dispatch(fetchFavorites())
    }, [dispatch])
 
    return (
@@ -37,7 +32,6 @@ const ProductList = () => {
                         img={el.img}
                         price={el.price}
                         titleName={el.title}
-                        // onClick={()=>{handleToggleFavorite()}}
                      />
                   )
                })}

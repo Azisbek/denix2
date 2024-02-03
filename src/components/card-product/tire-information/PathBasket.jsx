@@ -1,12 +1,20 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import classes from './PathBasket.module.css'
 import Button from '../../ui/Button'
 import Like from '../../svg/Like'
 import Guarantee from '../../../assets/icon/Guarantee.png'
 import dostavka from '../../../assets/icon/dostavka.png'
 import price from '../../../assets/icon/price.png'
+import { cardPostAsync } from '../../../store/cardSlice'
 
 const PathBasket = ({ data }) => {
+   const dispatch = useDispatch()
+
+   const postCartChangeHandler = () => {
+      dispatch(cardPostAsync(data))
+   }
+
    return (
       <div className={classes.container}>
          <div>
@@ -23,7 +31,7 @@ const PathBasket = ({ data }) => {
                <input type="number" className={classes.noSpinArrows} />
             </div>
 
-            <Button>В корзину</Button>
+            <Button onClick={postCartChangeHandler}>В корзину</Button>
 
             <div className={classes.blockLike}>
                <Like />

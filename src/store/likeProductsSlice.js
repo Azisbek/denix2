@@ -31,8 +31,6 @@ export const toggleFavorite = createAsyncThunk(
             }),
          })
 
-         console.log('Response:', response)
-
          if (!response.ok) {
             console.error('Server error:', response.status, response.statusText)
             const errorData = await response.json()
@@ -41,7 +39,6 @@ export const toggleFavorite = createAsyncThunk(
          }
 
          const data = await response.json()
-         console.log('Data:', data)
 
          return data
       } catch (error) {

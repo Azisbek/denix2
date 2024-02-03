@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
-import { useDispatch } from 'react-redux'
 import Select from 'react-select'
+import { useDispatch } from 'react-redux'
 import classes from './AddNewProducts.module.css'
 
 import {
