@@ -16,8 +16,8 @@ import ModalCart from '../../ui/ModalCart'
 
 const PathBasket = ({ data }) => {
    const dispatch = useDispatch()
-   const [counter, setCounter] = useState(1)
    const [showModal, setShowModal] = useState(false)
+   const [counter, setCounter] = useState(1)
 
    const inputNumberChangeHandler = (e) => {
       const { value } = e.target
