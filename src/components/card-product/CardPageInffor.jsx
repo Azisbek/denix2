@@ -6,6 +6,7 @@ import SimivarProducts from './simivar-products/SimivarProducts'
 import Characteristics from './tire-information/Characteristics'
 import classes from './CardPageInfor.module.css'
 import { getProdictItem } from '../../store/newCardProductSlice'
+import Loading from '../ui/Loading'
 
 const CardPage = () => {
    const dispatch = useDispatch()
@@ -19,7 +20,7 @@ const CardPage = () => {
    return (
       <div className={classes.container}>
          {isLoading ? (
-            <p>Loading...</p>
+            <Loading />
          ) : (
             data && (
                <>

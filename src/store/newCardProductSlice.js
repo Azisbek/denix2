@@ -10,7 +10,7 @@ export const getProdictItem = createAsyncThunk(
             throw new Error('Server Error')
          }
          const data = await response.json()
-         dispatch(setData(data)) // Assuming you have a setData action to update the state
+         dispatch(setData(data))
          return data
       } catch (error) {
          console.error('Error in getProdictItem:', error)

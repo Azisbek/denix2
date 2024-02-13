@@ -4,10 +4,12 @@ import classes from './ProductList.module.css'
 import ProductItem from '../../Product/ProductItem'
 import Pagination from './Pagination'
 import { getProducts } from '../../../store/addNewProductSlice'
+import Loading from '../../ui/Loading'
 
 const ProductList = () => {
    const dispatch = useDispatch()
    const data = useSelector((state) => state.product.products)
+   const status = useSelector((state) => state.product.loading)
 
    useEffect(() => {
       dispatch(getProducts())
@@ -25,6 +27,7 @@ const ProductList = () => {
                </p>
             </div>
             <div className={classes.list}>
+               {status === true && <Loading />}
                {data.map((el) => {
                   return (
                      <ProductItem

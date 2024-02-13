@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import classes from './InputNumber.module.css'
 
-const InputNumber = () => {
+const InputNumber = ({ valueQ }) => {
    const [value, setValue] = useState(null)
 
    const inputHandler = (event) => {
@@ -32,7 +32,7 @@ const InputNumber = () => {
             onChange={inputHandler}
             onKeyPress={handleKeyPress}
             type="number"
-            value={value !== null ? value : ''}
+            value={value !== null ? value : valueQ}
          />
          <div className={classes.arrow}>
             <svg

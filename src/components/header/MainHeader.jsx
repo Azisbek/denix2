@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/icon/logo.png'
@@ -19,9 +19,16 @@ import MenuPersonal from './menu-personal/MenuPersonal'
 import Arrow from '../svg/Arrow'
 import Like from '../svg/Like'
 import Shop from '../svg/Shop'
+import { cardGetAsync } from '../../store/cardSlice'
 
 const MainHeader = () => {
    const dispatch = useDispatch()
+   const { items, status } = useSelector((state) => state.cart)
+
+   useEffect(() => {
+      dispatch(cardGetAsync())
+   }, [dispatch])
+
    const {
       personalToggle,
       productsToggle,
@@ -157,10 +164,12 @@ const MainHeader = () => {
                            <Like stroke="white" />
                         </Link>
                      </li>
-
-                     <li className={classes.headerIcon}>
+                     <li className={classes.headerIconCart}>
                         <Link to="/cart">
                            <Shop />
+                           {items.length === 0
+                              ? ''
+                              : status === 'succeeded' && <p>{items.length}</p>}
                         </Link>
                      </li>
                   </div>

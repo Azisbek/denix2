@@ -39,7 +39,7 @@ const Characteristics = ({ data }) => {
                   <h3>Краткое описание</h3>
                   <div className={classes.descriptionLine}>
                      <p>Производитель</p>
-                     <span>Cordiant</span>
+                     <span>{data.manufacturer}</span>
                   </div>
                   <div className={classes.descriptionLine}>
                      <p>Модель</p>

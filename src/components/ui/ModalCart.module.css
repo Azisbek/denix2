@@ -1,0 +1,48 @@
+.modalBackground {
+   position: fixed;
+   z-index: 30;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+   background-color: #fefefe;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 33%;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+
+   & button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      color: white;
+      background-color: orange;
+      font-weight: 600;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+   }
+
+   /* Media Queries */
+   @media only screen and (max-width: 1200px) and (min-width: 600px) {
+      width: 60%; /* Измените ширину для планшетов */
+   }
+   @media only screen and (max-width: 600px) and (min-width: 0) {
+      width: 80%; /* Измените ширину для планшетов */
+   }
+}
+
+.modalOpen {
+   overflow: hidden; /* Prevent background scrolling when modal is open */
+}

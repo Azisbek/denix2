@@ -3,26 +3,37 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../../ui/Button'
 import classes from './PaymentPath.module.css'
 
-const PaymentPath = () => {
+const PaymentPath = ({ items }) => {
    const navigate = useNavigate()
+
    const clickNavigateShopHandler = () => {
       navigate('/order')
    }
+
+   const totalQuantityPrice = items.reduce(
+      (accumulator, currentItem) =>
+         accumulator + Number(currentItem.price) * currentItem.quantity,
+      0
+   )
 
    return (
       <div>
          <div className={classes.blockPaymentPath}>
             <div className={classes.totalQuantityBox}>
                <p>Стоимость</p>
-               <span>12 560 C</span>
+
+               {items.map((el) => {
+                  return <div>{el.price}, </div>
+               })}
             </div>
+
             <div className={classes.totalQuantityBox}>
                <p>Скидка</p>
                <span>-845 C</span>
             </div>
             <div className={classes.totalQuantityBox}>
                <p>Итоговая цена</p>
-               <span>123 000 C</span>
+               <span>{totalQuantityPrice} C</span>
             </div>
             <Button
                onClick={clickNavigateShopHandler}

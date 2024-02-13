@@ -7,7 +7,6 @@ import {
    widthOption,
    profileOption,
    diameterOption,
-   priceOption,
    tireTypeOption,
    seasonalityOption,
    stateOption,
@@ -29,6 +28,7 @@ const AddNewProducts = () => {
    const descriptionTire = useRef()
 
    const [selectedImage, setSelectedImage] = useState(null)
+   const [price, setPrice] = useState(0)
 
    const generateUniqueId = () => {
       return `_${Math.random().toString(36).substring(2, 9)}`
@@ -38,6 +38,23 @@ const AddNewProducts = () => {
 
    const [galleryIsValid, setGalleryIsValid] = useState(false)
    const [notEqualNull, setNotEqualNull] = useState(null)
+   const [checkboxesAreValid, setCheckboxesAreValid] = useState(true)
+
+   const priceInputChangeHandler = (e) => {
+      const { value } = e.target
+      const numericValue = parseFloat(value)
+      if (!Number.isNaN(numericValue) && numericValue >= 0) {
+         setPrice(numericValue)
+      } else {
+         setPrice(null)
+      }
+   }
+
+   const checkboxChangeHandler = (checkboxName, isChecked) => {
+      const updatedCheckboxes = { ...formData, [checkboxName]: isChecked }
+      setFormData(updatedCheckboxes)
+      setCheckboxesAreValid(Object.values(updatedCheckboxes).some(Boolean))
+   }
 
    const [galleryNews, setGalleryNews] = useState(
       new Array(6)
@@ -119,11 +136,6 @@ const AddNewProducts = () => {
       setFormData({ ...formData, diameter: selectedOption })
    }
 
-   const priceHandleChange = (selectedOption) => {
-      setFormErrors({ ...formErrors, price: !selectedOption })
-      setFormData({ ...formData, price: selectedOption })
-   }
-
    const tireTypeHandleChange = (selectedOption) => {
       setFormErrors({ ...formErrors, tireType: !selectedOption })
       setFormData({ ...formData, tireType: selectedOption })
@@ -169,11 +181,11 @@ const AddNewProducts = () => {
       setFormData({ ...formData, noiseLevel: selectedOption })
    }
 
-   const formSubmitHandler = (e) => {
+   const formSubmitHandler = async (e) => {
       e.preventDefault()
 
-      const formErrorsCopy = {} // Declare formErrorsCopy here
-      let hasErrors = false // Declare hasErrors here
+      const formErrorsCopy = {}
+      let hasErrors = false
 
       const firstImg = galleryNews[0].image
 
@@ -181,7 +193,6 @@ const AddNewProducts = () => {
          setGalleryIsValid((prevState) => !prevState)
          return
       }
-
       if (selectedImage === null) {
          formErrorsCopy.images = true
          hasErrors = true
@@ -189,13 +200,17 @@ const AddNewProducts = () => {
          formErrorsCopy.images = false
       }
 
+      if (hasErrors) {
+         return
+      }
+
       const formDataToSend = {
          title: titleInputNameTireRef.current.value,
+         price,
          description: descriptionTire.current.value,
          width: formData.width?.value,
          profile: formData.profile?.value,
          diameter: formData.diameter?.value,
-         price: formData.price?.value,
          tireType: formData.tireType?.value,
          seasonality: formData.seasonality?.value,
          state: formData.state?.value,
@@ -220,12 +235,7 @@ const AddNewProducts = () => {
 
       setFormErrors(formErrorsCopy)
 
-      if (hasErrors) {
-         // alert(
-         //    'Пожалуйста, заполните все поля и загрузите изображения перед отправкой.'
-         // )
-         return
-      }
+      console.log(formDataToSend)
 
       dispatch(postProduct(formDataToSend))
    }
@@ -289,18 +299,13 @@ const AddNewProducts = () => {
                </div>
                <div>
                   <label htmlFor="searchSelect">Цена</label>
-                  <Select
+                  <input
+                     required
+                     className={classes.nameInput}
                      type="number"
-                     className={classes.select}
-                     id="searchSelect"
-                     options={priceOption}
-                     isSearchable
-                     onChange={priceHandleChange}
-                     placeholder="Search for an option..."
+                     placeholder="цена"
+                     onChange={priceInputChangeHandler}
                   />
-                  {formErrors.price && (
-                     <p className={classes.errorText}>Выберите опцию</p>
-                  )}
                </div>
                <div>
                   <label htmlFor="searchSelect">Тип шины</label>
@@ -362,9 +367,17 @@ const AddNewProducts = () => {
 
                   <div className={classes.containerCheckbox}>
                      <div>
-                        <label htmlFor="scitka">Скидка</label>
+                        <label htmlFor="discount">Скидка</label>
                         <div>
-                           <input type="checkbox" />
+                           <input
+                              type="checkbox"
+                              onChange={(e) =>
+                                 checkboxChangeHandler(
+                                    'discount',
+                                    e.target.checked
+                                 )
+                              }
+                           />
                            <p>да</p>
                         </div>
                      </div>
@@ -372,21 +385,41 @@ const AddNewProducts = () => {
                      <div>
                         <label htmlFor="runflat">Runflat</label>
                         <div>
-                           <input type="checkbox" />
+                           <input
+                              type="checkbox"
+                              onChange={(e) =>
+                                 checkboxChangeHandler(
+                                    'runflat',
+                                    e.target.checked
+                                 )
+                              }
+                           />
+                           <p>да</p>
+                        </div>
+                     </div>
+                     <div>
+                        <label htmlFor="offroad">Off-Road</label>
+                        <div>
+                           <input
+                              type="checkbox"
+                              onChange={(e) =>
+                                 checkboxChangeHandler(
+                                    'offRoad',
+                                    e.target.checked
+                                 )
+                              }
+                           />
                            <p>да</p>
                         </div>
                      </div>
 
-                     <div>
-                        <label htmlFor="offroat">Off-Road</label>
-                        <div>
-                           <input type="checkbox" />
-                           <p>да</p>
-                        </div>
-                     </div>
+                     {!checkboxesAreValid && (
+                        <p className={classes.errorText}>
+                           Выберите хотя бы одну опцию из чекбоксов
+                        </p>
+                     )}
                   </div>
                </div>
-
                <div>
                   <label htmlFor="searchSelect">Индекс скорости</label>
                   <Select
