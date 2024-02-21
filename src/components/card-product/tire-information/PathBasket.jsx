@@ -24,6 +24,8 @@ import {
 const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
    const { isSelected } = useSelector((state) => state.favorites)
+   const cartItems = useSelector((state) => state.cart.items)
+   const cartStatus = useSelector((state) => state.cart.status)
    const productId = useSelector((state) => state.params.id)
    const navigate = useNavigate()
    const favorites = useMatch(`/favorites/${productId}`)
@@ -79,9 +81,9 @@ const PathBasket = ({ data, id }) => {
    }
 
    const postCartChangeHandler = async () => {
-      // Проверка, определен ли массив items перед использованием find
-      if (!items) {
-         // Если items не определен, создаем новый массив
+      const itemExists = cartItems.find((item) => item.title === data.title)
+
+      if (!itemExists) {
          await dispatch(
             cardPostAsync({
                quantity: counter,
@@ -89,31 +91,13 @@ const PathBasket = ({ data, id }) => {
             })
          )
       } else {
-         // Ищем товар с совпадающими характеристиками
-         const existingItem = items.find(
-            (item) =>
-               item.title === data.title &&
-               item.price === data.price &&
-               item.color === data.color
-         )
-
-         if (!existingItem) {
-            // Если товар не найден, добавляем его в корзину
-            await dispatch(
-               cardPostAsync({
-                  quantity: counter,
-                  ...data,
-               })
-            )
-         } else {
-            setShowModal(true)
-         }
+         setShowModal(true)
       }
    }
 
    return (
       <>
-         <div>{status === 'loading' && <Loading />}</div>
+         <div>{cartStatus === 'loading' && <Loading />}</div>
          <div className={classes.container}>
             <div>
                <p className={classes.numberThrough}>8 790 С</p>
