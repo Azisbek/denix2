@@ -207,6 +207,7 @@ const AddNewProducts = () => {
          noiseLevel: formData.noiseLevel?.value,
          img: URL.createObjectURL(selectedImage),
          images: galleryNews,
+         isFavorites: false,
       }
 
       Object.keys(formData).forEach((key) => {

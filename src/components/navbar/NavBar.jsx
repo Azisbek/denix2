@@ -1,63 +1,137 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useMatch } from 'react-router-dom'
 import classes from './NavBar.module.css'
 import CustomLink from '../ui/CustomLink'
+import { setNavBar } from '../../store/navBarSlice'
 
 const NavBar = () => {
-   const match = {
+   const dispatch = useDispatch()
+   const { id } = useSelector((state) => state.params)
+   const linkMatch = {
       catalog: useMatch('/catalog'),
+      productCardInCatalog: useMatch(`/catalog/${id}`),
       cart: useMatch('/cart'),
       order: useMatch('/order'),
       favorites: useMatch('/favorites'),
+      productCardInFavorites: useMatch(`/favorites/${id}`),
       company: useMatch('/company'),
       contacts: useMatch('/contacts'),
+      news: useMatch('/news'),
+
+      newProduct: useMatch('/new-product'),
+      application: useMatch('/application'),
+      newNews: useMatch('/new-news'),
    }
-   const matchMerged = match.cart || match.order
-   const matchGeneral =
-      match.catalog ||
-      match.company ||
-      match.contacts ||
-      match.favorites ||
-      match.order ||
-      matchMerged
+   const cartMatch = linkMatch.cart || linkMatch.order
+   const catalogMatch = linkMatch.catalog || linkMatch.productCardInCatalog
+   const favoritesMatch =
+      linkMatch.favorites || linkMatch.productCardInFavorites
+   const clientMatch =
+      linkMatch.productCardInCatalog ||
+      linkMatch.productCardInFavorites ||
+      linkMatch.company ||
+      linkMatch.contacts ||
+      linkMatch.favorites ||
+      linkMatch.order ||
+      linkMatch.news ||
+      cartMatch ||
+      catalogMatch ||
+      favoritesMatch
+
+   const adminMatch =
+      linkMatch.newProduct || linkMatch.application || linkMatch.newNews
+   const totalNav = adminMatch || clientMatch
+
+   useEffect(() => {
+      dispatch(setNavBar({ clientMatch, adminMatch }))
+   }, [dispatch, clientMatch, adminMatch])
 
    return (
-      matchGeneral && (
-         <nav className={classes.navbar}>
+      totalNav && (
+         <nav className={classes.navbar} id={adminMatch && classes.bgColor}>
             <ul>
-               <li>
-                  <CustomLink to="/home">Главная</CustomLink>
-               </li>
-               {match.catalog && (
+               {clientMatch && (
+                  <li>
+                     <CustomLink to="/home">Главная</CustomLink>
+                  </li>
+               )}
+               {catalogMatch && (
                   <li>
                      <CustomLink to="/catalog">Каталог</CustomLink>
                   </li>
                )}
-               {matchMerged && (
+               {linkMatch.productCardInCatalog && (
+                  <li>
+                     <CustomLink to={`/catalog/${id}`}>
+                        Карточка товара
+                     </CustomLink>
+                  </li>
+               )}
+               {cartMatch && (
+                  <li>
+                     <CustomLink to="/catalog">Каталог</CustomLink>
+                  </li>
+               )}
+               {cartMatch && (
                   <li>
                      <CustomLink to="/cart">Корзина</CustomLink>
                   </li>
                )}
-               {match.order && (
+               {linkMatch.order && (
                   <li>
                      <CustomLink to="/order">Оформление заказа</CustomLink>
                   </li>
                )}
-               {match.favorites && (
+               {favoritesMatch && (
                   <li>
                      <CustomLink to="/favorites">Избранное</CustomLink>
                   </li>
                )}
-               {match.company && (
+               {linkMatch.productCardInFavorites && (
+                  <li>
+                     <CustomLink to={`/favorites/${id}`}>
+                        Карточка товара
+                     </CustomLink>
+                  </li>
+               )}
+               {linkMatch.company && (
                   <li>
                      <CustomLink to="/company">О компании</CustomLink>
                   </li>
                )}
-               {match.contacts && (
+               {linkMatch.contacts && (
                   <li>
                      <CustomLink to="/contacts">
                         Контактная информация
                      </CustomLink>
+                  </li>
+               )}
+               {linkMatch.news && (
+                  <li>
+                     <CustomLink to="/news">Статьи и новости</CustomLink>
+                  </li>
+               )}
+
+               {/* Навигация для админки */}
+               {adminMatch && (
+                  <li>
+                     <CustomLink to="/admin">Админка</CustomLink>
+                  </li>
+               )}
+               {linkMatch.newProduct && (
+                  <li>
+                     <CustomLink to="/new-product">Добавить товар</CustomLink>
+                  </li>
+               )}
+               {linkMatch.newNews && (
+                  <li>
+                     <CustomLink to="/new-news">Добавить новость</CustomLink>
+                  </li>
+               )}
+               {linkMatch.application && (
+                  <li>
+                     <CustomLink to="/application">Заявки</CustomLink>
                   </li>
                )}
             </ul>

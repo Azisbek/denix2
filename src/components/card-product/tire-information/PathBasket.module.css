@@ -40,15 +40,17 @@
    border-radius: 2px;
    white-space: nowrap;
 }
-.blockUi button:hover {
+/* .blockUi button:hover {
    background-color: #ff7e00;
-}
+} */
 
 .blockLike {
    /* width: 48px; */
    padding: 12px;
    border: 1px solid #efd8c3;
    border-radius: 2px;
+   background-color: #fff;
+   cursor: pointer;
    display: flex;
    justify-content: center;
    align-items: center;

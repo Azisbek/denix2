@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../ui/Button'
 import classes from './NotFoundPage.module.css'
 
 const NotFoundPage = () => {
@@ -23,9 +22,9 @@ const NotFoundPage = () => {
                />
             </svg>
          </div>
-         <Button id={classes.btnNotFound}>
-            <Link to="/">Перейти на главную страницу</Link>
-         </Button>
+         <Link to="/" className={classes.btnNotFound}>
+            Перейти на главную страницу
+         </Link>
       </section>
    )
 }

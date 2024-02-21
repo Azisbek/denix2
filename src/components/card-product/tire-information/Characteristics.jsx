@@ -6,7 +6,7 @@ import commentIcon from '../../../assets/icon/commentIcon.png'
 import { Rating } from '../../svg/Rating'
 import PathBasket from './PathBasket'
 
-const Characteristics = ({ data }) => {
+const Characteristics = ({ data, id }) => {
    return (
       <div className={classes.block}>
          <h1>{data.title}</h1>
@@ -76,7 +76,7 @@ const Characteristics = ({ data }) => {
                   <a href="#/">Перейти ко всем характеристикам (12)</a>
                </div>
             </div>
-            <PathBasket data={data} />
+            <PathBasket data={data} id={id} />
          </div>
       </div>
    )

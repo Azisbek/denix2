@@ -4,10 +4,6 @@ import classes from './ProductList.module.css'
 import ProductItem from '../../Product/ProductItem'
 import Pagination from './Pagination'
 import { getProducts } from '../../../store/addNewProductSlice'
-import {
-   fetchFavorites,
-   // toggleFavorite,
-} from '../../../store/likeProductsSlice'
 
 const ProductList = () => {
    const dispatch = useDispatch()
@@ -15,12 +11,7 @@ const ProductList = () => {
 
    useEffect(() => {
       dispatch(getProducts())
-      dispatch(fetchFavorites())
    }, [dispatch])
-
-   // const handleToggleFavorite = (itemId, isFavorite) => {
-   //    dispatch(toggleFavorite({ itemId, isFavorite }))
-   // }
 
    return (
       <section>
@@ -34,17 +25,9 @@ const ProductList = () => {
                </p>
             </div>
             <div className={classes.list}>
-               {data.map((el) => {
-                  return (
-                     <ProductItem
-                        id={el.id}
-                        img={el.img}
-                        price={el.price}
-                        titleName={el.title}
-                        // onClick={()=>{handleToggleFavorite()}}
-                     />
-                  )
-               })}
+               {data.map((el) => (
+                  <ProductItem key={el.id} data={el} />
+               ))}
             </div>
             <Pagination />
          </div>
