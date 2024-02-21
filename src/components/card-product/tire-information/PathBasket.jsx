@@ -23,7 +23,9 @@ import {
 
 const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
-   const { isSelected, status, items } = useSelector((state) => state.favorites)
+   const { isSelected, status } = useSelector((state) => state.favorites)
+   const cartItems = useSelector((state) => state.cart.items)
+   const cartStatus = useSelector((state) => state.cart.status)
    const productId = useSelector((state) => state.params.id)
    const navigate = useNavigate()
    const favorites = useMatch(`/favorites/${productId}`)
@@ -79,7 +81,7 @@ const PathBasket = ({ data, id }) => {
    }
 
    const postCartChangeHandler = async () => {
-      const itemExists = items.find((item) => item.title === data.title)
+      const itemExists = cartItems.find((item) => item.title === data.title)
 
       if (!itemExists) {
          await dispatch(
@@ -96,6 +98,7 @@ const PathBasket = ({ data, id }) => {
    return (
       <>
          <div>{status === 'loading' && <Loading />}</div>
+         <div>{cartStatus === 'loading' && <Loading />}</div>
          <div className={classes.container}>
             <div>
                <p className={classes.numberThrough}>8 790 С</p>
