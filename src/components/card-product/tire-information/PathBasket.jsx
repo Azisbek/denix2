@@ -23,7 +23,7 @@ import {
 
 const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
-   const { isSelected, status } = useSelector((state) => state.favorites)
+   const { isSelected } = useSelector((state) => state.favorites)
    const cartItems = useSelector((state) => state.cart.items)
    const cartStatus = useSelector((state) => state.cart.status)
    const productId = useSelector((state) => state.params.id)
@@ -97,7 +97,6 @@ const PathBasket = ({ data, id }) => {
 
    return (
       <>
-         <div>{status === 'loading' && <Loading />}</div>
          <div>{cartStatus === 'loading' && <Loading />}</div>
          <div className={classes.container}>
             <div>
