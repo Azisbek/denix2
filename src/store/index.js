@@ -4,6 +4,8 @@ import { addNewProductSlice } from './addNewProductSlice'
 import { newCardProduct } from './newCardProductSlice'
 import { likeProductsSlice } from './likeProductsSlice'
 import { cardSlice } from './cardSlice'
+import { signInSlice } from './signInSlice'
+import { signUpSlice } from './signUpSlice'
 
 export const store = configureStore({
    reducer: {
@@ -12,5 +14,7 @@ export const store = configureStore({
       newPage: newCardProduct.reducer,
       favorites: likeProductsSlice.reducer,
       cart: cardSlice.reducer,
+      signIn: signInSlice.reducer,
+      signUp: signUpSlice.reducer,
    },
 })

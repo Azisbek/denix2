@@ -14,6 +14,8 @@ import AddNews from '../../components/admin/AddNews'
 import CardPageIffor from '../../components/card-product/CardPageInffor'
 import AdminPanel from '../../components/admin/admin-panel/AdminPanel'
 import ApplicationAdmin from '../../components/admin/application-admin/ApplicationAdmin'
+import SignIn from '../../components/form/SignIn'
+import SignUp from '../../components/form/SignUp'
 
 const privateRoute = () => {
    return (
@@ -29,6 +31,8 @@ const privateRoute = () => {
          <Route path="/order" element={<OrderPage />} />
          <Route path="/personal" element={<PersonalAccount />} />
          <Route path="*" element={<NotFoundPage />} />
+         <Route path="sign-in" element={<SignIn />} />
+         <Route path="sign-up" element={<SignUp />} />
 
          <Route path="/admin" element={<AdminPanel />} />
          <Route path="/admin/new-product" element={<AddNewProducts />} />

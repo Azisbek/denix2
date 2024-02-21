@@ -36,6 +36,7 @@ const PathBasket = ({ data }) => {
    useEffect(() => {
       dispatch(cardGetAsync())
    }, [dispatch])
+
    const postCartChangeHandler = async () => {
       const itemExists = items.find((item) => item.title === data.title)
 

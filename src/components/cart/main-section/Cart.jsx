@@ -37,11 +37,6 @@ const Cart = () => {
             {status === 'succeeded' && items.length > 0 && (
                <PaymentPath items={items} />
             )}
-
-            {/* Добавьте обработку ошибок */}
-            {status === 'failed' && (
-               <p>Произошла ошибка при загрузке корзины</p>
-            )}
          </div>
       </div>
    )

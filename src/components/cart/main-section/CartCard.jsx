@@ -21,16 +21,18 @@ const CartCard = ({ title, price, id, img, status, quantity }) => {
 
    const handleQuantityChange = async (event) => {
       const updatedQuantity = event.target.value
-      const result = await dispatch(
-         cardUpdateQuantityAsync({
-            id,
-            newQuantity: updatedQuantity,
-         })
-      )
 
-      // Теперь, когда Thunk завершилась, обновите состояние Redux
-      // Вместо dispatch(updateOrAddItem(result.payload))
-      dispatch(updateOrAddItem({ ...result.payload, id, price, title, img }))
+      if (/^\d+$/.test(updatedQuantity) && updatedQuantity <= 15) {
+         const result = await dispatch(
+            cardUpdateQuantityAsync({
+               id,
+               newQuantity: updatedQuantity,
+            })
+         )
+         // Теперь, когда Thunk завершилась, обновите состояние Redux
+         // Вместо dispatch(updateOrAddItem(result.payload))
+         dispatch(updateOrAddItem({ ...result.payload, id, price, title, img }))
+      }
    }
    return (
       <>
