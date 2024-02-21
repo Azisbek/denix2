@@ -79,9 +79,9 @@ const PathBasket = ({ data, id }) => {
    }
 
    const postCartChangeHandler = async () => {
-      const itemExists = items.find((item) => item.title === data.title)
-
-      if (!itemExists) {
+      // Проверка, определен ли массив items перед использованием find
+      if (!items) {
+         // Если items не определен, создаем новый массив
          await dispatch(
             cardPostAsync({
                quantity: counter,
@@ -89,7 +89,25 @@ const PathBasket = ({ data, id }) => {
             })
          )
       } else {
-         setShowModal(true)
+         // Ищем товар с совпадающими характеристиками
+         const existingItem = items.find(
+            (item) =>
+               item.title === data.title &&
+               item.price === data.price &&
+               item.color === data.color
+         )
+
+         if (!existingItem) {
+            // Если товар не найден, добавляем его в корзину
+            await dispatch(
+               cardPostAsync({
+                  quantity: counter,
+                  ...data,
+               })
+            )
+         } else {
+            setShowModal(true)
+         }
       }
    }
 

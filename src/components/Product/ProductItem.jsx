@@ -7,7 +7,6 @@ import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
 import { Rating } from '../svg/Rating'
 import Like from '../svg/Like'
-import Button from '../ui/Button'
 import {
    addToFavorites,
    removeFavorites,
@@ -75,22 +74,10 @@ const ProductItem = ({ data }) => {
                   <Rating />
                </div>
             </div>
-         </div>
-         <Link to={`/catalog/${data.id}`}>
-            <h3>{data.title}</h3>
-         </Link>
-         <p>
-            В наличии: <span>14</span> шт.
-         </p>
-         <div className={classes.boxButton}>
-            <Link to={`/catalog/${data.id}`}>
-               <Button>{data.price} C</Button>
-            </Link>
             <h3>{data.title}</h3>
             <p>
                В наличии: <span>14</span> шт.
             </p>
-
             <div className={classes.boxButton}>
                <Link to={`${link.pattern.path}/${data.id}`}>
                   <button>{data.price}</button>

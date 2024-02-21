@@ -29,14 +29,7 @@ const ProductList = () => {
             <div className={classes.list}>
                {status === true && <Loading />}
                {data.map((el) => {
-                  return (
-                     <ProductItem
-                        id={el.id}
-                        img={el.img}
-                        price={el.price}
-                        titleName={el.title}
-                     />
-                  )
+                  return <ProductItem key={el.id} data={el} />
                })}
 
                {data.map((el) => (

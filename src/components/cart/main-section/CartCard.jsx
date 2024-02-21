@@ -11,7 +11,7 @@ import {
 } from '../../../store/cardSlice'
 import Loading from '../../ui/Loading'
 
-const CartCard = ({ title, price, id, img, status, quantity }) => {
+const CartCard = ({ data }) => {
    const dispatch = useDispatch()
    const loading = useSelector((state) => state.cart.status)
 
@@ -25,27 +25,34 @@ const CartCard = ({ title, price, id, img, status, quantity }) => {
       if (/^\d+$/.test(updatedQuantity) && updatedQuantity <= 15) {
          const result = await dispatch(
             cardUpdateQuantityAsync({
-               id,
+               id: data.id,
                newQuantity: updatedQuantity,
             })
          )
          // Теперь, когда Thunk завершилась, обновите состояние Redux
          // Вместо dispatch(updateOrAddItem(result.payload))
-         dispatch(updateOrAddItem({ ...result.payload, id, price, title, img }))
+         dispatch(
+            updateOrAddItem({
+               ...result.payload,
+               id: data.id,
+               price: data.price,
+               title: data.title,
+               img: data.img,
+            })
+         )
       }
    }
    return (
       <>
-         {status === 'loading' && <Loading />}
          {loading === 'loading' && <Loading />}
          <div className={classes.cart}>
             <div className={classes.cartImg}>
-               <img src={img} alt="Картинка товара" />
+               <img src={data.img} alt="Картинка товара" />
             </div>
             <div className={classes.description}>
-               <h4>{title}</h4>
+               <h4>{data.title}</h4>
                <p>
-                  Код товара: <span>{id}</span>
+                  Код товара: <span>{data.id}</span>
                </p>
                <div className={classes.checkmark}>
                   <Checkmark />
@@ -62,18 +69,21 @@ const CartCard = ({ title, price, id, img, status, quantity }) => {
             </div>
             <div className={classes.boxQuantity}>
                <input
-                  value={quantity}
+                  value={data.quantity}
                   type="number"
                   className={classes.noSpinArrows}
                   onChange={(e) => handleQuantityChange(e)}
                />
 
                <div className={classes.price}>
-                  <span>{price} сом</span>
+                  <span>{data.price} сом</span>
                </div>
             </div>
             <div>
-               <button className={classes.icon} onClick={() => deleteCart(id)}>
+               <button
+                  className={classes.icon}
+                  onClick={() => deleteCart(data.id)}
+               >
                   <img src={close} alt="Icon close" />
                </button>
             </div>

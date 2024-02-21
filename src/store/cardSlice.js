@@ -51,7 +51,6 @@ export const cardGetAsync = createAsyncThunk(
             id: key,
             ...data[key],
          }))
-
          return transformDataCart
       } catch (error) {
          return rejectWithValue(error.message)

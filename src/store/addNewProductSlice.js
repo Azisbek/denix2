@@ -24,8 +24,8 @@ export const postProduct = createAsyncThunk(
 )
 
 export const getProducts = createAsyncThunk(
-   'productsGet/getProdicts',
-   async function asycGetProducts(_, { rejectWithValue }) {
+   'productsGet/getProducts',
+   async function asyncGetProducts(_, { rejectWithValue }) {
       try {
          const response = await fetch(`${BASE_URL}/products.json`)
          if (!response.ok) {
@@ -57,6 +57,7 @@ export const getProducts = createAsyncThunk(
                isFavorites: data[key].isFavorites,
             })
          })
+         console.log(transformDataProducts)
          return transformDataProducts
       } catch (error) {
          return rejectWithValue(error.message)

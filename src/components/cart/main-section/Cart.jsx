@@ -14,22 +14,14 @@ const Cart = () => {
       dispatch(cardGetAsync())
    }, [dispatch])
 
+   console.log(items)
+
    return (
       <div className={classes.container}>
          <h1>Корзина</h1>
          <div className={classes.cartBox}>
             {status === 'succeeded' && items.length > 0
-               ? items.map((el) => (
-                    <CartCard
-                       quantity={el.quantity}
-                       status={status}
-                       img={el.img}
-                       key={el.id}
-                       id={el.id}
-                       price={el.price}
-                       title={el.title}
-                    />
-                 ))
+               ? items.map((el) => <CartCard key={el.id} data={el} />)
                : null}
 
             {status && items.length === 0 && <h1>Корзина пуста</h1>}
