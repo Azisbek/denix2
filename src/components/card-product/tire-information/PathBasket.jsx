@@ -23,7 +23,7 @@ import {
 
 const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
-   const { isSelected, status, items } = useSelector((state) => state.favorites)
+   const { isSelected } = useSelector((state) => state.favorites)
    const productId = useSelector((state) => state.params.id)
    const navigate = useNavigate()
    const favorites = useMatch(`/favorites/${productId}`)

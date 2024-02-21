@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductItem from '../../Product/ProductItem'
+// import ProductItem from '../../Product/ProductItem'
 import classes from './Recommended.module.css'
 
 const Recommended = () => {
@@ -8,10 +8,10 @@ const Recommended = () => {
          <h2>Рекомендуемые товары</h2>
          <div className={classes.slider}>
             <div className={classes.slides}>
+               {/* <ProductItem />
                <ProductItem />
                <ProductItem />
-               <ProductItem />
-               <ProductItem />
+               <ProductItem /> */}
             </div>
             <div className={classes.iconSvipe}>
                <svg
