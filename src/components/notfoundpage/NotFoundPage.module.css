@@ -19,16 +19,27 @@
    }
 }
 
-#btnNotFound {
-   border-radius: 2px;
-   background: #ff7e00;
+.btnNotFound {
+   padding: 15px 13px;
+   border: 1px solid #ff7e00;
+   background: #fff;
+   color: #ff7e00;
+   cursor: pointer;
+   text-decoration: none;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+}
 
-   a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 16px;
-   }
+.btnNotFound:hover {
+   color: #fff;
+   background-color: #ff7e00;
+   transform: scale(1.1);
+   transition: 0.4s;
+}
+
+.btnNotFound:not(:hover) {
+   transform: scale(1);
+   transition: 0.4s;
 }

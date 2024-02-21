@@ -30,7 +30,10 @@ export const newCardProduct = createSlice({
       setData: (state, action) => {
          state.data = action.payload
       },
+      setFavoritesLocal(state) {
+         state.data.isFavorites = !state.data.isFavorites
+      },
    },
 })
 
-export const { setData } = newCardProduct.actions
+export const { setData, setFavoritesLocal } = newCardProduct.actions

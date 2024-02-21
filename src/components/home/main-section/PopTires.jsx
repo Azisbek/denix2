@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import classes from './PopTires.module.css'
 import Button from '../../ui/Button'
-import ProductItem from '../../Product/ProductItem'
+// import ProductItem from '../../Product/ProductItem'
 
 const PopTires = () => {
    const navigate = useNavigate()
@@ -25,10 +25,10 @@ const PopTires = () => {
                </button>
             </div>
             <div className={classes.cardProducts}>
+               {/* <ProductItem />
                <ProductItem />
                <ProductItem />
-               <ProductItem />
-               <ProductItem />
+               <ProductItem /> */}
             </div>
             <Button onClick={clickCatalogHandler}>Посмотреть все шины</Button>
          </div>

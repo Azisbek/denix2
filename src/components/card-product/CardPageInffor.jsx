@@ -7,14 +7,20 @@ import Characteristics from './tire-information/Characteristics'
 import classes from './CardPageInfor.module.css'
 import { getProdictItem } from '../../store/newCardProductSlice'
 import Loading from '../ui/Loading'
+import { setUseParams } from '../../store/useParamsSlice'
+import { getFavoritesItem } from '../../store/favoritesSlice'
 
 const CardPage = () => {
    const dispatch = useDispatch()
    const { data, isLoading } = useSelector((state) => state.newPage)
+   const { favoritesItem } = useSelector((state) => state.favorites)
    const { id } = useParams()
+   const productCard = data || favoritesItem
 
    useEffect(() => {
       dispatch(getProdictItem(id))
+      dispatch(getFavoritesItem(id))
+      dispatch(setUseParams(id))
    }, [dispatch, id])
 
    return (
@@ -22,11 +28,11 @@ const CardPage = () => {
          {isLoading ? (
             <Loading />
          ) : (
-            data && (
+            productCard && (
                <>
-                  <Characteristics data={data} />
-                  <CardDescription data={data} />
-                  <SimivarProducts data={data} />
+                  <Characteristics data={productCard} id={id} />
+                  <CardDescription data={productCard} />
+                  <SimivarProducts data={productCard} />
                </>
             )
          )}

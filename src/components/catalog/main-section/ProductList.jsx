@@ -38,6 +38,10 @@ const ProductList = () => {
                      />
                   )
                })}
+
+               {data.map((el) => (
+                  <ProductItem key={el.id} data={el} />
+               ))}
             </div>
             <Pagination />
          </div>

@@ -13,7 +13,7 @@ const NavBarArrow = ({ fill }) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M8.27501 3L9 3.54236L6.08024 8L9 12.4576L8.27501 13L5 8L8.27501 3Z"
-            fill={fill || '#1A1E29'}
+            fill={fill}
          />
       </svg>
    )

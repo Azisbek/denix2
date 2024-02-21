@@ -1,23 +1,69 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useMatch, useNavigate } from 'react-router-dom'
 import classes from './PathBasket.module.css'
 import Button from '../../ui/Button'
 import Like from '../../svg/Like'
 import Guarantee from '../../../assets/icon/Guarantee.png'
 import dostavka from '../../../assets/icon/dostavka.png'
 import price from '../../../assets/icon/price.png'
-import {
-   cardGetAsync,
-   cardPostAsync,
-   // updateOrAddItem,
-} from '../../../store/cardSlice'
 import Loading from '../../ui/Loading'
 import ModalCart from '../../ui/ModalCart'
+import Notice from '../../ui/Notice'
+import { setNotice } from '../../../store/noticeSlice'
+import { setFavoritesInCatalog } from '../../../store/addNewProductSlice'
+import { setFavoritesLocal } from '../../../store/newCardProductSlice'
 
-const PathBasket = ({ data }) => {
+import { cardPostAsync } from '../../../store/cardSlice'
+import {
+   addToFavorites,
+   removeFavorites,
+   setIsSelected,
+} from '../../../store/favoritesSlice' // Adjust the path based on the actual location of the file
+
+const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
+   const { isSelected, status, items } = useSelector((state) => state.favorites)
+   const productId = useSelector((state) => state.params.id)
+   const navigate = useNavigate()
+   const favorites = useMatch(`/favorites/${productId}`)
    const [showModal, setShowModal] = useState(false)
    const [counter, setCounter] = useState(1)
+
+   const handleAddToFavorites = () => {
+      dispatch(addToFavorites(data))
+      dispatch(setFavoritesInCatalog(id))
+      dispatch(setNotice('Добавлено в Избранное'))
+   }
+
+   const handleRemoveFromFavorites = () => {
+      dispatch(setFavoritesInCatalog(id))
+      dispatch(removeFavorites(id))
+      dispatch(setNotice('Удалено с Избранного'))
+   }
+
+   const addToFavoritesHandler = () => {
+      if (!isSelected) {
+         handleAddToFavorites()
+      }
+      if (isSelected) {
+         handleRemoveFromFavorites()
+      }
+   }
+
+   useEffect(() => {
+      if (isSelected) {
+         setTimeout(() => {
+            dispatch(setIsSelected(false))
+            if (favorites) {
+               navigate(-1)
+            }
+         }, 2000)
+         if (!favorites) {
+            dispatch(setFavoritesLocal())
+         }
+      }
+   }, [dispatch, isSelected, favorites])
 
    const inputNumberChangeHandler = (e) => {
       const { value } = e.target
@@ -31,17 +77,11 @@ const PathBasket = ({ data }) => {
          setCounter(parsedValue)
       }
    }
-   const { status, items } = useSelector((state) => state.cart)
-
-   useEffect(() => {
-      dispatch(cardGetAsync())
-   }, [dispatch])
 
    const postCartChangeHandler = async () => {
       const itemExists = items.find((item) => item.title === data.title)
 
       if (!itemExists) {
-         // Если товара нет в корзине, добавляем его через Firebase
          await dispatch(
             cardPostAsync({
                quantity: counter,
@@ -50,25 +90,22 @@ const PathBasket = ({ data }) => {
          )
       } else {
          setShowModal(true)
-         // Если товар уже есть в корзине, обновляем его в Redux state
-         // dispatch(updateOrAddItem(data))
       }
    }
 
    return (
       <>
          <div>{status === 'loading' && <Loading />}</div>
-
          <div className={classes.container}>
             <div>
                <p className={classes.numberThrough}>8 790 С</p>
             </div>
             <div className={classes.price}>
-               <p> {data.price}</p> <p>за 1 шт.</p>
+               <p>{data.price}</p> <p>за 1 шт.</p>
             </div>
             <div className={classes.math}>
                <p>
-                  {data.price} × {4} = {data.price * 4}
+                  {data.price} × {counter} = {data.price * counter}
                </p>
             </div>
             <div className={classes.blockUi}>
@@ -81,10 +118,13 @@ const PathBasket = ({ data }) => {
                   />
                </div>
                <Button onClick={postCartChangeHandler}>В корзину</Button>
-
-               <div className={classes.blockLike}>
-                  <Like />
-               </div>
+               <button
+                  onClick={addToFavoritesHandler}
+                  className={classes.blockLike}
+                  aria-label="Add To Favorites"
+               >
+                  <Like fill={isSelected ? '#FF7E00' : ''} />
+               </button>
             </div>
 
             <div className={classes.textBlock}>
@@ -104,8 +144,9 @@ const PathBasket = ({ data }) => {
             </div>
          </div>
          {showModal && <ModalCart onClose={() => setShowModal(false)} />}
+         {isSelected && <Notice />}
       </>
    )
 }
 
-export default PathBasket
+export default React.memo(PathBasket)

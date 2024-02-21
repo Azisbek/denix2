@@ -20,7 +20,7 @@ const MenuCompany = () => {
                <div className={classes.line} />
 
                <li>
-                  <a href="/accessories">Статьи и новости</a>
+                  <Link to="/news">Статьи и новости</Link>
                </li>
 
                <div className={classes.line} />

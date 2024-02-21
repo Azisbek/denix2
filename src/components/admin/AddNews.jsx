@@ -18,7 +18,6 @@ const AddNews = () => {
    const [notEqualNull, setNotEqualNull] = useState(null)
    const [tagsNews, setTagsNews] = useState([])
    const [currentTag, setCurrentTag] = useState('')
-   // const [clearTags, setClearTags] = useState(null)
    const [galleryNews, setGalleryNews] = useState(
       new Array(6)
          .fill(null)

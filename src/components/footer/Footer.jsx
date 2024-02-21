@@ -66,7 +66,7 @@ const Footer = () => {
                   <Link to="/company">О компании</Link>
                   <a href="/">Оплата</a>
                   <a href="/">Доставка</a>
-                  <a href="/">Статьи и новости</a>
+                  <Link to="/news">Статьи и новости</Link>
                   <a href="/">Акции и скидки</a>
                   <Link to="/contacts">Контакты</Link>
                   <a href="/">Кредит</a>

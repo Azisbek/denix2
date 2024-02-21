@@ -32,8 +32,8 @@ export const getProducts = createAsyncThunk(
             throw new Error('Server error')
          }
          const data = await response.json()
-         const transformDataProducts = []
 
+         const transformDataProducts = []
          Object.keys(data).forEach((key) => {
             transformDataProducts.push({
                id: key,
@@ -54,10 +54,41 @@ export const getProducts = createAsyncThunk(
                images: data[key].images,
                img: data[key].img,
                description: data[key].description,
+               isFavorites: data[key].isFavorites,
             })
          })
-
          return transformDataProducts
+      } catch (error) {
+         return rejectWithValue(error.message)
+      }
+   }
+)
+
+export const setFavoritesInCatalog = createAsyncThunk(
+   'name/setFavoritesInCatalog',
+   async function asyncSetFavorites(
+      id,
+      { rejectWithValue, dispatch, getState }
+   ) {
+      try {
+         const state = getState()
+         const product = state.product.products.find((el) => el.id === id)
+         const response = await fetch(`${BASE_URL}/products/${id}.json`, {
+            method: 'PATCH',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+               isFavorites: !product.isFavorites,
+            }),
+         })
+
+         if (!response.ok) {
+            throw new Error('Неожиданная ошибка! Повторите еще раз!')
+         }
+         dispatch(setFavoritesLocal(id))
+         const data = await response.json()
+         return data
       } catch (error) {
          return rejectWithValue(error.message)
       }
@@ -71,6 +102,15 @@ export const addNewProductSlice = createSlice({
       selectedProduct: null,
       loading: false,
       error: null,
+   },
+
+   reducers: {
+      setFavoritesLocal(state, action) {
+         const favoritesItem = state.products.find(
+            (el) => el.id === action.payload
+         )
+         favoritesItem.isFavorites = !favoritesItem.isFavorites
+      },
    },
 
    extraReducers(builder) {
@@ -87,7 +127,17 @@ export const addNewProductSlice = createSlice({
             state.loading = false
             state.error = action.payload
          })
+
+         .addCase(setFavoritesInCatalog.pending, (state) => {
+            state.error = null
+         })
+         .addCase(setFavoritesInCatalog.fulfilled, (state) => {
+            state.error = null
+         })
+         .addCase(setFavoritesInCatalog.rejected, (state, action) => {
+            state.error = action.payload
+         })
    },
 })
 
-export const { selectedProduct } = addNewProductSlice.actions
+export const { selectedProduct, setFavoritesLocal } = addNewProductSlice.actions

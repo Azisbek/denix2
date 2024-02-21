@@ -1,7 +1,7 @@
 .container {
    margin: 0 auto;
    max-width: 1340px;
-   padding: 0 30px;
+   padding: 24px 30px 0;
 }
 
 .block {
@@ -16,18 +16,15 @@
    line-height: 48px;
    padding-bottom: 24px;
 }
-.lastBtn{
+.lastBtn {
    display: flex;
    text-align: center;
    justify-content: center;
-   margin: 8px 0 72px; 
- 
- }
- .lastBtn button{
- padding: 12px 24px;
- }
- .mainFoto2{
+   margin: 8px 0 72px;
+}
+.lastBtn button {
+   padding: 12px 24px;
+}
+.mainFoto2 {
    display: none;
 }
-
-
