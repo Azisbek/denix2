@@ -45,10 +45,10 @@ const PathBasket = ({ data, id }) => {
    }
 
    const addToFavoritesHandler = () => {
-      if (!isSelected) {
+      if (!data.isFavorites) {
          handleAddToFavorites()
       }
-      if (isSelected) {
+      if (data.isFavorites) {
          handleRemoveFromFavorites()
       }
    }
@@ -125,7 +125,7 @@ const PathBasket = ({ data, id }) => {
                   className={classes.blockLike}
                   aria-label="Add To Favorites"
                >
-                  <Like fill={isSelected ? '#FF7E00' : ''} />
+                  <Like fill={data.isFavorites ? '#FF7E00' : ''} />
                </button>
             </div>
 
