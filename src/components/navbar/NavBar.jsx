@@ -18,6 +18,7 @@ const NavBar = () => {
       company: useMatch('/company'),
       contacts: useMatch('/contacts'),
       news: useMatch('/news'),
+      titleNews: useMatch(`/news/${id}`),
 
       newProduct: useMatch('/new-product'),
       application: useMatch('/application'),
@@ -27,6 +28,9 @@ const NavBar = () => {
    const catalogMatch = linkMatch.catalog || linkMatch.productCardInCatalog
    const favoritesMatch =
       linkMatch.favorites || linkMatch.productCardInFavorites
+
+   const newsMatch = linkMatch.news || linkMatch.titleNews
+
    const clientMatch =
       linkMatch.productCardInCatalog ||
       linkMatch.productCardInFavorites ||
@@ -37,7 +41,8 @@ const NavBar = () => {
       linkMatch.news ||
       cartMatch ||
       catalogMatch ||
-      favoritesMatch
+      favoritesMatch ||
+      newsMatch
 
    const adminMatch =
       linkMatch.newProduct || linkMatch.application || linkMatch.newNews
@@ -107,9 +112,16 @@ const NavBar = () => {
                      </CustomLink>
                   </li>
                )}
-               {linkMatch.news && (
+               {newsMatch && (
                   <li>
                      <CustomLink to="/news">Статьи и новости</CustomLink>
+                  </li>
+               )}
+               {linkMatch.titleNews && (
+                  <li>
+                     <CustomLink to={`/news/${id}`}>
+                        Заголовок новости
+                     </CustomLink>
                   </li>
                )}
 

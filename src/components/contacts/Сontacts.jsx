@@ -7,8 +7,10 @@ import classes from './Сontacts.module.css'
 import Button from '../ui/Button'
 import messageImg from '../../assets/image/mail-send 1.png'
 import telegramImg from '../../assets/image/telegram (1) 1.png'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const Сontacts = () => {
+   useScrollToTop()
    return (
       <div className={classes.container}>
          <h1>Контактная информация</h1>

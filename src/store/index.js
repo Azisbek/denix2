@@ -11,6 +11,7 @@ import { useParamsSlice } from './useParamsSlice'
 import { navBarSlice } from './navBarSlice'
 import { noticeSlice } from './noticeSlice'
 import { adminNews } from './adminNewsSlice'
+import { newsPage } from './newsPageSlice'
 
 export const store = configureStore({
    reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
       signUp: signUpSlice.reducer,
       favorites: favoritesSlice.reducer,
       news: addNewsSlice.reducer,
+      newsItem: newsPage.reducer,
       params: useParamsSlice.reducer,
       navBar: navBarSlice.reducer,
       notice: noticeSlice.reducer,

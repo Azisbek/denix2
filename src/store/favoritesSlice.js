@@ -20,7 +20,6 @@ export const addToFavorites = createAsyncThunk(
             throw new Error('Server not found')
          }
          const data = await response.json()
-         console.log(data)
          return data
       } catch (error) {
          return rejectWithValue(error.message)
@@ -164,21 +163,21 @@ export const favoritesSlice = createSlice({
       setIsSelected(state, action) {
          state.isSelected = action.payload
       },
+      setFavoritesLocalInFavorietsPage(state) {
+         state.favoritesItem.isFavorites = !state.favoritesItem.isFavorites
+      },
    },
    extraReducers(builder) {
       builder.addCase(addToFavorites.pending, (state) => {
-         state.isLoading = true
          state.status = null
          state.isSelected = false
       })
       builder.addCase(addToFavorites.fulfilled, (state, action) => {
-         state.isLoading = false
          state.status = null
          state.favorites.push(action.payload)
          state.isSelected = true
       })
       builder.addCase(addToFavorites.rejected, (state, action) => {
-         state.isLoading = false
          state.status = action.payload
          state.isSelected = false
       })
@@ -212,22 +211,23 @@ export const favoritesSlice = createSlice({
       })
 
       builder.addCase(removeFavorites.pending, (state) => {
-         state.isLoading = true
          state.status = null
          state.isSelected = false
       })
       builder.addCase(removeFavorites.fulfilled, (state) => {
-         state.isLoading = false
          state.status = null
          state.isSelected = true
       })
       builder.addCase(removeFavorites.rejected, (state, action) => {
-         state.isLoading = false
          state.status = action.payload
          state.isSelected = false
       })
    },
 })
 
-export const { deletedFavorites, setFavoritesLocal, setIsSelected } =
-   favoritesSlice.actions
+export const {
+   deletedFavorites,
+   setFavoritesLocal,
+   setIsSelected,
+   setFavoritesLocalInFavorietsPage,
+} = favoritesSlice.actions

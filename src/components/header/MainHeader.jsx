@@ -24,6 +24,7 @@ import { cardGetAsync } from '../../store/cardSlice'
 const MainHeader = () => {
    const dispatch = useDispatch()
    const { items, status } = useSelector((state) => state.cart)
+   const { favorites } = useSelector((state) => state.favorites)
 
    useEffect(() => {
       dispatch(cardGetAsync())
@@ -161,7 +162,11 @@ const MainHeader = () => {
 
                      <li className={classes.headerIcon}>
                         <Link to="/favorites">
-                           <Like stroke="white" />
+                           <Like
+                              stroke={
+                                 favorites.length > 0 ? '#FF7E00' : 'white'
+                              }
+                           />
                         </Link>
                      </li>
                      <li className={classes.headerIconCart}>
