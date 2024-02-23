@@ -16,15 +16,18 @@
    height: 272px;
 }
 .text {
+   display: block;
    color: #1a1e29;
    font-size: 24px;
    font-weight: 500;
    line-height: 32px;
    padding: 8px 31px 8px 31px;
+   text-decoration: none;
 }
 
 .tags {
    display: flex;
+   flex-wrap: wrap;
    gap: 5px;
    padding-left: 31px;
 }

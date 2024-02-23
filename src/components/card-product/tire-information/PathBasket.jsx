@@ -18,6 +18,7 @@ import { cardPostAsync } from '../../../store/cardSlice'
 import {
    addToFavorites,
    removeFavorites,
+   setFavoritesLocalInFavorietsPage,
    setIsSelected,
 } from '../../../store/favoritesSlice' // Adjust the path based on the actual location of the file
 
@@ -63,6 +64,8 @@ const PathBasket = ({ data, id }) => {
          }, 2000)
          if (!favorites) {
             dispatch(setFavoritesLocal())
+         } else {
+            dispatch(setFavoritesLocalInFavorietsPage())
          }
       }
    }, [dispatch, isSelected, favorites])

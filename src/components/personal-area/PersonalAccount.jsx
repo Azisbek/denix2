@@ -4,8 +4,10 @@ import classes from './PersonalAccount.module.css'
 import iconn from '../../assets/icon/Icon 16/Link.png'
 import Queston from '../svg/Queston'
 import Button from '../ui/Button'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const PersonalAccount = () => {
+   useScrollToTop()
    return (
       <div className={classes.container}>
          <h1 className={classes.titleMain}>Личный кабинет</h1>

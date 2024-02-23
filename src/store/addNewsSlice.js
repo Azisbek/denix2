@@ -46,6 +46,7 @@ export const getNews = createAsyncThunk(
                url: data[key].url,
                image: data[key].image,
                gallery: data[key].gallery,
+               date: data[key].date,
             })
          })
          return transformedData

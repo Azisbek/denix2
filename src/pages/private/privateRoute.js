@@ -17,6 +17,7 @@ import ApplicationAdmin from '../../components/admin/application-admin/Applicati
 import SignIn from '../../components/form/SignIn'
 import SignUp from '../../components/form/SignUp'
 import NewsArticles from '../../components/news-articles/NewsArticles'
+import NewsPage from '../../components/titleNews/NewsPage'
 
 const privateRoute = () => {
    return (
@@ -33,6 +34,7 @@ const privateRoute = () => {
          <Route path="/order" element={<OrderPage />} />
          <Route path="/personal" element={<PersonalAccount />} />
          <Route path="/news" element={<NewsArticles />} />
+         <Route path="/news/:id" element={<NewsPage />} />
          <Route path="*" element={<NotFoundPage />} />
          <Route path="sign-in" element={<SignIn />} />
          <Route path="sign-up" element={<SignUp />} />

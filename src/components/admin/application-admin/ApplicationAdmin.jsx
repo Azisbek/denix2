@@ -1,8 +1,10 @@
 import React from 'react'
 import classes from './ApplicationAdmin.module.css'
 import Button from '../../ui/Button'
+import useScrollToTop from '../../../hooks/useScrollToTop'
 
 const TableComponent = () => {
+   useScrollToTop()
    return (
       <div className={classes.applicationAdminContainer}>
          <h1>Заявки</h1>
