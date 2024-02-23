@@ -10,6 +10,7 @@ import { addNewsSlice } from './addNewsSlice'
 import { useParamsSlice } from './useParamsSlice'
 import { navBarSlice } from './navBarSlice'
 import { noticeSlice } from './noticeSlice'
+import { adminNews } from './adminNewsSlice'
 
 export const store = configureStore({
    reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
       params: useParamsSlice.reducer,
       navBar: navBarSlice.reducer,
       notice: noticeSlice.reducer,
+      adminNews: adminNews.reducer,
    },
 })
