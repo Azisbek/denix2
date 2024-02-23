@@ -19,7 +19,7 @@ import {
    addToFavorites,
    removeFavorites,
    setIsSelected,
-} from '../../../store/favoritesSlice' // Adjust the path based on the actual location of the file
+} from '../../../store/favoritesSlice'
 
 const PathBasket = ({ data, id }) => {
    const dispatch = useDispatch()
