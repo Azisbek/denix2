@@ -6,17 +6,21 @@ import Ticker from './main-section/Ticker'
 import Promotions from './main-section/Promotions'
 import Selection from './main-section/Selection'
 import Options from './main-section/Options'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
-const HomePage = () => (
-   <>
-      <MainSlider />
-      <Selection />
-      <Options />
-      <PopTires />
-      <Promotions />
-      <Ticker />
-      <Partners />
-   </>
-)
+const HomePage = () => {
+   useScrollToTop()
+   return (
+      <>
+         <MainSlider />
+         <Selection />
+         <Options />
+         <PopTires />
+         <Promotions />
+         <Ticker />
+         <Partners />
+      </>
+   )
+}
 
 export default HomePage

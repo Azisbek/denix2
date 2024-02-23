@@ -18,6 +18,7 @@ import { cardPostAsync } from '../../../store/cardSlice'
 import {
    addToFavorites,
    removeFavorites,
+   setFavoritesLocalInFavorietsPage,
    setIsSelected,
 } from '../../../store/favoritesSlice'
 
@@ -48,7 +49,7 @@ const PathBasket = ({ data, id }) => {
       if (!data.isFavorites) {
          handleAddToFavorites()
       }
-      if (isSelected) {
+      if (data.isFavorites) {
          handleRemoveFromFavorites()
       }
    }
@@ -63,6 +64,8 @@ const PathBasket = ({ data, id }) => {
          }, 2000)
          if (!favorites) {
             dispatch(setFavoritesLocal())
+         } else {
+            dispatch(setFavoritesLocalInFavorietsPage())
          }
       }
    }, [dispatch, isSelected, favorites])

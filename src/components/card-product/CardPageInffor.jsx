@@ -9,13 +9,18 @@ import { getProdictItem } from '../../store/newCardProductSlice'
 import Loading from '../ui/Loading'
 import { setUseParams } from '../../store/useParamsSlice'
 import { getFavoritesItem } from '../../store/favoritesSlice'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const CardPage = () => {
    const dispatch = useDispatch()
    const { data, isLoading } = useSelector((state) => state.newPage)
    const { favoritesItem } = useSelector((state) => state.favorites)
+   const load = useSelector((state) => state.favorites.isLoading)
    const { id } = useParams()
    const productCard = data || favoritesItem
+   const loading = isLoading || load
+
+   useScrollToTop()
 
    useEffect(() => {
       dispatch(getProdictItem(id))
@@ -25,16 +30,13 @@ const CardPage = () => {
 
    return (
       <div className={classes.container}>
-         {isLoading ? (
-            <Loading />
-         ) : (
-            productCard && (
-               <>
-                  <Characteristics data={productCard} id={id} />
-                  <CardDescription data={productCard} />
-                  <SimivarProducts data={productCard} />
-               </>
-            )
+         {loading && <Loading />}
+         {productCard && (
+            <>
+               <Characteristics data={productCard} id={id} />
+               <CardDescription data={productCard} />
+               <SimivarProducts data={productCard} />
+            </>
          )}
       </div>
    )

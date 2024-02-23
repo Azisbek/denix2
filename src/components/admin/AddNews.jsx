@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux'
 import Button from '../ui/Button'
 import classes from './AddNews.module.css'
 import { postNews } from '../../store/addNewsSlice'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const AddNews = () => {
    const dispatch = useDispatch()
+   useScrollToTop()
    const generateUniqueId = () => {
       return `_${Math.random().toString(36)}`
    }
@@ -96,6 +98,15 @@ const AddNews = () => {
          return
       }
 
+      const date = new Date()
+      const currentDate = `${date.getDate()}.${date.toLocaleString('ru-RU', {
+         month: '2-digit',
+      })}.${date.getFullYear()} / ${date.toLocaleString('ru-RU', {
+         hour: '2-digit',
+      })}:${date.toLocaleString('ru-RU', {
+         minute: '2-digit',
+      })}`
+
       const news = {
          title: titleNews,
          description: descriptionNews,
@@ -103,6 +114,7 @@ const AddNews = () => {
          image: URL.createObjectURL(imageNews),
          tags: tagsNews,
          gallery: galleryNews,
+         date: currentDate,
       }
       dispatch(postNews(news))
 

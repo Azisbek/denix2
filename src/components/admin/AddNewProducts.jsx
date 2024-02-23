@@ -20,9 +20,11 @@ import {
 
 import Button from '../ui/Button'
 import { postProduct } from '../../store/addNewProductSlice'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const AddNewProducts = () => {
    const dispatch = useDispatch()
+   useScrollToTop()
 
    const titleInputNameTireRef = useRef()
    const descriptionTire = useRef()
