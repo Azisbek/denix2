@@ -12,6 +12,7 @@ function AdminPanel() {
          <Link to="/admin/new-news">Добавить новость</Link>
          <Link to="/admin/application">Заявки</Link>
          <Link to="/admin/promotion">Акций</Link>
+         <Link to="/admin/delete-news">Удалить новость</Link>
       </div>
    )
 }

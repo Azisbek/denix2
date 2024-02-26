@@ -11,8 +11,8 @@ const NewsAndArticles = ({ news }) => {
          <div className={classes.main}>
             <img className={classes.mainFoto} src={news.image} alt="" />
             <img className={classes.mainFoto2} src={chess2} alt="" />
-            <Link to={`/news/${news.id}`} className={classes.text}>
-               {news.title}
+            <Link to={`/news/${news.id}`}>
+               <h3 className={classes.text}>{news.title}</h3>
             </Link>
             <div className={classes.tags}>
                {news.tags.map((tag) => (

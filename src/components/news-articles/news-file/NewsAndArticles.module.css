@@ -9,6 +9,10 @@
    border: 1px solid #e5e5e5;
    background: #fff;
    margin-bottom: 24px;
+
+   a {
+      text-decoration: none;
+   }
 }
 
 .mainFoto {
@@ -22,7 +26,15 @@
    font-weight: 500;
    line-height: 32px;
    padding: 8px 31px 8px 31px;
-   text-decoration: none;
+}
+
+.text:hover {
+   color: #ff7e00;
+   transition: 500ms;
+}
+
+.text:not(:hover) {
+   transition: 500ms;
 }
 
 .tags {
