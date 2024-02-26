@@ -13,6 +13,7 @@ import { navBarSlice } from './navBarSlice'
 import { noticeSlice } from './noticeSlice'
 import { newsPage } from './newsPageSlice'
 import { promotionItemPageSlice } from './promotionItemPageSlice'
+import { adminNews } from './adminNewsSlice'
 
 export const store = configureStore({
    reducer: {
@@ -30,5 +31,6 @@ export const store = configureStore({
       notice: noticeSlice.reducer,
       promotion: addNewPromotionSlice.reducer,
       promotionPageId: promotionItemPageSlice.reducer,
+      adminNews: adminNews.reducer,
    },
 })

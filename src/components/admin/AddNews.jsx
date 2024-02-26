@@ -99,13 +99,12 @@ const AddNews = () => {
       }
 
       const date = new Date()
-      const currentDate = `${date.getDate()}.${date.toLocaleString('ru-RU', {
-         month: '2-digit',
-      })}.${date.getFullYear()} / ${date.toLocaleString('ru-RU', {
-         hour: '2-digit',
-      })}:${date.toLocaleString('ru-RU', {
-         minute: '2-digit',
-      })}`
+      const currentDate = `${date.getDate()}.${(date.getMonth() + 1)
+         .toString()
+         .padStart(2, '0')}.${date.getFullYear()} / ${date
+         .getHours()
+         .toString()
+         .padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
 
       const news = {
          title: titleNews,

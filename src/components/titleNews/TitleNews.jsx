@@ -21,6 +21,7 @@ const TitleNews = ({ news }) => {
          <img src={proverka} alt="Img" className={classes.image} />
          <div className={classes.description}>
             <h2>Описание</h2>
+
             <p>{news.description}</p>
          </div>
          <div className={classes.gallery}>

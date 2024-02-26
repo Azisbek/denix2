@@ -9,8 +9,7 @@ const AdminPromotion = () => {
    const [imagePromotion, setImagePromotion] = useState(null)
    const [imageIsValid, setImageIsValid] = useState(false)
    const [galleryIsValid, setGalleryIsValid] = useState(false)
-   const [notEqualNull, setNotEqualNull] = useState(null)
-
+   // const [notEqualNull, setNotEqualNull] = useState(null)
    const [titlePromotion, setTitlePromotion] = useState('')
    const [textPromotion, setTextPromotion] = useState('')
 
@@ -23,7 +22,7 @@ const AdminPromotion = () => {
    }
 
    const generateUniqueId = () => {
-      return `_${Math.random().toString(36)}`
+      return `_${Math.random().toString(36).substr(2, 9)}`
    }
 
    const [galleryPromotion, setGalleryPromotion] = useState(
@@ -48,10 +47,10 @@ const AdminPromotion = () => {
          }
       }
       inputFileRef.current.value = null
-      const notEqual = galleryPromotion.find(
-         (container) => container.image !== null
-      )
-      setNotEqualNull(notEqual)
+      // const notEqual = galleryPromotion.find(
+      //    (container) => container.image !== null
+      // )
+      // setNotEqualNull(notEqual)
    }
 
    const fileChangeHandler = (event) => {
@@ -62,14 +61,14 @@ const AdminPromotion = () => {
    const submitClickHandler = (event) => {
       event.preventDefault()
       if (imagePromotion === null) {
-         setImageIsValid((prevState) => !prevState)
+         setImageIsValid(true)
          return
       }
 
       const firstImg = galleryPromotion[0].image
 
       if (firstImg === null) {
-         setGalleryIsValid((prevState) => !prevState)
+         setGalleryIsValid(true)
          return
       }
 
@@ -81,29 +80,31 @@ const AdminPromotion = () => {
       }
 
       if (
-         titlePromotion.length &&
-         textPromotion.length > 5 &&
+         titlePromotion.trim() &&
+         textPromotion.trim().length > 5 &&
          imagePromotion &&
          galleryPromotion
       ) {
          dispatch(postPromotion(dataPost))
       } else {
-         alert('Дополните')
+         alert('Дополните все обязательные поля')
       }
    }
 
    return (
       <section className={classes.container}>
-         <h1>Акций</h1>
+         <h1>Акции</h1>
+
          <form className={classes.form}>
             <div>
                <div>
-                  <label htmlFor="title">Названия</label>
+                  <label htmlFor="title">Название</label>
                   <input
                      value={titlePromotion}
                      onChange={titlePromotionChangeHandler}
                      type="text"
                      id="title"
+                     required
                   />
                </div>
                <div>
@@ -115,14 +116,12 @@ const AdminPromotion = () => {
                      id="text"
                      cols="30"
                      rows="10"
-                  >
-                     {}
-                  </textarea>
+                  />
                </div>
             </div>
             <div className={classes.blockImg}>
                <div className={classes.boxInputFile}>
-                  <h3>Фото шины</h3>
+                  <h3>Фото акции</h3>
                   <label htmlFor="addImg">+ добавить картинку</label>
                   <input onChange={fileChangeHandler} type="file" id="addImg" />
                </div>
@@ -134,13 +133,11 @@ const AdminPromotion = () => {
                      />
                   )}
                   {imageIsValid && (
-                     <p className={imagePromotion !== null ? classes.none : ''}>
-                        Добавьте фото!
-                     </p>
+                     <p className={classes.none}>Добавьте фото!</p>
                   )}
                </div>
                <div id={classes.topPadding} className={classes.boxInputFile}>
-                  <h3>Галерия</h3>
+                  <h3>Галерея</h3>
                   <label htmlFor="addGallery">+ добавить картинки</label>
                   <input
                      onChange={galleryChangeHandler}
@@ -155,17 +152,15 @@ const AdminPromotion = () => {
                         {container.image && (
                            <img src={container.image} alt="Gallery" />
                         )}
-                        {galleryIsValid && (
-                           <p className={notEqualNull && classes.none}>
-                              Добавьте фото!
-                           </p>
-                        )}
                      </div>
                   ))}
+                  {galleryIsValid && (
+                     <p className={classes.none}>Добавьте фото в галерею!</p>
+                  )}
                </div>
                <div className={classes.uiContainerButton}>
                   <Button onClick={submitClickHandler}>Сохранить</Button>
-                  <Button>Сбросить</Button>
+                  <Button type="reset">Сбросить</Button>
                </div>
             </div>
          </form>

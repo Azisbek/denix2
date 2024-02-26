@@ -23,6 +23,7 @@ import PromotionPage from '../../components/promotion-page/PromotionPage'
 import PromotionItemPage from '../../components/promotion-page/PromotionItemPage'
 import AdminProduct from '../../components/admin/admin-product/AdminProduct'
 import AdminPromotionProduct from '../../components/admin/admin-promotion/AdminPromotionProduct'
+import DeleteNews from '../../components/admin/deleteNews/DeleteNews'
 
 const privateRoute = () => {
    return (
@@ -51,11 +52,13 @@ const privateRoute = () => {
          <Route path="/admin/application" element={<ApplicationAdmin />} />
          <Route path="/admin/new-news" element={<AddNews />} />
          <Route path="/admin/promotion" element={<AdminPromotion />} />
+
          <Route path="/admin/product" element={<AdminProduct />} />
          <Route
             path="/admin/promotion-product"
             element={<AdminPromotionProduct />}
          />
+         <Route path="/admin/delete-news" element={<DeleteNews />} />
       </Routes>
    )
 }
