@@ -238,8 +238,6 @@ const AddNewProducts = () => {
 
       setFormErrors(formErrorsCopy)
 
-      console.log(formDataToSend)
-
       dispatch(postProduct(formDataToSend))
    }
 

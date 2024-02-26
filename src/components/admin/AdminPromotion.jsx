@@ -2,13 +2,25 @@ import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import classes from './AdminPromotion.module.css'
 import Button from '../ui/Button'
+import { postPromotion } from '../../store/addNewPromotionSlice'
 
 const AdminPromotion = () => {
    const dispatch = useDispatch()
-   const [imageNews, setImageNews] = useState(null)
+   const [imagePromotion, setImagePromotion] = useState(null)
    const [imageIsValid, setImageIsValid] = useState(false)
    const [galleryIsValid, setGalleryIsValid] = useState(false)
    const [notEqualNull, setNotEqualNull] = useState(null)
+
+   const [titlePromotion, setTitlePromotion] = useState('')
+   const [textPromotion, setTextPromotion] = useState('')
+
+   const titlePromotionChangeHandler = (e) => {
+      setTitlePromotion(e.target.value)
+   }
+
+   const textPromotionChangeHandler = (e) => {
+      setTextPromotion(e.target.value)
+   }
 
    const generateUniqueId = () => {
       return `_${Math.random().toString(36)}`
@@ -44,12 +56,12 @@ const AdminPromotion = () => {
 
    const fileChangeHandler = (event) => {
       const file = event.target.files[0]
-      setImageNews(file)
+      setImagePromotion(file)
    }
 
    const submitClickHandler = (event) => {
       event.preventDefault()
-      if (imageNews === null) {
+      if (imagePromotion === null) {
          setImageIsValid((prevState) => !prevState)
          return
       }
@@ -61,21 +73,49 @@ const AdminPromotion = () => {
          return
       }
 
-      dispatch('')
+      const dataPost = {
+         image: URL.createObjectURL(imagePromotion),
+         images: galleryPromotion,
+         title: titlePromotion,
+         text: textPromotion,
+      }
+
+      if (
+         titlePromotion.length &&
+         textPromotion.length > 5 &&
+         imagePromotion &&
+         galleryPromotion
+      ) {
+         dispatch(postPromotion(dataPost))
+      } else {
+         alert('Дополните')
+      }
    }
 
    return (
       <section className={classes.container}>
          <h1>Акций</h1>
-         <form onSubmit={submitClickHandler} className={classes.form}>
+         <form className={classes.form}>
             <div>
                <div>
                   <label htmlFor="title">Названия</label>
-                  <input type="text" id="title" />
+                  <input
+                     value={titlePromotion}
+                     onChange={titlePromotionChangeHandler}
+                     type="text"
+                     id="title"
+                  />
                </div>
                <div>
                   <label htmlFor="text">Введите текст</label>
-                  <textarea required id="text" cols="30" rows="10">
+                  <textarea
+                     onChange={textPromotionChangeHandler}
+                     value={textPromotion}
+                     required
+                     id="text"
+                     cols="30"
+                     rows="10"
+                  >
                      {}
                   </textarea>
                </div>
@@ -87,11 +127,14 @@ const AdminPromotion = () => {
                   <input onChange={fileChangeHandler} type="file" id="addImg" />
                </div>
                <div className={classes.img}>
-                  {imageNews && (
-                     <img src={URL.createObjectURL(imageNews)} alt="Картинка" />
+                  {imagePromotion && (
+                     <img
+                        src={URL.createObjectURL(imagePromotion)}
+                        alt="Картинка"
+                     />
                   )}
                   {imageIsValid && (
-                     <p className={imageNews !== null ? classes.none : ''}>
+                     <p className={imagePromotion !== null ? classes.none : ''}>
                         Добавьте фото!
                      </p>
                   )}
@@ -121,7 +164,7 @@ const AdminPromotion = () => {
                   ))}
                </div>
                <div className={classes.uiContainerButton}>
-                  <Button>Сохранить</Button>
+                  <Button onClick={submitClickHandler}>Сохранить</Button>
                   <Button>Сбросить</Button>
                </div>
             </div>

@@ -19,6 +19,10 @@ import SignUp from '../../components/form/SignUp'
 import NewsArticles from '../../components/news-articles/NewsArticles'
 import AdminPromotion from '../../components/admin/AdminPromotion'
 import NewsPage from '../../components/titleNews/NewsPage'
+import PromotionPage from '../../components/promotion-page/PromotionPage'
+import PromotionItemPage from '../../components/promotion-page/PromotionItemPage'
+import AdminProduct from '../../components/admin/admin-product/AdminProduct'
+import AdminPromotionProduct from '../../components/admin/admin-promotion/AdminPromotionProduct'
 
 const privateRoute = () => {
    return (
@@ -37,14 +41,21 @@ const privateRoute = () => {
          <Route path="/news" element={<NewsArticles />} />
          <Route path="/news/:id" element={<NewsPage />} />
          <Route path="*" element={<NotFoundPage />} />
-         <Route path="sign-in" element={<SignIn />} />
-         <Route path="sign-up" element={<SignUp />} />
+         <Route path="/sign-in" element={<SignIn />} />
+         <Route path="/sign-up" element={<SignUp />} />
+         <Route path="/promotion" element={<PromotionPage />} />
+         <Route path="/promotion/:id" element={<PromotionItemPage />} />
 
          <Route path="/admin" element={<AdminPanel />} />
          <Route path="/admin/new-product" element={<AddNewProducts />} />
          <Route path="/admin/application" element={<ApplicationAdmin />} />
          <Route path="/admin/new-news" element={<AddNews />} />
          <Route path="/admin/promotion" element={<AdminPromotion />} />
+         <Route path="/admin/product" element={<AdminProduct />} />
+         <Route
+            path="/admin/promotion-product"
+            element={<AdminPromotionProduct />}
+         />
       </Routes>
    )
 }

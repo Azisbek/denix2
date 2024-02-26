@@ -1,15 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './Promotion.module.css'
-import promotion from '../../assets/image/promotion.png'
 import time from '../../assets/icon/time.png'
 
-const Promotion = () => {
+const Promotion = ({ data }) => {
    return (
       <div className={classes.boxPromotion}>
-         <img src={promotion} alt="Проверка" />
+         <img src={data.image} alt="Проверка" />
          <div className={classes.boxDescription}>
             <div className={classes.mobile}>
-               <h3>Тормозные колодки со скидкой 10%</h3>
+               <Link to={`/promotion/${data.id}`}>{data.title}</Link>
                <div className={classes.boxBtn}>
                   <button>Диски</button>
                   <button>Шины</button>

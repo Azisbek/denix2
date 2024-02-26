@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { addNewPromotionSlice } from './addNewPromotionSlice'
 import { toggleSlice } from './toggleSlice'
 import { addNewProductSlice } from './addNewProductSlice'
 import { newCardProduct } from './newCardProductSlice'
@@ -11,6 +12,7 @@ import { useParamsSlice } from './useParamsSlice'
 import { navBarSlice } from './navBarSlice'
 import { noticeSlice } from './noticeSlice'
 import { newsPage } from './newsPageSlice'
+import { promotionItemPageSlice } from './promotionItemPageSlice'
 
 export const store = configureStore({
    reducer: {
@@ -26,5 +28,7 @@ export const store = configureStore({
       params: useParamsSlice.reducer,
       navBar: navBarSlice.reducer,
       notice: noticeSlice.reducer,
+      promotion: addNewPromotionSlice.reducer,
+      promotionPageId: promotionItemPageSlice.reducer,
    },
 })

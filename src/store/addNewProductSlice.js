@@ -57,7 +57,6 @@ export const getProducts = createAsyncThunk(
                isFavorites: data[key].isFavorites,
             })
          })
-         console.log(transformDataProducts)
          return transformDataProducts
       } catch (error) {
          return rejectWithValue(error.message)
@@ -96,6 +95,24 @@ export const setFavoritesInCatalog = createAsyncThunk(
    }
 )
 
+export const DeleteProduct = createAsyncThunk(
+   'deleteProduct/DeleteProduct',
+   async function deleteItemProduct(id, { rejectWithValue, dispatch }) {
+      try {
+         const response = await fetch(`${BASE_URL}/products/${id}.json`, {
+            method: 'DELETE',
+         })
+         if (!response.ok) {
+            throw new Error('Server error')
+         }
+         dispatch(deleteItem(id))
+         return response
+      } catch (error) {
+         return rejectWithValue(error.message)
+      }
+   }
+)
+
 export const addNewProductSlice = createSlice({
    name: 'products',
    initialState: {
@@ -111,6 +128,11 @@ export const addNewProductSlice = createSlice({
             (el) => el.id === action.payload
          )
          favoritesItem.isFavorites = !favoritesItem.isFavorites
+      },
+      deleteItem(state, action) {
+         state.products = state.products.filter(
+            (el) => el.id !== action.payload
+         )
       },
    },
 
@@ -141,4 +163,5 @@ export const addNewProductSlice = createSlice({
    },
 })
 
-export const { selectedProduct, setFavoritesLocal } = addNewProductSlice.actions
+export const { selectedProduct, setFavoritesLocal, deleteItem } =
+   addNewProductSlice.actions
