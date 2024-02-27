@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import classes from './AdminPromotionProduct.module.css'
-import {
-   deletePromotionItem,
-   getPromotion,
-} from '../../../store/addNewPromotionSlice'
+import { getPromotion } from '../../../store/addNewPromotionSlice'
 import Loading from '../../ui/Loading'
-import Button from '../../ui/Button'
+import AdminPromotionItem from './AdminPromotionItem'
 
 const AdminPromotionProduct = () => {
    const [searchQuery, setSearchQuery] = useState('')
@@ -31,10 +28,6 @@ const AdminPromotionProduct = () => {
       setSearchQuery(event.target.value)
    }
 
-   const deleteChangeHandlerPromotion = (id) => {
-      dispatch(deletePromotionItem(id))
-   }
-
    return (
       <div>
          <section className={classes.container}>
@@ -48,21 +41,7 @@ const AdminPromotionProduct = () => {
                   onChange={SearchChangeHandler}
                />
                {filteredPromotion.map((el) => (
-                  <div className={classes.block} key={el.id}>
-                     <img
-                        className={classes.img}
-                        src={el.images}
-                        alt="images"
-                     />
-                     <h2 className={classes.title}>{el.title}</h2>
-                     <Button
-                        onClick={() => {
-                           deleteChangeHandlerPromotion(el.id)
-                        }}
-                     >
-                        delete
-                     </Button>
-                  </div>
+                  <AdminPromotionItem key={el.id} adminPromotion={el} />
                ))}
                {filteredPromotion.length === 0 && <h1>пусто</h1>}
             </div>
