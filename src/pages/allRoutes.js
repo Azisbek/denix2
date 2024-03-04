@@ -25,7 +25,7 @@ import AdminProduct from '../components/admin/admin-product/AdminProduct'
 import AdminPromotionProduct from '../components/admin/admin-promotion/AdminPromotionProduct'
 import DeleteNews from '../components/admin/deleteNews/DeleteNews'
 import NavBar from '../components/navbar/NavBar'
-import PrivateRoute from './private/PrivateRoute'
+import PrivateRoute from './private/privateRoute'
 
 const allRoutes = () => {
    return (
