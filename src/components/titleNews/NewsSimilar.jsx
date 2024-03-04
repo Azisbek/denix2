@@ -12,9 +12,7 @@ const NewsSimilar = () => {
             <NewsAndArticles />
             <NewsAndArticles /> */}
          </div>
-         <Link to="/news" href="#/">
-            Посмотреть все новости и статьи
-         </Link>
+         <Link to="/news">Посмотреть все новости и статьи</Link>
       </section>
    )
 }

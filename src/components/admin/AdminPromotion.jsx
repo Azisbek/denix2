@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux'
 import classes from './AdminPromotion.module.css'
 import Button from '../ui/Button'
 import { postPromotion } from '../../store/addNewPromotionSlice'
+import useScrollToTop from '../../hooks/useScrollToTop'
 
 const AdminPromotion = () => {
    const dispatch = useDispatch()
+   useScrollToTop()
    const [imagePromotion, setImagePromotion] = useState(null)
    const [imageIsValid, setImageIsValid] = useState(false)
    const [galleryIsValid, setGalleryIsValid] = useState(false)

@@ -20,9 +20,13 @@ const NavBar = () => {
       news: useMatch('/news'),
       titleNews: useMatch(`/news/${id}`),
 
-      newProduct: useMatch('/new-product'),
-      application: useMatch('/application'),
-      newNews: useMatch('/new-news'),
+      newProduct: useMatch('/admin/new-product'),
+      newNews: useMatch('/admin/new-news'),
+      newPromotion: useMatch('/admin/new-promotion'),
+      application: useMatch('/admin/application'),
+      adminProducts: useMatch('/admin/products'),
+      adminPromotions: useMatch('/admin/promotions'),
+      adminNews: useMatch('/admin/news'),
    }
    const cartMatch = linkMatch.cart || linkMatch.order
    const catalogMatch = linkMatch.catalog || linkMatch.productCardInCatalog
@@ -45,7 +49,13 @@ const NavBar = () => {
       newsMatch
 
    const adminMatch =
-      linkMatch.newProduct || linkMatch.application || linkMatch.newNews
+      linkMatch.newProduct ||
+      linkMatch.application ||
+      linkMatch.newNews ||
+      linkMatch.newPromotion ||
+      linkMatch.adminNews ||
+      linkMatch.adminProducts ||
+      linkMatch.adminPromotions
    const totalNav = adminMatch || clientMatch
 
    useEffect(() => {
@@ -133,17 +143,43 @@ const NavBar = () => {
                )}
                {linkMatch.newProduct && (
                   <li>
-                     <CustomLink to="/new-product">Добавить товар</CustomLink>
+                     <CustomLink to="/admin/new-product">
+                        Добавить товар
+                     </CustomLink>
                   </li>
                )}
                {linkMatch.newNews && (
                   <li>
-                     <CustomLink to="/new-news">Добавить новость</CustomLink>
+                     <CustomLink to="/admin/new-news">
+                        Добавить новость
+                     </CustomLink>
+                  </li>
+               )}
+               {linkMatch.newPromotion && (
+                  <li>
+                     <CustomLink to="/admin/new-promotion">
+                        Добавить акций
+                     </CustomLink>
                   </li>
                )}
                {linkMatch.application && (
                   <li>
-                     <CustomLink to="/application">Заявки</CustomLink>
+                     <CustomLink to="/admin/application">Заявки</CustomLink>
+                  </li>
+               )}
+               {linkMatch.adminProducts && (
+                  <li>
+                     <CustomLink to="/admin/products">Все товары</CustomLink>
+                  </li>
+               )}
+               {linkMatch.adminNews && (
+                  <li>
+                     <CustomLink to="/admin/news">Все новости</CustomLink>
+                  </li>
+               )}
+               {linkMatch.adminPromotions && (
+                  <li>
+                     <CustomLink to="/admin/promotions">Все акции</CustomLink>
                   </li>
                )}
             </ul>

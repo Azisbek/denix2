@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useMatch } from 'react-router-dom'
+import { Link, useLocation, useMatch } from 'react-router-dom'
 import Notice from '../ui/Notice'
 import classes from './ProductItem.module.css'
 import summerIcon from '../../assets/icon/summerIcon.png'
@@ -18,8 +18,9 @@ import { setNotice } from '../../store/noticeSlice'
 const ProductItem = ({ data }) => {
    const dispatch = useDispatch()
    const { isSelected } = useSelector((state) => state.favorites)
-   const catalog = useMatch('/catalog')
-   const favorites = useMatch('/favorites')
+   const location = useLocation()
+   const catalog = useMatch(location.pathname)
+   const favorites = useMatch(location.pathname)
    const link = catalog || favorites
 
    const handleAddToFavorites = () => {
