@@ -14,11 +14,8 @@ const NewsAndArticles = ({ news }) => {
             <Link to={`/news/${news.id}`} className={classes.text}>
                {news.title}
             </Link>
-            <Link to={`/news/${news.id}`}>
-               <h3 className={classes.text}>{news.title}</h3>
-            </Link>
             <div className={classes.tags}>
-               {news.tags.map((tag) => (
+               {news.tags?.map((tag) => (
                   <div key={tag.id} className={classes.receptionBtn}>
                      {tag.title}
                   </div>

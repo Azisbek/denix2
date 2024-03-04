@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import Select from 'react-select'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import classes from './AddNewProducts.module.css'
 
 import {
@@ -21,10 +21,13 @@ import {
 import Button from '../ui/Button'
 import { postProduct } from '../../store/addNewProductSlice'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import Loading from '../ui/Loading'
 
 const AddNewProducts = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   const { loading } = useSelector((state) => state.product)
+   console.log(loading)
 
    const titleInputNameTireRef = useRef()
    const descriptionTire = useRef()
@@ -41,6 +44,8 @@ const AddNewProducts = () => {
    const [galleryIsValid, setGalleryIsValid] = useState(false)
    const [notEqualNull, setNotEqualNull] = useState(null)
    const [checkboxesAreValid, setCheckboxesAreValid] = useState(true)
+   const [inStock, setInStock] = useState(0)
+   const [discountTire, setDiscountTire] = useState(0)
 
    const priceInputChangeHandler = (e) => {
       const { value } = e.target
@@ -49,6 +54,24 @@ const AddNewProducts = () => {
          setPrice(numericValue)
       } else {
          setPrice(null)
+      }
+   }
+   const inStockChangeHandler = (e) => {
+      const { value } = e.target
+      const numericValue = parseFloat(value)
+      if (!Number.isNaN(numericValue) && numericValue >= 0) {
+         setInStock(numericValue)
+      } else {
+         setInStock(null)
+      }
+   }
+   const discounChangeHandler = (e) => {
+      const { value } = e.target
+      const numericValue = parseFloat(value)
+      if (!Number.isNaN(numericValue) && numericValue >= 0) {
+         setDiscountTire(numericValue)
+      } else {
+         setDiscountTire(null)
       }
    }
 
@@ -225,6 +248,8 @@ const AddNewProducts = () => {
          img: URL.createObjectURL(selectedImage),
          images: galleryNews,
          isFavorites: false,
+         discount: discountTire,
+         inStock,
       }
 
       Object.keys(formData).forEach((key) => {
@@ -243,6 +268,7 @@ const AddNewProducts = () => {
 
    return (
       <div className={classes.container}>
+         {loading === 'loading' && <Loading />}
          <h1>Добавить товар</h1>
          <form>
             <div className={classes.blcokInput}>
@@ -366,23 +392,20 @@ const AddNewProducts = () => {
                      )}
                   </div>
 
-                  <div className={classes.containerCheckbox}>
+                  <div>
+                     <label htmlFor="discount">Скидка</label>
                      <div>
-                        <label htmlFor="discount">Скидка</label>
-                        <div>
-                           <input
-                              type="checkbox"
-                              onChange={(e) =>
-                                 checkboxChangeHandler(
-                                    'discount',
-                                    e.target.checked
-                                 )
-                              }
-                           />
-                           <p>да</p>
-                        </div>
+                        <input
+                           className={classes.nameInput}
+                           type="number"
+                           placeholder="скидка"
+                           onChange={discounChangeHandler}
+                           value={discountTire}
+                        />
                      </div>
+                  </div>
 
+                  <div className={classes.containerCheckbox}>
                      <div>
                         <label htmlFor="runflat">Runflat</label>
                         <div>
@@ -506,14 +529,18 @@ const AddNewProducts = () => {
                            <p>да</p>
                         </div>
                      </div>
-
-                     <div>
-                        <label htmlFor="runflat">В наличий</label>
-                        <div>
-                           <input type="checkbox" />
-                           <p>да</p>
-                        </div>
-                     </div>
+                  </div>
+               </div>
+               <div>
+                  <label htmlFor="runflat">В наличий</label>
+                  <div>
+                     <input
+                        onChange={inStockChangeHandler}
+                        value={inStock}
+                        type="number"
+                        placeholder="введите количество шин"
+                        className={classes.nameInput}
+                     />
                   </div>
                </div>
             </div>

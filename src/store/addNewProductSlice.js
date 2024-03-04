@@ -55,6 +55,8 @@ export const getProducts = createAsyncThunk(
                img: data[key].img,
                description: data[key].description,
                isFavorites: data[key].isFavorites,
+               inStock: data[key].inStock,
+               discount: data[key].discount,
             })
          })
          return transformDataProducts
@@ -138,9 +140,17 @@ export const addNewProductSlice = createSlice({
 
    extraReducers(builder) {
       builder
+         .addCase(postProduct.pending, (state) => {
+            state.error = null
+            state.loading = 'loading'
+         })
+         .addCase(postProduct.fulfilled, (state) => {
+            state.error = null
+            state.loading = 'fulfilled'
+         })
          .addCase(getProducts.pending, (state) => {
             state.error = null
-            state.loading = true
+            state.loading = 'loading'
          })
          .addCase(getProducts.fulfilled, (state, action) => {
             state.loading = false

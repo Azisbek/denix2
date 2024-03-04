@@ -14,8 +14,6 @@ const Cart = () => {
       dispatch(cardGetAsync())
    }, [dispatch])
 
-   console.log(items)
-
    return (
       <div className={classes.container}>
          <h1>Корзина</h1>

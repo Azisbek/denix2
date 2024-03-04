@@ -34,7 +34,7 @@ const CardPage = () => {
          {productCard && (
             <>
                <Characteristics data={productCard} id={id} />
-               <CardDescription data={productCard} />
+               <CardDescription data={productCard} id={id} />
                <SimivarProducts data={productCard} />
             </>
          )}

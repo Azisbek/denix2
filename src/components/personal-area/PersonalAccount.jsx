@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './PersonalAccount.module.css'
 // import icon from '../../assets/icon/Icon 16/down.png'
 import iconn from '../../assets/icon/Icon 16/Link.png'
@@ -8,6 +9,16 @@ import useScrollToTop from '../../hooks/useScrollToTop'
 
 const PersonalAccount = () => {
    useScrollToTop()
+
+   const handleScrollToHistory = () => {
+      const historyElement = document.getElementById('history')
+
+      if (historyElement) {
+         historyElement.scrollIntoView({ behavior: 'smooth' })
+      } else {
+         console.error('Элемент "history" не найден.')
+      }
+   }
    return (
       <div className={classes.container}>
          <h1 className={classes.titleMain}>Личный кабинет</h1>
@@ -35,31 +46,33 @@ const PersonalAccount = () => {
                   </div>
                </section>
                <section className={classes.block2}>
-                  <h1>Личные данные</h1>
-                  <p>Гараж</p>
-                  <p>История заказов</p>
-                  <p>Мои баллы</p>
+                  <p onClick={handleScrollToHistory}>История заказов</p>
 
                   <p>
-                     Корзина
-                     <img
-                        className={classes.iconArrow}
-                        src={iconn}
-                        alt="iconn"
-                     />
+                     <Link to="/cart">
+                        Корзина
+                        <img
+                           className={classes.iconArrow}
+                           src={iconn}
+                           alt="iconn"
+                        />
+                     </Link>
                   </p>
+
                   <p>
-                     Избранное
-                     <img
-                        className={classes.iconArrow}
-                        src={iconn}
-                        alt="iconn"
-                     />
+                     <Link to="/favorites">
+                        Избранное
+                        <img
+                           className={classes.iconArrow}
+                           src={iconn}
+                           alt="iconn"
+                        />
+                     </Link>
                   </p>
                </section>
             </div>
             {/* ---------------li--------------------------------------------------- */}
-            <section className={classes.block3}>
+            <section id="history" className={classes.block3}>
                <h1 className={classes.titlePersonal}>История заказов</h1>
                <div className={classes.historyOrders}>
                   <ul className={classes.containerUl}>
@@ -108,7 +121,7 @@ const PersonalAccount = () => {
                      <p>
                         На данный момент у вас нет баллов. Чтобы их получить
                         нужно заказать <br /> и оплатить покупку.
-                        <a href="http://localhost:3000/">Перейти к товарам</a>
+                        <Link to="/catalog">Перейти к товарам</Link>
                      </p>
                   </div>
                </div>

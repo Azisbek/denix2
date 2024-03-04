@@ -30,7 +30,7 @@ const MainSlider = () => {
    }
 
    useEffect(() => {
-      const intervalId = setInterval(handleNextSlide, 2000)
+      const intervalId = setInterval(handleNextSlide, 4000)
 
       return () => {
          clearInterval(intervalId)

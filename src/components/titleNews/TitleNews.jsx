@@ -13,7 +13,7 @@ const TitleNews = ({ news }) => {
                <span>{news.date}</span>
             </div>
             <div className={classes.boxTags}>
-               {news.tags.map((tag) => (
+               {news.tags?.map((tag) => (
                   <div key={tag.id}>{tag.title}</div>
                ))}
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/icon/logo.png'
 import search from '../../assets/icon/serch.png'
 import personal from '../../assets/icon/personal.png'
@@ -15,7 +15,7 @@ import {
 import MenuProducts from './menu-products/MenuProducts'
 import MenuService from './menu-service/MenuService'
 import MenuCompany from './menu-company/MenuCompany'
-import MenuPersonal from './menu-personal/MenuPersonal'
+// import MenuPersonal from './menu-personal/MenuPersonal'
 import Arrow from '../svg/Arrow'
 import Like from '../svg/Like'
 import Shop from '../svg/Shop'
@@ -134,12 +134,14 @@ const MainHeader = () => {
                   <li className={classes.headerIcon}>
                      <img src={search} alt="search" />
                   </li>
-                  <li className={classes.personalIcon}>
-                     <img
-                        src={personal}
-                        alt="personal"
-                        onClick={personalClickHandler}
-                     />
+                  <li>
+                     <Link to="/personal" className={classes.personalIcon}>
+                        <img
+                           src={personal}
+                           alt="personal"
+                           onClick={personalClickHandler}
+                        />
+                     </Link>
                   </li>
 
                   <div className={classes.divContainerUl}>
@@ -148,15 +150,9 @@ const MainHeader = () => {
                         className={personalToggle ? classes.color : ''}
                      >
                         <div>
-                           <p> Личный кабинет</p>
-                        </div>
-                        <div>
-                           <Arrow
-                              fill={personalToggle ? 'orange' : 'white'}
-                              className={
-                                 personalToggle ? classes.arrowReverse : ''
-                              }
-                           />
+                           <NavLink className={classes.link} to="/personal">
+                              Личный кабинет
+                           </NavLink>
                         </div>
                      </li>
 
@@ -185,12 +181,6 @@ const MainHeader = () => {
          {productsToggle && (
             <div className={classes.menuDesctop}>
                <MenuProducts />
-            </div>
-         )}
-
-         {personalToggle && (
-            <div>
-               <MenuPersonal />
             </div>
          )}
 

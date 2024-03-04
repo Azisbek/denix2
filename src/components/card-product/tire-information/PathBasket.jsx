@@ -98,19 +98,23 @@ const PathBasket = ({ data, id }) => {
       }
    }
 
+   const discount = data.discount || data.price
+
    return (
       <>
          <div>{cartStatus === 'loading' && <Loading />}</div>
          <div className={classes.container}>
             <div>
-               <p className={classes.numberThrough}>8 790 С</p>
+               {data.discount && (
+                  <p className={classes.numberThrough}>{data.price}</p>
+               )}
             </div>
             <div className={classes.price}>
-               <p>{data.price}</p> <p>за 1 шт.</p>
+               <p>{discount}</p> <p>за 1 шт.</p>
             </div>
             <div className={classes.math}>
                <p>
-                  {data.price} × {counter} = {data.price * counter}
+                  {discount} × {counter} = {discount * counter}
                </p>
             </div>
             <div className={classes.blockUi}>

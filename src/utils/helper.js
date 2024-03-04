@@ -1,1 +1,1 @@
-export const SECRET_KEY = 'AIzaSyAsplgs3rKWgOEN5AYnM6AfsCpoqM1wUNc'
+export const SECRET_KEY = 'AIzaSyCZv1tISmQoS2y9axiw3drBXL2DFa1sMcQ'

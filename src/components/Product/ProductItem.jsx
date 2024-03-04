@@ -49,6 +49,9 @@ const ProductItem = ({ data }) => {
          }, 2000)
       }
    }, [dispatch, isSelected])
+
+   const discount = data.discount || data.price
+
    return (
       <>
          {isSelected && <Notice />}
@@ -76,11 +79,11 @@ const ProductItem = ({ data }) => {
             </div>
             <h3>{data.title}</h3>
             <p>
-               В наличии: <span>14</span> шт.
+               В наличии: <span>{data.inStock}</span> шт.
             </p>
             <div className={classes.boxButton}>
                <Link to={`${link.pattern.path}/${data.id}`}>
-                  <button>{data.price}</button>
+                  <button>{discount}</button>
                </Link>
 
                <button

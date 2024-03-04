@@ -15,6 +15,8 @@ const CartCard = ({ data }) => {
    const dispatch = useDispatch()
    const loading = useSelector((state) => state.cart.status)
 
+   const discount = data.discount || data.price
+
    const deleteCart = async (id) => {
       await dispatch(cardDeleteAsync(id))
    }
@@ -35,13 +37,14 @@ const CartCard = ({ data }) => {
             updateOrAddItem({
                ...result.payload,
                id: data.id,
-               price: data.price,
+               price: discount,
                title: data.title,
                img: data.img,
             })
          )
       }
    }
+
    return (
       <>
          {loading === 'loading' && <Loading />}
@@ -76,7 +79,7 @@ const CartCard = ({ data }) => {
                />
 
                <div className={classes.price}>
-                  <span>{data.price} сом</span>
+                  <span>{discount} сом</span>
                </div>
             </div>
             <div>

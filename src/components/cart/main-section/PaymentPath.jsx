@@ -12,9 +12,25 @@ const PaymentPath = ({ items }) => {
 
    const totalQuantityPrice = items.reduce(
       (accumulator, currentItem) =>
-         accumulator + Number(currentItem.price) * currentItem.quantity,
+         accumulator +
+         (Number(currentItem.discount) || Number(currentItem.price)) *
+            currentItem.quantity,
       0
    )
+
+   const totalDiscountPrice = items.reduce((accumulator, currentItem) => {
+      const price = parseFloat(currentItem.price)
+      const discount = parseFloat(currentItem.discount)
+
+      if (!Number.isNaN(price) && !Number.isNaN(discount)) {
+         return (
+            accumulator + (discount && price - discount) * currentItem.quantity
+         )
+      }
+
+      console.error('Invalid price or discount value:', currentItem)
+      return accumulator
+   }, 0)
 
    return (
       <div>
@@ -22,14 +38,16 @@ const PaymentPath = ({ items }) => {
             <div className={classes.totalQuantityBox}>
                <p>Стоимость</p>
 
-               {items.map((el) => {
-                  return <div>{el.price}, </div>
-               })}
+               {items.map((currentItem) => (
+                  <div key={currentItem.id}>
+                     {currentItem.discount || currentItem.price},{' '}
+                  </div>
+               ))}
             </div>
 
             <div className={classes.totalQuantityBox}>
                <p>Скидка</p>
-               <span>-845 C</span>
+               <span>{totalDiscountPrice} C</span>
             </div>
             <div className={classes.totalQuantityBox}>
                <p>Итоговая цена</p>

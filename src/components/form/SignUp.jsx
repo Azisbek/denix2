@@ -30,9 +30,6 @@ const SignUp = () => {
       if (postStatusSignUp === 'fulfilled') {
          // Если успешно, перенаправляем на /home
          navigate('/home')
-      } else if (postStatusSignUp === 'rejected') {
-         // Если неудачно, показываем сообщение
-         alert('Не правильно')
       }
    }, [postStatusSignUp, navigate])
 
@@ -61,6 +58,8 @@ const SignUp = () => {
    })
 
    const initialValues = {
+      name: '',
+      surname: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -110,6 +109,32 @@ const SignUp = () => {
                   </div>
 
                   <div className={classes.containerForm}>
+                     <div>
+                        <Field
+                           type="text"
+                           id="name"
+                           name="name"
+                           placeholder="Имя"
+                        />
+                        <ErrorMessage
+                           className={classes.errorMessageEmail}
+                           name="name"
+                           component="div"
+                        />
+                     </div>
+                     <div>
+                        <Field
+                           type="text"
+                           id="surname"
+                           name="surname"
+                           placeholder="Фамилия"
+                        />
+                        <ErrorMessage
+                           className={classes.errorMessageEmail}
+                           name="surname"
+                           component="div"
+                        />
+                     </div>
                      <div>
                         <Field
                            type="email"

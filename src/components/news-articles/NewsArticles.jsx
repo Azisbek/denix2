@@ -16,21 +16,23 @@ const NewsArticles = () => {
       dispatch(getNews())
    }, [dispatch])
 
-   return (
+   return news ? (
       <>
          {isLoading && <Loading />}
          <section className={classes.container}>
             <h1 className={classes.titleMain}>Новости и статьи</h1>
             <div className={classes.block}>
-               {news.map((news) => {
-                  return <NewsAndArticles key={news.id} news={news} />
-               })}
+               {news.map((newsItem) => (
+                  <NewsAndArticles key={newsItem.id} news={newsItem} />
+               ))}
             </div>
             <div className={classes.lastBtn}>
                <Button>Показать ещё 10 из 32</Button>
             </div>
          </section>
       </>
+   ) : (
+      <h1>Пусто</h1>
    )
 }
 

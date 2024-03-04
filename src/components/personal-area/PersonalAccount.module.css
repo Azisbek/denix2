@@ -62,8 +62,7 @@
    color: #ff7e00;
 }
 /* -----------2-блок-------------------------------------- */
-.block2 {
-}
+
 .block2 > h1 {
    color: #1a1e29;
    font-size: 14px;
@@ -80,8 +79,30 @@
    line-height: 16px;
    padding: 12px 13px;
    border-left: 2px solid #e5e5e5;
+   cursor: pointer;
+}
+.block2 > p > a {
+   text-decoration: none;
+   color: #4c65bd;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
 }
 
+.block2 a:hover {
+   text-decoration: none;
+   color: #ff7e00;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+}
+.block2 p:hover {
+   text-decoration: none;
+   color: #ff7e00;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 16px;
+}
 /* -----------3-блок------- */
 
 .block3 {
