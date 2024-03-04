@@ -10,11 +10,11 @@ function AdminPanel() {
          <h1>Админка</h1>
          <Link to="/admin/new-product">Добавить товар</Link>
          <Link to="/admin/new-news">Добавить новость</Link>
+         <Link to="/admin/new-promotion">Добавить акций</Link>
          <Link to="/admin/application">Заявки</Link>
-         <Link to="/admin/promotion">Акций</Link>
-         <Link to="/admin/product">Посмотреть все товары</Link>
-         <Link to="/admin/promotion-product">Посмотреть все акции</Link>
-         <Link to="/admin/delete-news">Удалить новость</Link>
+         <Link to="/admin/products">Все товары</Link>
+         <Link to="/admin/news">Все новости</Link>
+         <Link to="/admin/promotions">Все акции</Link>
       </div>
    )
 }

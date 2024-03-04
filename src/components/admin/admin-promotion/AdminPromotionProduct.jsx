@@ -4,12 +4,15 @@ import classes from './AdminPromotionProduct.module.css'
 import { getPromotion } from '../../../store/addNewPromotionSlice'
 import Loading from '../../ui/Loading'
 import AdminPromotionItem from './AdminPromotionItem'
+import Button from '../../ui/Button'
+import useScrollToTop from '../../../hooks/useScrollToTop'
 
 const AdminPromotionProduct = () => {
    const [searchQuery, setSearchQuery] = useState('')
    const [filteredPromotion, setFilteredPromotion] = useState([])
 
    const dispatch = useDispatch()
+   useScrollToTop()
    const { baseData, status } = useSelector((state) => state.promotion)
 
    useEffect(() => {

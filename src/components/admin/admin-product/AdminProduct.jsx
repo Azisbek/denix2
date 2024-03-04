@@ -4,9 +4,11 @@ import classes from './AdminProduct.module.css'
 import { getProducts } from '../../../store/addNewProductSlice'
 import Loading from '../../ui/Loading'
 import AdminProductItem from './AdminProductItem'
+import useScrollToTop from '../../../hooks/useScrollToTop'
 
 const AdminProduct = () => {
    const dispatch = useDispatch()
+   useScrollToTop()
    const [searchQuery, setSearchQuery] = useState('')
    const [filteredProduct, setFilteredProduct] = useState([])
    const { products, status } = useSelector((state) => state.product)
