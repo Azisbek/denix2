@@ -10,6 +10,10 @@
 .tabsItem {
    position: relative;
    cursor: pointer;
+   a {
+      text-decoration: none;
+      color: #4c65bd;
+   }
 }
 .tabsItem:hover {
    color: #ff7e00;

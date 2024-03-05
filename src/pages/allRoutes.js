@@ -35,7 +35,20 @@ const allRoutes = () => {
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:id" element={<CardPageIffor />} />
+
+            <Route path="/catalog/:id/*" element={<CardPageIffor />}>
+               <Route index element={<h1>Общая информация</h1>} />
+               <Route path="information" element={<h1>Общая информация</h1>} />
+               <Route
+                  path="characteristics"
+                  element={<h1>Характеристики</h1>}
+               />
+               <Route path="guarantee" element={<h1>Гарантия</h1>} />
+               <Route path="payment" element={<h1>Оплата</h1>} />
+               <Route path="compatibility" element={<h1>Совместимость</h1>} />
+               <Route path="reviews" element={<h1>Отзывы</h1>} />
+            </Route>
+
             <Route
                path="/favorites"
                element={
