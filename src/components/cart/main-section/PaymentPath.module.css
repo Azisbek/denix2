@@ -4,7 +4,7 @@
    gap: 20px 0;
    padding: 24px 32px;
    background-color: #fff;
-   position: absolute;
+   /* position: absolute; */
    z-index: 1;
    box-shadow:
       0px 8px 32px 0px rgba(255, 126, 0, 0.16),
@@ -16,6 +16,7 @@
    justify-content: space-between;
    align-items: center;
    border-bottom: dotted 2px #e5e5e5;
+   gap: 20px;
 
    p {
       color: #6a6a6a;
@@ -23,6 +24,8 @@
       font-style: normal;
       font-weight: 700;
       line-height: 16px;
+      /* max-width: 300px; */
+      word-break: break-all;
    }
 
    span {
@@ -44,6 +47,9 @@
    font-style: normal;
    font-weight: 700;
    line-height: 24px;
+   max-width: fit-content;
+   white-space: nowrap;
+   margin: auto;
 }
 
 .promotionalCode {
@@ -66,6 +72,9 @@
 .iconLabel {
    position: relative;
    display: inline-block;
+   max-width: 300px;
+   width: 100%;
+   margin: auto;
 }
 
 .btnIcon {

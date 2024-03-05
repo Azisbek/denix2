@@ -18,37 +18,38 @@ const PaymentPath = ({ items }) => {
       0
    )
 
-   const totalDiscountPrice = items.reduce((accumulator, currentItem) => {
-      const price = parseFloat(currentItem.price)
-      const discount = parseFloat(currentItem.discount)
+   // const totalDiscountPrice = items.reduce((accumulator, currentItem) => {
+   //    const price = parseFloat(currentItem.price)
+   //    const discount = parseFloat(currentItem.discount)
 
-      if (!Number.isNaN(price) && !Number.isNaN(discount)) {
-         return (
-            accumulator + (discount && price - discount) * currentItem.quantity
-         )
-      }
+   //    if (!Number.isNaN(price) && !Number.isNaN(discount)) {
+   //       return (
+   //          accumulator + (discount && price - discount) * currentItem.quantity
+   //       )
+   //    }
 
-      console.error('Invalid price or discount value:', currentItem)
-      return accumulator
-   }, 0)
+   //    console.error('Invalid price or discount value:', currentItem)
+   //    return accumulator
+   // }, 0)
+
+   const totalQuantity = items.reduce(
+      (accumulator, currentItem) => accumulator + Number(currentItem.quantity),
+      0
+   )
 
    return (
       <div>
          <div className={classes.blockPaymentPath}>
             <div className={classes.totalQuantityBox}>
-               <p>Стоимость</p>
+               <p> количество товара</p>
 
-               {items.map((currentItem) => (
-                  <div key={currentItem.id}>
-                     {currentItem.discount || currentItem.price},{' '}
-                  </div>
-               ))}
+               <span>{totalQuantity} шт</span>
             </div>
 
-            <div className={classes.totalQuantityBox}>
+            {/* <div className={classes.totalQuantityBox}>
                <p>Скидка</p>
                <span>{totalDiscountPrice} C</span>
-            </div>
+            </div> */}
             <div className={classes.totalQuantityBox}>
                <p>Итоговая цена</p>
                <span>{totalQuantityPrice} C</span>
@@ -56,6 +57,7 @@ const PaymentPath = ({ items }) => {
             <Button
                onClick={clickNavigateShopHandler}
                id={classes.btnPaymentPath}
+               className={classes.orderBtn}
             >
                Оформить заказ
             </Button>

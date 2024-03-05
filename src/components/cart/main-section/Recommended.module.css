@@ -3,7 +3,8 @@
    width: 100%;
    overflow: hidden;
    cursor: grab;
-   display: flex;flex-direction: column;
+   display: flex;
+   flex-direction: column;
    align-items: center;
 }
 

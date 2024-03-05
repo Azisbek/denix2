@@ -12,9 +12,16 @@
 
 .cartBox {
    display: flex;
-   gap: 58px;
-   padding: 24px 0 0 0;
+   justify-content: space-between;
+   /* padding: 24px 24px 0 0; */
    flex-wrap: wrap;
+   flex-direction: row-reverse;
+}
+
+.blockCard {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
 }
 .textNullCard {
    font-size: 30px;
@@ -22,7 +29,10 @@
 
 @media screen and (max-width: 1300px) {
    .container {
-      padding: 24px 0 320px 0;
+      padding: 24px 0 40px 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
    }
 
    .cartBox {
@@ -97,5 +107,6 @@
    .cartBox {
       grid-template-columns: 18rem;
       justify-content: center;
+      padding: 0;
    }
 }

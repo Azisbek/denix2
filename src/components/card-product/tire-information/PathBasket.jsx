@@ -105,7 +105,7 @@ const PathBasket = ({ data, id }) => {
          <div>{cartStatus === 'loading' && <Loading />}</div>
          <div className={classes.container}>
             <div>
-               {data.discount && (
+               {data.discount !== 0 && (
                   <p className={classes.numberThrough}>{data.price}</p>
                )}
             </div>
