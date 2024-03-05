@@ -1,22 +1,34 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import classes from './CardDescription.module.css'
-import CardLayout from '../cardLayout/CardLayout'
 
 const CardDescription = () => {
    return (
       <div className={classes.tabs}>
-         <CardLayout>
-            <ul className={classes.tabsFlex}>
-               <li className={classes.tabsItem}>Общая информация</li>
-               <li className={classes.tabsItem}>Характеристики</li>
-               <li className={classes.tabsItem}>Гарантия</li>
-               <li className={classes.tabsItem}>Оплата</li>
-               <li className={classes.tabsItem}>Совместимость</li>
-               <li className={classes.tabsItem}>Отзывы (2)</li>
-            </ul>
-            <div className={classes.block}>
-               {/* Uncomment the following content when you have the 'data' available */}
-               {/* <h1 className={classes.titleCard}>Описание модели {data.title}</h1>
+         <ul className={classes.tabsFlex}>
+            <li className={classes.tabsItem}>
+               <Link to="information">Общая информация</Link>
+            </li>
+            <li className={classes.tabsItem}>
+               <Link to="characteristics">Характеристики</Link>
+            </li>
+            <li className={classes.tabsItem}>
+               <Link to="guarantee">Гарантия</Link>
+            </li>
+            <li className={classes.tabsItem}>
+               <Link to="payment">Оплата</Link>
+            </li>
+            <li className={classes.tabsItem}>
+               <Link to="compatibility">Совместимость</Link>
+            </li>
+            <li className={classes.tabsItem}>
+               <Link to="reviews">Отзывы (2)</Link>
+            </li>
+         </ul>
+         <div className={classes.block}>
+            <Outlet />
+            {/* Uncomment the following content when you have the 'data' available */}
+            {/* <h1 className={classes.titleCard}>Описание модели {data.title}</h1>
                <div className={classes.blockCard}>
                   <p className={classes.textCard}>{data.description}</p>
                   <p className={classes.textCard}>
@@ -47,8 +59,7 @@ const CardDescription = () => {
                      обеспечил усиленный каркас протектора.
                   </p>
                </div> */}
-            </div>
-         </CardLayout>
+         </div>
       </div>
    )
 }

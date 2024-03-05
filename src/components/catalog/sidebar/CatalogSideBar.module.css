@@ -8,7 +8,21 @@
 .tieresTitle {
    color: grey;
 }
+.tireType label {
+   color: grey;
+}
+.tireType label:hover {
+   color: black;
+   transition: 0.3s;
+}
 
+.containerCheckBox label {
+   color: grey;
+}
+.containerCheckBox label:hover {
+   color: black;
+   transition: 0.3s;
+}
 .tieres select {
    padding: 10px 0px 10px 16px;
    width: 287px;

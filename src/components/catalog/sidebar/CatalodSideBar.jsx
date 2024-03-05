@@ -78,7 +78,7 @@ const CatalodSideBar = () => {
                   placeholder="Введите название"
                />
             </div>
-            <div>
+            <div className={classes.containerCheckBox}>
                <label>
                   <input type="checkbox" name="option1" /> Nokian
                </label>
@@ -97,7 +97,7 @@ const CatalodSideBar = () => {
                <a href="https://www.example.com">Показать все</a>
                <span>(12)</span>
             </div>
-            <div>
+            <div className={classes.containerCheckBox}>
                <p>Скидки</p>
                <label>
                   <input type="checkbox" name="option1" /> Да
@@ -127,12 +127,11 @@ const CatalodSideBar = () => {
             </div>
             <div className={classes.price}>
                <div className={classes.priceitemInput}>
-                  <input type="text" placeholder="от 1234" />
-                  <input type="text" placeholder="до 50234" />
+                  <input type="number" placeholder="от " />
+                  <input type="number" placeholder="до " />
                </div>
-               <input type="range" />
             </div>
-            <div>
+            <div className={classes.containerCheckBox}>
                <p>Топливная экономичность</p>
                <label>
                   <input type="checkbox" name="option1" /> A
@@ -178,10 +177,9 @@ const CatalodSideBar = () => {
             <div className={classes.price}>
                <p>Уровень внешнего шума</p>
                <div className={classes.priceitemInput}>
-                  <input type="text" placeholder="от 1234" />
-                  <input type="text" placeholder="до 50234" />
+                  <input type="number" placeholder="от" />
+                  <input type="number" placeholder="до " />
                </div>
-               <input type="range" />
             </div>
             <div className={classes.uiButtonContainer}>
                <Button>Подобрать</Button>

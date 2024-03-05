@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useMatch } from 'react-router-dom'
 import CardDescription from './description/CardDescription'
 import SimivarProducts from './simivar-products/SimivarProducts'
 import Characteristics from './tire-information/Characteristics'
@@ -9,7 +9,6 @@ import { getProdictItem } from '../../store/newCardProductSlice'
 import Loading from '../ui/Loading'
 import { setUseParams } from '../../store/useParamsSlice'
 import { getFavoritesItem } from '../../store/favoritesSlice'
-import useScrollToTop from '../../hooks/useScrollToTop'
 
 const CardPage = () => {
    const dispatch = useDispatch()
@@ -17,15 +16,17 @@ const CardPage = () => {
    const { favoritesItem } = useSelector((state) => state.favorites)
    const load = useSelector((state) => state.favorites.isLoading)
    const { id } = useParams()
+   const match = useMatch(`/catalog/${id}`)
    const productCard = data || favoritesItem
    const loading = isLoading || load
-
-   useScrollToTop()
 
    useEffect(() => {
       dispatch(getProdictItem(id))
       dispatch(getFavoritesItem(id))
       dispatch(setUseParams(id))
+      if (match) {
+         window.scrollTo(0, 0)
+      }
    }, [dispatch, id])
 
    return (
