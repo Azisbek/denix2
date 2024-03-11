@@ -21,6 +21,7 @@
    padding-bottom: 24px;
 }
 
+
 @media screen and (max-width: 900px) {
    .block {
       display: flex;

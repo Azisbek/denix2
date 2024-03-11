@@ -79,7 +79,7 @@ const allRoutes = () => {
             <Route path="/company" element={<AboutCompany />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route
-               path="/order"
+               path="/cart/order"
                element={
                   <PrivateRoute>
                      <OrderPage />

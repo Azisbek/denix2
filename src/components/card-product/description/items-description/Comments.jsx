@@ -128,7 +128,12 @@ const Comments = () => {
                                     star <= averageRating ? '#FF7E00' : 'white'
                                  }
                               />
-                              <p>{percentage.toFixed(1)}%</p>
+                              <p>
+                                 {commentArray.length > 0
+                                    ? percentage.toFixed(1)
+                                    : 0}
+                                 %
+                              </p>
                               <span>({numCommentsWithRating} отзыва)</span>
                            </div>
                         )

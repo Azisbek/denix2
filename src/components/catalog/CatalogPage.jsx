@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import CatalodSideBar from './sidebar/CatalodSideBar'
 import ProductList from './main-section/ProductList'
 import classes from './CatalogPage.module.css'
@@ -8,15 +9,16 @@ import useScrollToTop from '../../hooks/useScrollToTop'
 
 const CatalogPage = () => {
    useScrollToTop()
+   const { sideBar } = useSelector((state) => state.toggle)
    return (
       <div className={classes.container}>
          <h1>Шины в Бишкеке</h1>
          <div className={classes.block}>
             <CatalodSideBar />
-            <ProductList />
+            {!sideBar && <ProductList />}
          </div>
-         <CatalogBanner />
-         <CatalogDescription />
+         {!sideBar && <CatalogBanner />}
+         {!sideBar && <CatalogDescription />}
       </div>
    )
 }
