@@ -1,66 +1,61 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { NavLink, Outlet } from 'react-router-dom'
 import classes from './CardDescription.module.css'
 
 const CardDescription = () => {
+   const { data } = useSelector((state) => state.newPage)
+   // const { id } = useSelector((state) => state.params)
+
+   const comments = data.comment
+   const commentArray = Object.keys(comments || {}).map((key) => ({
+      id: key,
+      comment: comments[key].comment,
+      date: comments[key].date,
+      rating: comments[key].rating,
+   }))
+
    return (
-      <div className={classes.tabs}>
+      <nav className={classes.tabs}>
          <ul className={classes.tabsFlex}>
             <li className={classes.tabsItem}>
-               <Link to="information">Общая информация</Link>
+               <NavLink
+                  to="information"
+                  activeClassName={classes.activeLink}
+                  end
+               >
+                  Общая информация
+               </NavLink>
             </li>
             <li className={classes.tabsItem}>
-               <Link to="characteristics">Характеристики</Link>
+               <NavLink
+                  to="characteristics"
+                  activeClassName={classes.activeLink}
+                  end
+               >
+                  Характеристики
+               </NavLink>
             </li>
             <li className={classes.tabsItem}>
-               <Link to="guarantee">Гарантия</Link>
+               <NavLink to="guarantee" activeClassName={classes.activeLink} end>
+                  Гарантия
+               </NavLink>
             </li>
             <li className={classes.tabsItem}>
-               <Link to="payment">Оплата</Link>
+               <NavLink to="payment" activeClassName={classes.activeLink} end>
+                  Оплата
+               </NavLink>
             </li>
             <li className={classes.tabsItem}>
-               <Link to="compatibility">Совместимость</Link>
-            </li>
-            <li className={classes.tabsItem}>
-               <Link to="reviews">Отзывы (2)</Link>
+               <NavLink to="reviews" activeClassName={classes.activeLink} end>
+                  Отзывы {commentArray.length}
+               </NavLink>
             </li>
          </ul>
          <div className={classes.block}>
             <Outlet />
-            {/* Uncomment the following content when you have the 'data' available */}
-            {/* <h1 className={classes.titleCard}>Описание модели {data.title}</h1>
-               <div className={classes.blockCard}>
-                  <p className={classes.textCard}>{data.description}</p>
-                  <p className={classes.textCard}>
-                     Новаторская технология двух слоев каркаса, которые усиливают
-                     материал, помогает машине служить намного дольше и защищает от
-                     механических повреждений.
-                  </p>
-               </div>
-               <h1 className={classes.titleCard}>Характеристики модели</h1>
-               <div className={classes.blockCard}>
-                  <p className={classes.textCard}>
-                     При создании шины были применены следующие технологии: «3D
-                     Mod» — рисунок протектора создавался при помощи ручного 3D
-                     моделирования. Таким образом, разработчики заранее смогли
-                     увидеть все недочеты и устранить их; <br /> «Contact with
-                     road» — широкая площадь контакта шины с поверхностью
-                     достигается за счет скошенным формам и рисунку протектора;
-                     «Dissymmetric drawing» —отвод влаги к низу шины достигается
-                     при помощи асимметричного рисунка протектора, что дает хорошую
-                     управляемость при маневрировании.
-                  </p>
-                  <p className={classes.textCard}>
-                     Как уже видно по названию, это модель специально адаптирована
-                     под использование в малом или среднем бизнесе. Разработчики
-                     внедрили в нее технологии, которые позволяют экономить на
-                     сезонной замене шин, а также на топливе для автомобиля.
-                     Высокая надежность при перевозке максимально допустимого груза
-                     обеспечил усиленный каркас протектора.
-                  </p>
-               </div> */}
          </div>
-      </div>
+      </nav>
    )
 }
 

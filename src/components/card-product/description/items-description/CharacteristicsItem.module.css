@@ -1,0 +1,27 @@
+.containerList {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 0 30px;
+}
+
+.container {
+   padding: 0 20px;
+}
+
+.containerUl li {
+   width: 300px;
+   padding-top: 10px;
+
+   /* white-space: nowrap; */
+   display: flex;
+   justify-content: space-between;
+   border-bottom: dashed 1px #4c65bd;
+}
+
+@media screen and (max-width: 770px) {
+   .containerList {
+      display: flex;
+      justify-content: center;
+   }
+}

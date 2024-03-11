@@ -26,6 +26,10 @@ import AdminPromotionProduct from '../components/admin/admin-promotion/AdminProm
 import DeleteNews from '../components/admin/deleteNews/DeleteNews'
 import NavBar from '../components/navbar/NavBar'
 import PrivateRoute from './private/privateRoute'
+import GeneralInformation from '../components/card-product/description/items-description/GeneralInformation'
+import CharacteristicsItem from '../components/card-product/description/items-description/CharacteristicsItem'
+import Guarantee from '../components/card-product/description/items-description/Guarantee'
+import Comments from '../components/card-product/description/items-description/Comments'
 
 const allRoutes = () => {
    return (
@@ -37,16 +41,15 @@ const allRoutes = () => {
             <Route path="/catalog" element={<CatalogPage />} />
 
             <Route path="/catalog/:id/*" element={<CardPageIffor />}>
-               <Route index element={<h1>Общая информация</h1>} />
-               <Route path="information" element={<h1>Общая информация</h1>} />
+               <Route index element={<GeneralInformation />} />
+               <Route path="information" element={<GeneralInformation />} />
                <Route
                   path="characteristics"
-                  element={<h1>Характеристики</h1>}
+                  element={<CharacteristicsItem />}
                />
-               <Route path="guarantee" element={<h1>Гарантия</h1>} />
+               <Route path="guarantee" element={<Guarantee />} />
                <Route path="payment" element={<h1>Оплата</h1>} />
-               <Route path="compatibility" element={<h1>Совместимость</h1>} />
-               <Route path="reviews" element={<h1>Отзывы</h1>} />
+               <Route path="reviews" element={<Comments />} />
             </Route>
 
             <Route

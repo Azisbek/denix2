@@ -15,9 +15,7 @@
       color: #4c65bd;
    }
 }
-.tabsItem:hover {
-   color: #ff7e00;
-}
+
 .tabsItem::before {
    content: '';
    width: 100%;
@@ -68,6 +66,7 @@
    padding-top: 16px;
    padding-bottom: 24px;
 }
+
 @media screen and (max-width: 900px) {
    .tabsFlex {
       justify-content: center;

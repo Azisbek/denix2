@@ -11,8 +11,9 @@ import facebook from '../../assets/icon/facebook (1).png'
 import email from '../../assets/icon/email.png'
 import visible from '../../assets/icon/visible.png'
 import hide from '../../assets/icon/hide.png'
-import { postSignUp } from '../../store/signUpSlice'
+
 import Loading from '../ui/Loading'
+import { postSignUp } from '../../store/signInSlice'
 
 const SignUp = () => {
    const [showPassword, setShowPassword] = useState(false)

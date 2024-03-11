@@ -34,9 +34,11 @@ export const getProducts = createAsyncThunk(
          const data = await response.json()
 
          const transformDataProducts = []
+
          Object.keys(data).forEach((key) => {
             transformDataProducts.push({
                id: key,
+               comment: data[key].comment,
                width: data[key].width,
                wetGrip: data[key].wetGrip,
                title: data[key].title,
@@ -59,6 +61,7 @@ export const getProducts = createAsyncThunk(
                discount: data[key].discount,
             })
          })
+
          return transformDataProducts
       } catch (error) {
          return rejectWithValue(error.message)

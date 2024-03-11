@@ -45,7 +45,7 @@ const AddNewProducts = () => {
    const [notEqualNull, setNotEqualNull] = useState(null)
    const [checkboxesAreValid, setCheckboxesAreValid] = useState(true)
    const [inStock, setInStock] = useState(0)
-   const [discountTire, setDiscountTire] = useState(0)
+   const [discountTire, setDiscountTire] = useState(null)
 
    const priceInputChangeHandler = (e) => {
       const { value } = e.target
@@ -65,10 +65,11 @@ const AddNewProducts = () => {
          setInStock(null)
       }
    }
+
    const discounChangeHandler = (e) => {
       const { value } = e.target
       const numericValue = parseFloat(value)
-      if (!Number.isNaN(numericValue) && numericValue >= 0) {
+      if (!Number.isNaN(numericValue) && numericValue > 0) {
          setDiscountTire(numericValue)
       } else {
          setDiscountTire(null)
@@ -80,6 +81,7 @@ const AddNewProducts = () => {
       setFormData(updatedCheckboxes)
       setCheckboxesAreValid(Object.values(updatedCheckboxes).some(Boolean))
    }
+   console.log(checkboxesAreValid)
 
    const [galleryNews, setGalleryNews] = useState(
       new Array(6)
@@ -101,6 +103,8 @@ const AddNewProducts = () => {
       fuelEconomy: null,
       wetGrip: null,
       noiseLevel: null,
+      offRoad: null,
+      runflat: null,
    })
    const [formErrors, setFormErrors] = useState({
       width: false,
@@ -250,6 +254,8 @@ const AddNewProducts = () => {
          isFavorites: false,
          discount: discountTire,
          inStock,
+         offRoad: formData.offRoad,
+         runflat: formData.runflat,
       }
 
       Object.keys(formData).forEach((key) => {
@@ -436,12 +442,6 @@ const AddNewProducts = () => {
                            <p>да</p>
                         </div>
                      </div>
-
-                     {!checkboxesAreValid && (
-                        <p className={classes.errorText}>
-                           Выберите хотя бы одну опцию из чекбоксов
-                        </p>
-                     )}
                   </div>
                </div>
                <div>
@@ -519,16 +519,6 @@ const AddNewProducts = () => {
                      {formErrors.noiseLevel && (
                         <p className={classes.errorText}>Выберите опцию</p>
                      )}
-                  </div>
-
-                  <div className={classes.containerCheckbox}>
-                     <div>
-                        <label htmlFor="scitka">Комплект</label>
-                        <div>
-                           <input type="checkbox" />
-                           <p>да</p>
-                        </div>
-                     </div>
                   </div>
                </div>
                <div>

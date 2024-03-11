@@ -1,0 +1,82 @@
+.modalBackground {
+   position: fixed;
+   z-index: 30;
+   left: 0;
+   top: 0;
+
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.label {
+   color: #2b3143;
+}
+.inputComment {
+   resize: none;
+   width: 90%;
+   padding: 10px;
+   font-weight: 400;
+   font-size: 20px;
+   height: 200px;
+}
+
+.modalContent {
+   background-color: #fefefe;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 43%;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+
+   & button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      color: white;
+      background-color: orange;
+      font-weight: 600;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+   }
+
+   .blockButton {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+   }
+   .rating {
+      display: flex;
+      gap: 5px;
+   }
+
+   /* Media Queries */
+   @media only screen and (max-width: 1200px) and (min-width: 600px) {
+      width: 60%; /* Измените ширину для планшетов */
+   }
+   @media only screen and (max-width: 600px) and (min-width: 0) {
+      width: 80%; /* Измените ширину для планшетов */
+      .inputComment {
+         font-size: 14px;
+      }
+   }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 0) {
+   .modalContent button {
+      padding: 5px 10px;
+      font-size: 14px;
+   }
+}
+
+.modalOpen {
+   overflow: hidden; /* Prevent background scrolling when modal is open */
+}

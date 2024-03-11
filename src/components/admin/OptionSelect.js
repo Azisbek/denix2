@@ -7,6 +7,7 @@ export const widthOption = [
 export const profileOption = [
    { value: 'option1', label: 'azis' },
    { value: 'option2', label: 'Option 2' },
+   { value: 'option2', label: 'Option 2' },
 ]
 
 export const diameterOption = [

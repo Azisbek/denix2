@@ -5,7 +5,6 @@ import { addNewProductSlice } from './addNewProductSlice'
 import { newCardProduct } from './newCardProductSlice'
 import { cardSlice } from './cardSlice'
 import { signInSlice } from './signInSlice'
-import { signUpSlice } from './signUpSlice'
 import { favoritesSlice } from './favoritesSlice'
 import { addNewsSlice } from './addNewsSlice'
 import { useParamsSlice } from './useParamsSlice'
@@ -22,7 +21,6 @@ export const store = configureStore({
       newPage: newCardProduct.reducer,
       cart: cardSlice.reducer,
       signIn: signInSlice.reducer,
-      signUp: signUpSlice.reducer,
       favorites: favoritesSlice.reducer,
       news: addNewsSlice.reducer,
       newsItem: newsPage.reducer,

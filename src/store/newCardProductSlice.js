@@ -24,6 +24,7 @@ export const newCardProduct = createSlice({
 
    initialState: {
       data: null,
+      status: null,
    },
 
    reducers: {
@@ -33,6 +34,16 @@ export const newCardProduct = createSlice({
       setFavoritesLocal(state) {
          state.data.isFavorites = !state.data.isFavorites
       },
+   },
+   extraReducers(builder) {
+      builder
+         .addCase(getProdictItem.pending, (state) => {
+            state.status = 'loading'
+         })
+         .addCase(getProdictItem.fulfilled, (state, action) => {
+            state.status = 'fulfilled'
+            state.data = action.payload
+         })
    },
 })
 

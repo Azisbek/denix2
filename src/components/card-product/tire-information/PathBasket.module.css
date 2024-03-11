@@ -51,6 +51,7 @@
    padding: 12px 24px;
    border-radius: 2px;
    white-space: nowrap;
+   margin: 0;
 }
 /* .blockUi button:hover {
    background-color: #ff7e00;

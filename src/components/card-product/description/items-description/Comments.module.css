@@ -1,0 +1,96 @@
+/* Comments.module.css */
+
+.ratingContainer {
+   display: flex;
+   /* flex-direction: column; */
+   gap: 4.53px;
+}
+
+.boxRating {
+   /* display: flex; */
+   gap: 20px;
+}
+
+.containerBoxRating {
+   display: flex;
+   margin-top: 20px;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex-start; /* Выравниваем элементы по левому краю */
+}
+
+.containerRating {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.containerBoxRating > div:last-of-type {
+   margin: 0 auto;
+}
+
+.boxDescription {
+   margin-top: -20px;
+}
+
+.buttonComment {
+   margin: 0;
+}
+
+.boxDescription h3 {
+   font-size: 72px;
+   font-weight: 400;
+   line-height: 96px;
+   color: black;
+}
+
+.boxDescription span {
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   color: rgb(106, 106, 106);
+}
+
+.boxRating span {
+   color: rgb(196, 196, 196);
+   font-weight: 400;
+   font-size: 15px;
+   line-height: 24px;
+}
+
+.averageRating h3 {
+   font-size: 72px;
+   font-weight: 400;
+   line-height: 96px;
+   color: black;
+}
+
+.averageRating p {
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   color: rgb(106, 106, 106);
+}
+
+.boxComment {
+   margin-top: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.containerComment {
+   display: flex;
+   flex-direction: column;
+   padding: 0 30px;
+}
+
+@media only screen and (max-width: 767px) {
+   .containerBoxRating {
+      flex-direction: column; /* Изменено на вертикальное расположение на мобильных устройствах */
+      align-items: center; /* Центрируем элементы по горизонтали */
+   }
+   .containerComment {
+      padding: 0;
+   }
+}
