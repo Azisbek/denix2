@@ -10,11 +10,11 @@ const NavBar = () => {
    const { id } = useSelector((state) => state.params)
    const linkMatch = {
       catalog: useMatch('/catalog'),
-      productCardInCatalog: useMatch(`/catalog/${id}`),
+      productCardInCatalog: useMatch(`/catalog/${id}/*`),
       cart: useMatch('/cart'),
-      order: useMatch('/order'),
+      order: useMatch('cart/order'),
       favorites: useMatch('/favorites'),
-      productCardInFavorites: useMatch(`/favorites/${id}`),
+      productCardInFavorites: useMatch(`/favorites/${id}/*`),
       company: useMatch('/company'),
       contacts: useMatch('/contacts'),
       news: useMatch('/news'),
@@ -78,14 +78,9 @@ const NavBar = () => {
                )}
                {linkMatch.productCardInCatalog && (
                   <li>
-                     <CustomLink to={`/catalog/${id}`}>
+                     <CustomLink to={`/catalog/${id}/*`}>
                         Карточка товара
                      </CustomLink>
-                  </li>
-               )}
-               {cartMatch && (
-                  <li>
-                     <CustomLink to="/catalog">Каталог</CustomLink>
                   </li>
                )}
                {cartMatch && (
@@ -95,7 +90,7 @@ const NavBar = () => {
                )}
                {linkMatch.order && (
                   <li>
-                     <CustomLink to="/order">Оформление заказа</CustomLink>
+                     <CustomLink to="/cart/order">Оформление заказа</CustomLink>
                   </li>
                )}
                {favoritesMatch && (
@@ -105,7 +100,7 @@ const NavBar = () => {
                )}
                {linkMatch.productCardInFavorites && (
                   <li>
-                     <CustomLink to={`/favorites/${id}`}>
+                     <CustomLink to={`/favorites/${id}/*`}>
                         Карточка товара
                      </CustomLink>
                   </li>

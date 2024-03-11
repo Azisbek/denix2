@@ -57,6 +57,8 @@ export const getProducts = createAsyncThunk(
                isFavorites: data[key].isFavorites,
                inStock: data[key].inStock,
                discount: data[key].discount,
+               runflat: data[key].runflat,
+               offRoad: data[key].offRoad,
             })
          })
          return transformDataProducts
@@ -173,5 +175,4 @@ export const addNewProductSlice = createSlice({
    },
 })
 
-export const { selectedProduct, setFavoritesLocal, deleteItem } =
-   addNewProductSlice.actions
+export const { setFavoritesLocal, deleteItem } = addNewProductSlice.actions

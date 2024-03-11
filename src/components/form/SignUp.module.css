@@ -65,7 +65,7 @@
 
 .containerForm .passwordField .togglePassword {
    position: absolute;
-   top: 50%;
+   top: 23px;
    right: 10px;
    transform: translateY(-50%);
    cursor: pointer;

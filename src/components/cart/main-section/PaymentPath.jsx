@@ -7,7 +7,7 @@ const PaymentPath = ({ items }) => {
    const navigate = useNavigate()
 
    const clickNavigateShopHandler = () => {
-      navigate('/order')
+      navigate('/cart/order')
    }
 
    const totalQuantityPrice = items.reduce(

@@ -8,6 +8,7 @@ export const toggleSlice = createSlice({
       serviceToggle: false,
       companyToggle: false,
       personalToggle: false,
+      sideBar: false,
    },
    reducers: {
       burgerClickHandler(state) {
@@ -39,6 +40,9 @@ export const toggleSlice = createSlice({
          state.personalToggle = !state.personalToggle
          state.burgerToggle = false
       },
+      setSideBar(state, action) {
+         state.sideBar = action.payload
+      },
    },
 })
 export const {
@@ -47,4 +51,5 @@ export const {
    toggleServiceHandler,
    toggleCompanyHandler,
    togglePersonalHandler,
+   setSideBar,
 } = toggleSlice.actions
