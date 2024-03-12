@@ -48,8 +48,8 @@ const Comments = () => {
       setTitle(e.target.value)
    }
 
-   const submitChangeHandler = (e) => {
-      e.preventDefault()
+   const submitChangeHandler = () => {
+      // e.preventDefault()
       const date = new Date()
       const currentDate = `${date.getDate()}.${(date.getMonth() + 1)
          .toString()

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import classes from './ModalComments.module.css'
 import Button from './Button'
@@ -12,8 +12,20 @@ const ModalComments = ({
    handleStarClick,
    rating,
 }) => {
+   const [validComments, setValidComments] = useState(false)
+
+   const handleCommentsSubmit = (e) => {
+      e.preventDefault()
+      if (title.trim() === '' || rating === 0) {
+         setValidComments(false)
+      } else {
+         setValidComments(true)
+         postCommentClick()
+      }
+   }
+
    return ReactDOM.createPortal(
-      <form onSubmit={postCommentClick} className={classes.modalBackground}>
+      <form onSubmit={handleCommentsSubmit} className={classes.modalBackground}>
          <div className={classes.modalContent}>
             <p>Рейтинг</p>
             <div className={classes.rating}>
@@ -46,6 +58,11 @@ const ModalComments = ({
                <Button type="submit">Сохранить</Button>
                <button onClick={closeModal}>Закрыть</button>
             </div>
+            {!validComments && (
+               <p className={classes.errorMsg}>
+                  Оставьте отзыв и выберите рейтинг. Ваше мнение важно для нас!
+               </p>
+            )}
          </div>
       </form>,
       document.getElementById('modalComment')
