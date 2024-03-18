@@ -487,6 +487,7 @@ const CatalodSideBar = () => {
       })
       setShowAllManufacturers(false)
       setSearchQuery('')
+      window.scrollTo(0, 0)
    }
 
    useEffect(() => {
