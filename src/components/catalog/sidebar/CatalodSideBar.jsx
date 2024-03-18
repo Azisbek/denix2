@@ -26,7 +26,44 @@ const CatalodSideBar = () => {
    const dispatch = useDispatch()
    const { sideBar } = useSelector((state) => state.toggle)
    const { products } = useSelector((state) => state.product)
+   const { showFilteredProducts } = useSelector((state) => state.filtered)
    const all = 'Все'
+   const newTireTypeOption = tireTypeOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
+   const newSeasonalityOption = seasonalityOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
+   const newStateOption = stateOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
+   const newManufacturersOption = manufacturerOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
+   const newFuelEconomyOption = fuelEconomyOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
+   const newWetGripyOption = wetGripyOption?.map((el) => ({
+      ...el,
+      value: '',
+      checked: false,
+      id: Math.random().toString(),
+   }))
    const [showAllManufacturers, setShowAllManufacturers] = useState(false)
    const [searchQuery, setSearchQuery] = useState('')
    const [filteredManufacturers, setFilteredManufacturers] = useState([])
@@ -34,17 +71,17 @@ const CatalodSideBar = () => {
       width: all,
       profile: all,
       diameter: all,
-      minPrice: 0,
-      maxPrice: 0,
-      typeTire: [],
-      seasonality: [],
-      state: [],
-      manufacturers: [],
+      minPrice: '',
+      maxPrice: '',
+      typeTire: newTireTypeOption,
+      seasonality: newSeasonalityOption,
+      state: newStateOption,
+      manufacturers: newManufacturersOption,
       speedIndex: all,
-      minLoadIndex: 0,
-      maxLoadIndex: 0,
-      fuelEconomy: [],
-      wetGrip: [],
+      minLoadIndex: '',
+      maxLoadIndex: '',
+      fuelEconomy: newFuelEconomyOption,
+      wetGrip: newWetGripyOption,
       noiseLevel: all,
       inStock: false,
       discount: false,
@@ -91,38 +128,57 @@ const CatalodSideBar = () => {
       })
    }
 
-   const typeTireChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.typeTire.includes(value)) {
-         newSelectedFilters.typeTire = newSelectedFilters.typeTire.filter(
-            (item) => item !== value
-         )
-      } else {
-         newSelectedFilters.typeTire.push(value)
+   const typeTireChangeHandler = (e, id, label) => {
+      const updatedTypeTire = selectedFilters.typeTire.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
+
+      const newSelectedFilters = {
+         ...selectedFilters,
+         typeTire: updatedTypeTire,
+      }
+
+      setSelectedFilters(newSelectedFilters)
+   }
+
+   const seasonalityChangeHandler = (e, id, label) => {
+      const updatedSeasonality = selectedFilters.seasonality.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
+
+      const newSelectedFilters = {
+         ...selectedFilters,
+         seasonality: updatedSeasonality,
       }
       setSelectedFilters(newSelectedFilters)
    }
 
-   const seasonalityChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.seasonality.includes(value)) {
-         newSelectedFilters.seasonality = newSelectedFilters.seasonality.filter(
-            (item) => item !== value
-         )
-      } else {
-         newSelectedFilters.seasonality.push(value)
-      }
-      setSelectedFilters(newSelectedFilters)
-   }
+   const stateChangeHandler = (e, id, label) => {
+      const updatedState = selectedFilters.state.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
 
-   const stateChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.state.includes(value)) {
-         newSelectedFilters.state = newSelectedFilters.state.filter(
-            (item) => item !== value
-         )
-      } else {
-         newSelectedFilters.state.push(value)
+      const newSelectedFilters = {
+         ...selectedFilters,
+         state: updatedState,
       }
       setSelectedFilters(newSelectedFilters)
    }
@@ -138,7 +194,7 @@ const CatalodSideBar = () => {
 
    const buttonValue = showAllManufacturers
       ? 'Скрыть'
-      : `Показать все (${manufacturerOption.length})`
+      : `Показать все (${selectedFilters.manufacturers.length})`
 
    const searchChangeHandler = (event) => {
       setSearchQuery(event.target.value)
@@ -146,19 +202,26 @@ const CatalodSideBar = () => {
 
    useEffect(() => {
       setFilteredManufacturers(
-         manufacturerOption.filter((el) =>
+         selectedFilters.manufacturers.filter((el) =>
             el.label.toLowerCase().includes(searchQuery.toLowerCase())
          )
       )
-   }, [manufacturerOption, searchQuery])
+   }, [selectedFilters.manufacturers, searchQuery])
 
-   const manufacturersChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.manufacturers.includes(value)) {
-         newSelectedFilters.manufacturers =
-            newSelectedFilters.manufacturers.filter((item) => item !== value)
-      } else {
-         newSelectedFilters.manufacturers.push(value)
+   const manufacturersChangeHandler = (e, id, label) => {
+      const updatedManufacturers = selectedFilters.manufacturers.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
+
+      const newSelectedFilters = {
+         ...selectedFilters,
+         manufacturers: updatedManufacturers,
       }
       setSelectedFilters(newSelectedFilters)
    }
@@ -184,26 +247,38 @@ const CatalodSideBar = () => {
       })
    }
 
-   const fuelEconomyChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.fuelEconomy.includes(value)) {
-         newSelectedFilters.fuelEconomy = newSelectedFilters.fuelEconomy.filter(
-            (item) => item !== value
-         )
-      } else {
-         newSelectedFilters.fuelEconomy.push(value)
+   const fuelEconomyChangeHandler = (e, id, label) => {
+      const updatedFuelEconomy = selectedFilters.fuelEconomy.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
+
+      const newSelectedFilters = {
+         ...selectedFilters,
+         fuelEconomy: updatedFuelEconomy,
       }
       setSelectedFilters(newSelectedFilters)
    }
 
-   const wetGripChangeHandler = (value) => {
-      const newSelectedFilters = { ...selectedFilters }
-      if (newSelectedFilters.wetGrip.includes(value)) {
-         newSelectedFilters.wetGrip = newSelectedFilters.wetGrip.filter(
-            (item) => item !== value
-         )
-      } else {
-         newSelectedFilters.wetGrip.push(value)
+   const wetGripChangeHandler = (e, id, label) => {
+      const updatedWetGrip = selectedFilters.wetGrip.map((el) => {
+         if (el.id === id && el.value !== label) {
+            return { ...el, checked: e.target.checked, value: label }
+         }
+         if (el.id === id && el.value === label) {
+            return { ...el, checked: e.target.checked, value: '' }
+         }
+         return el
+      })
+
+      const newSelectedFilters = {
+         ...selectedFilters,
+         wetGrip: updatedWetGrip,
       }
       setSelectedFilters(newSelectedFilters)
    }
@@ -252,18 +327,18 @@ const CatalodSideBar = () => {
          selectedFilters.noiseLevel !== all
 
       const filterNumber =
-         selectedFilters.minPrice !== 0 ||
-         selectedFilters.maxPrice !== 0 ||
-         selectedFilters.minLoadIndex !== 0 ||
-         selectedFilters.maxLoadIndex !== 0
+         selectedFilters.minPrice !== '' ||
+         selectedFilters.maxPrice !== '' ||
+         selectedFilters.minLoadIndex !== '' ||
+         selectedFilters.maxLoadIndex !== ''
 
       const filterCheckboxArray =
-         selectedFilters.typeTire.length !== 0 ||
-         selectedFilters.seasonality.length !== 0 ||
-         selectedFilters.state.length !== 0 ||
-         selectedFilters.manufacturers.length !== 0 ||
-         selectedFilters.fuelEconomy.length !== 0 ||
-         selectedFilters.wetGrip.length !== 0
+         selectedFilters.typeTire.some((el) => el.value !== '') ||
+         selectedFilters.seasonality.some((el) => el.value !== '') ||
+         selectedFilters.state.some((el) => el.value !== '') ||
+         selectedFilters.manufacturers.some((el) => el.value !== '') ||
+         selectedFilters.fuelEconomy.some((el) => el.value !== '') ||
+         selectedFilters.wetGrip.some((el) => el.value !== '')
 
       const filterCheckboxBoolean =
          selectedFilters.inStock !== false ||
@@ -288,55 +363,61 @@ const CatalodSideBar = () => {
 
          const profileFilter =
             selectedFilters.profile === all ||
-            selectedFilters.profile === product.profile
+            Number(selectedFilters.profile) === Number(product.profile)
 
          const diameterFilter =
             selectedFilters.diameter === all ||
             selectedFilters.diameter === product.diameter
 
          const minPriceFilter =
-            selectedFilters.minPrice === 0 ||
-            selectedFilters.minPrice <= product.price
+            selectedFilters.minPrice === '' ||
+            Number(selectedFilters.minPrice) <= Number(product.price)
 
          const maxPriceFilter =
-            selectedFilters.maxPrice === 0 ||
-            selectedFilters.maxPrice >= product.price
+            selectedFilters.maxPrice === '' ||
+            Number(selectedFilters.maxPrice) >= Number(product.price)
 
          const typeTireFilter =
-            selectedFilters.typeTire.length === 0 ||
-            selectedFilters.typeTire.includes(product.tireType)
+            selectedFilters.typeTire.every((el) => el.value === '') ||
+            selectedFilters.typeTire.some((el) => el.value === product.tireType)
 
          const sesonalityFilter =
-            selectedFilters.seasonality.length === 0 ||
-            selectedFilters.seasonality.includes(product.seasonality)
+            selectedFilters.seasonality.every((el) => el.value === '') ||
+            selectedFilters.seasonality.some(
+               (el) => el.value === product.seasonality
+            )
 
          const stateFilter =
-            selectedFilters.state.length === 0 ||
-            selectedFilters.state.includes(product.state)
+            selectedFilters.state.every((el) => el.value === '') ||
+            selectedFilters.state.some((el) => el.value === product.state)
 
          const manufacturersFilter =
-            selectedFilters.manufacturers.length === 0 ||
-            selectedFilters.manufacturers.includes(product.manufacturer)
+            selectedFilters.manufacturers.every((el) => el.value === '') ||
+            selectedFilters.manufacturers.some(
+               (el) => el.value === product.manufacturer
+            )
 
          const speedIndexFilter =
             selectedFilters.speedIndex === all ||
             selectedFilters.speedIndex === product.speedIndex
 
          const minLoadIndexFilter =
-            selectedFilters.minLoadIndex === 0 ||
-            selectedFilters.minLoadIndex <= product.loadIndex
+            selectedFilters.minLoadIndex === '' ||
+            Number(selectedFilters.minLoadIndex) <= Number(product.loadIndex)
 
          const maxLoadIndexFilter =
-            selectedFilters.maxLoadIndex === 0 ||
-            selectedFilters.maxLoadIndex >= product.loadIndex
+            selectedFilters.maxLoadIndex === '' ||
+            Number(selectedFilters.maxLoadIndex) >= Number(product.loadIndex)
 
          const fuelEconomyFilter =
-            selectedFilters.fuelEconomy.length === 0 ||
-            selectedFilters.fuelEconomy.includes(product.fuelEconomy)
+            selectedFilters.fuelEconomy.every((el) => el.value === '') ||
+            selectedFilters.fuelEconomy.some(
+               (el) => el.value === product.fuelEconomy
+            )
 
          const wetGripFilter =
-            selectedFilters.wetGrip.length === 0 ||
-            selectedFilters.wetGrip.includes(product.wetGrip)
+            selectedFilters.wetGrip.every((el) => el.value === '') ||
+            selectedFilters.wetGrip.some((el) => el.value === product.wetGrip)
 
          const noiseLevelFilter =
             selectedFilters.noiseLevel === all ||
@@ -380,8 +461,39 @@ const CatalodSideBar = () => {
       showFilteredProductsHandler()
       dispatch(setFilteredProducts(filteredProducts))
       window.scrollTo(0, 0)
-      console.log(filteredProducts)
    }
+
+   const resetFiltersHandler = () => {
+      setSelectedFilters({
+         width: all,
+         profile: all,
+         diameter: all,
+         minPrice: '',
+         maxPrice: '',
+         typeTire: newTireTypeOption,
+         seasonality: newSeasonalityOption,
+         state: newStateOption,
+         manufacturers: newManufacturersOption,
+         speedIndex: all,
+         minLoadIndex: '',
+         maxLoadIndex: '',
+         fuelEconomy: newFuelEconomyOption,
+         wetGrip: newWetGripyOption,
+         noiseLevel: all,
+         inStock: false,
+         discount: false,
+         runflat: false,
+         offRoad: false,
+      })
+      setShowAllManufacturers(false)
+      setSearchQuery('')
+   }
+
+   useEffect(() => {
+      if (showFilteredProducts) {
+         showFilteredProductsHandler()
+      }
+   }, [selectedFilters])
 
    return (
       <form>
@@ -398,7 +510,12 @@ const CatalodSideBar = () => {
                   <img src={close} alt="IconClose" />
                </button>
             </div>
-            <select onChange={widthChangeHandler} name="widthOption" id="">
+            <select
+               value={selectedFilters.width}
+               onChange={widthChangeHandler}
+               name="widthOption"
+               id=""
+            >
                <option value="Все">Все</option>
                {widthOption?.map((el) => (
                   <option key={el.label} value={el.value}>
@@ -409,7 +526,12 @@ const CatalodSideBar = () => {
             <p className={classes.tieresTitle}>
                Профиль <span className={classes.tieresSpan}>?</span>
             </p>
-            <select onChange={profileChangeHandler} name="profileOption" id="">
+            <select
+               value={selectedFilters.profile}
+               onChange={profileChangeHandler}
+               name="profileOption"
+               id=""
+            >
                <option value="Все">Все</option>
                {profileOption?.map((el) => (
                   <option key={el.label} value={el.value}>
@@ -421,6 +543,7 @@ const CatalodSideBar = () => {
                Диаметр <span className={classes.tieresSpan}>?</span>
             </p>
             <select
+               value={selectedFilters.diameter}
                onChange={diameterChangeHandler}
                name="diameterOption"
                id=""
@@ -440,47 +563,56 @@ const CatalodSideBar = () => {
                      name="minPrice"
                      type="number"
                      placeholder="от"
+                     value={selectedFilters.minPrice}
                   />
                   <input
                      onChange={maxPriceChangeHandler}
                      name="maxPrice"
                      type="number"
                      placeholder="до"
+                     value={selectedFilters.maxPrice}
                   />
                </div>
             </div>
             <div className={classes.tireType}>
                <p>Тип шин</p>
-               {tireTypeOption?.map((el) => (
-                  <label key={el.label}>
+               {selectedFilters.typeTire?.map((el) => (
+                  <label key={el.id}>
                      <input
-                        onChange={() => typeTireChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) =>
+                           typeTireChangeHandler(e, el.id, el.label)
+                        }
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="TypeTire"
+                     />
+                     {el.label}
                   </label>
                ))}
                <p>Сезонность</p>
-               {seasonalityOption?.map((el) => (
-                  <label key={el.label}>
+               {selectedFilters.seasonality?.map((el) => (
+                  <label key={el.id}>
                      <input
-                        onChange={() => seasonalityChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) =>
+                           seasonalityChangeHandler(e, el.id, el.label)
+                        }
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="Seasonality"
+                     />
+                     {el.label}
                   </label>
                ))}
                <p>Состояние</p>
-               {stateOption?.map((el) => (
-                  <label key={el.label}>
+               {selectedFilters.state?.map((el) => (
+                  <label key={el.id}>
                      <input
-                        onChange={() => stateChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) => stateChangeHandler(e, el.id, el.label)}
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="state"
+                     />
+                     {el.label}
                   </label>
                ))}
             </div>
@@ -497,13 +629,16 @@ const CatalodSideBar = () => {
             </div>
             <div className={classes.containerCheckBox}>
                {visibleManufacturers?.map((el) => (
-                  <label key={el.label}>
+                  <label key={el.id}>
                      <input
-                        onChange={() => manufacturersChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) =>
+                           manufacturersChangeHandler(e, el.id, el.label)
+                        }
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="manufacturers"
+                     />
+                     {el.label}
                   </label>
                ))}
                <button type="button" onClick={toggleManufacturersHandler}>
@@ -515,6 +650,7 @@ const CatalodSideBar = () => {
                   Индекс скорости <span className={classes.tieresSpan}>?</span>
                </p>
                <select
+                  value={selectedFilters.speedIndex}
                   onChange={speedIndexChangeHandler}
                   name="speedindexOption"
                   id=""
@@ -533,11 +669,13 @@ const CatalodSideBar = () => {
                </p>
                <div className={classes.priceitemInput}>
                   <input
+                     value={selectedFilters.minLoadIndex}
                      onChange={minLoadIndexChangeHandler}
                      type="number"
                      placeholder="от "
                   />
                   <input
+                     value={selectedFilters.maxLoadIndex}
                      onChange={maxLoadIndexChangeHandler}
                      type="number"
                      placeholder="до "
@@ -546,25 +684,31 @@ const CatalodSideBar = () => {
             </div>
             <div className={classes.containerCheckBox}>
                <p>Топливная экономичность</p>
-               {fuelEconomyOption?.map((el) => (
-                  <label key={el.label}>
+               {selectedFilters.fuelEconomy?.map((el) => (
+                  <label key={el.id}>
                      <input
-                        onChange={() => fuelEconomyChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) =>
+                           fuelEconomyChangeHandler(e, el.id, el.label)
+                        }
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="fuelEconomy"
+                     />
+                     {el.label}
                   </label>
                ))}
                <p>Сцепление с мокрой поверхностью</p>
-               {wetGripyOption?.map((el) => (
-                  <label key={el.label}>
+               {selectedFilters.wetGrip?.map((el) => (
+                  <label key={el.id}>
                      <input
-                        onChange={() => wetGripChangeHandler(el.value)}
+                        checked={el.checked}
+                        onChange={(e) =>
+                           wetGripChangeHandler(e, el.id, el.label)
+                        }
                         type="checkbox"
-                        name={el.label}
-                     />{' '}
-                     {el.value}
+                        name="wetGrip"
+                     />
+                     {el.label}
                   </label>
                ))}
             </div>
@@ -572,6 +716,7 @@ const CatalodSideBar = () => {
                <p>Уровень внешнего шума</p>
                <div className={classes.priceitemInput}>
                   <select
+                     value={selectedFilters.noiseLevel}
                      onChange={noiseLevelChangeHandler}
                      name="noiseLevelOption"
                      id=""
@@ -589,19 +734,21 @@ const CatalodSideBar = () => {
                <p>В наличии</p>
                <label>
                   <input
+                     checked={selectedFilters.inStock}
                      onChange={inStockChangeHandler}
                      type="checkbox"
                      name="option1"
-                  />{' '}
+                  />
                   Да
                </label>
                <p>Скидки</p>
                <label>
                   <input
+                     checked={selectedFilters.discount}
                      onChange={discountChangeHandler}
                      type="checkbox"
                      name="option1"
-                  />{' '}
+                  />
                   Да
                </label>
                <p>
@@ -609,6 +756,7 @@ const CatalodSideBar = () => {
                </p>
                <label>
                   <input
+                     checked={selectedFilters.runflat}
                      onChange={runflatChangeHandler}
                      type="checkbox"
                      name="option1"
@@ -620,16 +768,17 @@ const CatalodSideBar = () => {
                </p>
                <label>
                   <input
+                     checked={selectedFilters.offRoad}
                      onChange={offRoadChangeHandler}
                      type="checkbox"
                      name="option1"
-                  />{' '}
+                  />
                   Да
                </label>
             </div>
             <div className={classes.uiButtonContainer}>
                <Button onClick={applyFilterHandler}>Подобрать</Button>
-               <Button>Сбросить все</Button>
+               <Button onClick={resetFiltersHandler}>Сбросить все</Button>
             </div>
          </div>
       </form>
