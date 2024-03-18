@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import classes from './PopTires.module.css'
-import Button from '../../ui/Button'
+// import Button from '../../ui/Button'
 import { getProducts } from '../../../store/addNewProductSlice'
 import ProductItem from '../../Product/ProductItem'
 
 const PopTires = () => {
+   // const location = useLocation()
    const dispatch = useDispatch()
-   const navigate = useNavigate()
-
-   const clickCatalogHandler = () => {
-      navigate('/catalog')
-   }
+   // const navigate = useNavigate()
 
    useEffect(() => {
       dispatch(getProducts())
@@ -56,7 +53,7 @@ const PopTires = () => {
                   return <ProductItem key={el.id} data={el} />
                })}
             </div>
-            <Button onClick={clickCatalogHandler}>Посмотреть все шины</Button>
+            <Link to="/catalog">Посмотреть все шины</Link>
          </div>
       </section>
    )

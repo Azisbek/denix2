@@ -24,6 +24,8 @@ const ProductItem = ({ data }) => {
    const favorites = useMatch(location.pathname)
    const link = catalog || favorites
 
+   const homeLink = '/home' ? '/catalog' : link.pattern.path
+
    const handleAddToFavorites = () => {
       dispatch(addToFavorites(data))
       dispatch(setFavoritesInCatalog(data.id))
@@ -83,10 +85,10 @@ const ProductItem = ({ data }) => {
             <div className={classes.boxReview}>
                <div className={classes.boxComment}>
                   <img src={commentIcon} alt="Иконка комментарий" />
-                  <span>{commentsArray.length}</span>
+                  <span>{commentsArray?.length}</span>
                </div>
                <div className={classes.boxRating}>
-                  {[1, 2, 3, 4, 5].map((star) => (
+                  {[1, 2, 3, 4, 5]?.map((star) => (
                      <div className={classes.boxRating} key={star}>
                         <Rating
                            fill={star <= averageRating ? '#FF7E00' : 'white'}
@@ -100,7 +102,7 @@ const ProductItem = ({ data }) => {
                В наличии: <span>{data.inStock}</span> шт.
             </p>
             <div className={classes.boxButton}>
-               <Link to={`${link.pattern.path}/${data.id}`}>
+               <Link to={`${homeLink}/${data.id}`}>
                   <button>{discount}</button>
                </Link>
                <button

@@ -15,7 +15,7 @@ const NewsHome = () => {
       dispatch(getNews())
    }, [dispatch])
    const clickCatalogHandler = () => {
-      navigete('/home/news')
+      navigete('/news')
    }
    return (
       <section className={classes.section}>

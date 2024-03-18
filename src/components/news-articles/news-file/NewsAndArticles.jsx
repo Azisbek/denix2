@@ -7,13 +7,14 @@ import chess2 from '../../../assets/image/imgadap.png'
 
 const NewsAndArticles = ({ news }) => {
    // const { pathname } = useLocation()
+
    return (
       <div className={classes.container}>
          <div className={classes.main}>
             {/* <img className={classes.mainFoto} src={chess2} alt="" /> */}
             <img className={classes.mainFoto2} src={chess2} alt="" />
 
-            <Link to={`news/${news.id}`}>
+            <Link to={`/news/${news.id}`}>
                <h3 className={classes.text}>{news.title}</h3>
             </Link>
             <div className={classes.tags}>

@@ -51,17 +51,6 @@ const allRoutes = () => {
                <Route path="payment" element={<h1>Оплата</h1>} />
                <Route path="reviews" element={<Comments />} />
             </Route>
-            <Route path="/home/:id" element={<CardPageIffor />}>
-               <Route index element={<GeneralInformation />} />
-               <Route path="information" element={<GeneralInformation />} />
-               <Route
-                  path="characteristics"
-                  element={<CharacteristicsItem />}
-               />
-               <Route path="guarantee" element={<Guarantee />} />
-               <Route path="payment" element={<h1>Оплата</h1>} />
-               <Route path="reviews" element={<Comments />} />
-            </Route>
 
             <Route
                path="/favorites"
@@ -106,16 +95,12 @@ const allRoutes = () => {
                }
             />
             <Route path="/news" element={<NewsArticles />} />
-            <Route path="/home/news" element={<NewsArticles />} />
             <Route path="/news/:id" element={<NewsPage />} />
-            <Route path="/home/news/:id" element={<NewsPage />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/promotion" element={<PromotionPage />} />
-            <Route path="/home/promotion" element={<PromotionPage />} />
             <Route path="/promotion/:id" element={<PromotionItemPage />} />
-            <Route path="/home/promotion/:id" element={<PromotionItemPage />} />
 
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/admin/new-product" element={<AddNewProducts />} />
