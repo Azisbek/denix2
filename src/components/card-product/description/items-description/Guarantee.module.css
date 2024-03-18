@@ -53,16 +53,13 @@
    display: flex;
    gap: 30px;
    flex-wrap: wrap;
+   margin-top: 20px;
 }
 .containerUl li {
    display: flex;
    justify-content: space-between;
-   gap: 1rem;
-   align-items: center;
+   flex-wrap: wrap;
    max-width: 288px;
-}
-.containerUl li p {
-   /* white-space: nowrap; */
 }
 
 .numberСircleBox {
@@ -87,5 +84,25 @@
    .containerUl {
       display: grid;
       grid-template-columns: 2fr 2fr;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .containerUl li p {
+      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .containerUl {
+      display: grid;
+      /* grid-template-columns: 1fr; */
+   }
+}
+
+@media screen and (max-width: 359px) {
+   .containerUl {
+      display: grid;
+      grid-template-columns: 1fr;
    }
 }

@@ -9,8 +9,10 @@ import { getProdictItem } from '../../store/newCardProductSlice'
 import Loading from '../ui/Loading'
 import { setUseParams } from '../../store/useParamsSlice'
 import { getFavoritesItem } from '../../store/favoritesSlice'
+// import useScrollToTop from '../../hooks/useScrollToTop'
 
 const CardPage = () => {
+   // useScrollToTop()
    const dispatch = useDispatch()
    const { data, isLoading } = useSelector((state) => state.newPage)
    const { favoritesItem } = useSelector((state) => state.favorites)

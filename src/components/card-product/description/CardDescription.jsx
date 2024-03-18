@@ -29,6 +29,7 @@ const CardDescription = () => {
             </li>
             <li className={classes.tabsItem}>
                <NavLink
+                  id="characteristic"
                   to="characteristics"
                   activeClassName={classes.activeLink}
                   end

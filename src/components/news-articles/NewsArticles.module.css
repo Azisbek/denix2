@@ -5,10 +5,11 @@
 }
 
 .block {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 30px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   grid-gap: 30px; /* Задаем промежуток между элементами в сетке */
 }
+
 .titleMain {
    color: #1a1e29;
    font-size: 40px;
@@ -16,15 +17,18 @@
    line-height: 48px;
    padding-bottom: 24px;
 }
+
 .lastBtn {
    display: flex;
    text-align: center;
    justify-content: center;
    margin: 8px 0 72px;
 }
+
 .lastBtn button {
    padding: 12px 24px;
 }
+
 .mainFoto2 {
    display: none;
 }

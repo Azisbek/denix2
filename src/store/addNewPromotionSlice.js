@@ -33,7 +33,7 @@ export const getPromotion = createAsyncThunk(
          const data = await response.json()
          const transformedData = []
          Object.keys(data).forEach((key) => {
-            transformedData.push({
+            transformedData.unshift({
                id: key,
                image: data[key].image,
                images: data[key].images,

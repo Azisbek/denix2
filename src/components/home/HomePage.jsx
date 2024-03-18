@@ -7,6 +7,7 @@ import Promotions from './main-section/Promotions'
 import Selection from './main-section/Selection'
 import Options from './main-section/Options'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import NewsHome from './main-section/NewsHome'
 
 const HomePage = () => {
    useScrollToTop()
@@ -17,6 +18,7 @@ const HomePage = () => {
          <Options />
          <PopTires />
          <Promotions />
+         <NewsHome />
          <Ticker />
          <Partners />
       </>

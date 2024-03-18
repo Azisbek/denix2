@@ -21,6 +21,8 @@ const ModalComments = ({
       } else {
          setValidComments(true)
          postCommentClick()
+         handleStarClick(0)
+         titleHandler({ target: { value: '' } })
       }
    }
 
@@ -56,7 +58,7 @@ const ModalComments = ({
             </textarea>
             <div className={classes.blockButton}>
                <Button type="submit">Сохранить</Button>
-               <button onClick={closeModal}>Закрыть</button>
+               <Button onClick={closeModal}>Закрыть</Button>
             </div>
             {!validComments && (
                <p className={classes.errorMsg}>

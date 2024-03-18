@@ -38,7 +38,7 @@ export const getNews = createAsyncThunk(
          const data = await response.json()
          const transformedData = []
          Object.keys(data).forEach((key) => {
-            transformedData.push({
+            transformedData.unshift({
                id: key,
                title: data[key].title,
                description: data[key].description,

@@ -134,7 +134,7 @@ const Comments = () => {
                                     : 0}
                                  %
                               </p>
-                              <span>({numCommentsWithRating} отзыва)</span>
+                              <span>({numCommentsWithRating} отз)</span>
                            </div>
                         )
                      })}
@@ -151,9 +151,11 @@ const Comments = () => {
             {commentsToShow.map((el) => (
                <CommentsItem data={el} key={el.id} />
             ))}
-            {commentsToShow.length < reverseArray.length && (
-               <Button onClick={paginate}>Показать еще</Button>
-            )}
+            <div className={classes.buttonUi}>
+               {commentsToShow.length < reverseArray.length && (
+                  <Button onClick={paginate}>Показать еще</Button>
+               )}
+            </div>
          </div>
       </section>
    )

@@ -32,7 +32,7 @@ const Characteristics = ({ data, id }) => {
    }, [data])
 
    const handleScrollToHistory = () => {
-      const historyElement = document.getElementById('haracteristic')
+      const historyElement = document.getElementById('characteristic')
 
       if (historyElement) {
          historyElement.scrollIntoView({ behavior: 'smooth' })

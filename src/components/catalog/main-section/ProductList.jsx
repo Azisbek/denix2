@@ -16,6 +16,11 @@ const ProductList = () => {
       (state) => state.filtered
    )
 
+   // const filteredProducts = data.map((el) => ({
+   //    ...el,
+   //    comment: Object.values(el.comment),
+   // }))
+
    const products = showFilteredProducts ? filtered : data
 
    useEffect(() => {

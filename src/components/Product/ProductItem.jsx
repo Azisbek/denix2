@@ -4,7 +4,7 @@ import { Link, useLocation, useMatch } from 'react-router-dom'
 import Notice from '../ui/Notice'
 import classes from './ProductItem.module.css'
 import summerIcon from '../../assets/icon/summerIcon.png'
-// import commentIcon from '../../assets/icon/commentIcon.png'
+import commentIcon from '../../assets/icon/commentIcon.png'
 import { Rating } from '../svg/Rating'
 import Like from '../svg/Like'
 import {
@@ -16,6 +16,7 @@ import { setFavoritesInCatalog } from '../../store/addNewProductSlice'
 import { setNotice } from '../../store/noticeSlice'
 
 const ProductItem = ({ data }) => {
+   const [averageRating, setAverageRating] = useState(0)
    const dispatch = useDispatch()
    const { isSelected } = useSelector((state) => state.favorites)
    const location = useLocation()
@@ -52,10 +53,6 @@ const ProductItem = ({ data }) => {
       }
    }, [dispatch, isSelected])
 
-   const [averageRating, setAverageRating] = useState(0)
-   // const dataComment = useSelector((state) => state.newPage.data)
-   // const comments = (dataComment && dataComment.comment) || {}
-
    useEffect(() => {
       if (data && data.comment) {
          const totalRating = Object.values(data.comment).reduce(
@@ -69,6 +66,7 @@ const ProductItem = ({ data }) => {
    }, [data])
 
    const discount = data.discount || data.price
+   const commentsArray = data.comment ? Object.values(data.comment) : []
 
    return (
       <>
@@ -83,10 +81,10 @@ const ProductItem = ({ data }) => {
                />
             </div>
             <div className={classes.boxReview}>
-               {/* <div className={classes.boxComment}>
+               <div className={classes.boxComment}>
                   <img src={commentIcon} alt="Иконка комментарий" />
-                  <span>{commentArray.length}</span>
-               </div> */}
+                  <span>{commentsArray.length}</span>
+               </div>
                <div className={classes.boxRating}>
                   {[1, 2, 3, 4, 5].map((star) => (
                      <div className={classes.boxRating} key={star}>
