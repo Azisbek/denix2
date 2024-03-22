@@ -4,10 +4,12 @@ import Button from '../ui/Button'
 import classes from './AddNews.module.css'
 import { postNews } from '../../store/addNewsSlice'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const AddNews = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const generateUniqueId = () => {
       return `_${Math.random().toString(36)}`
    }

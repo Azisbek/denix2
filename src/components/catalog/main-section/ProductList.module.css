@@ -46,13 +46,13 @@
 #filter {
    display: none;
    margin: 0;
-   padding: 5px 10px;
+   padding: 5.5px 10px;
    border-radius: 3px;
+   background-color: white;
+   color: #ff7e00;
 }
 
 #filter:hover {
-   background-color: white;
-   color: #ff7e00;
    transform: scale(1.1);
    transition: 500ms;
 }
@@ -62,6 +62,24 @@
    transition: 500ms;
 }
 
+#activeFilter {
+   display: none;
+   margin: 0;
+   padding: 5.5px 10px;
+   border-radius: 3px;
+   background-color: #ff7e00;
+   color: white;
+}
+
+#activeFilter:hover {
+   transform: scale(1.1);
+   transition: 500ms;
+}
+
+#activeFilter:not(:hover) {
+   transform: scale(1);
+   transition: 500ms;
+}
 @media screen and (max-width: 900px) {
    .selectBox {
       flex-wrap: wrap;
@@ -81,6 +99,10 @@
    }
 
    #filter {
+      display: inline-block;
+   }
+
+   #activeFilter {
       display: inline-block;
    }
 }

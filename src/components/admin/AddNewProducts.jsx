@@ -22,10 +22,12 @@ import Button from '../ui/Button'
 import { postProduct } from '../../store/addNewProductSlice'
 import useScrollToTop from '../../hooks/useScrollToTop'
 import Loading from '../ui/Loading'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const AddNewProducts = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { loading } = useSelector((state) => state.product)
    console.log(loading)
 

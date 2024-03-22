@@ -6,10 +6,12 @@ import Button from '../ui/Button'
 import { getNews } from '../../store/addNewsSlice'
 import Loading from '../ui/Loading'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const NewsArticles = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { news, isLoading } = useSelector((state) => state.news)
 
    useEffect(() => {

@@ -2,9 +2,11 @@ import React from 'react'
 import classes from './ApplicationAdmin.module.css'
 import Button from '../../ui/Button'
 import useScrollToTop from '../../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../../hooks/useResetFiliterHome'
 
 const TableComponent = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <div className={classes.applicationAdminContainer}>
          <h1>Заявки</h1>

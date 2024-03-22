@@ -4,8 +4,9 @@ import classes from './AdminPromotionProduct.module.css'
 import { getPromotion } from '../../../store/addNewPromotionSlice'
 import Loading from '../../ui/Loading'
 import AdminPromotionItem from './AdminPromotionItem'
-import Button from '../../ui/Button'
+// import Button from '../../ui/Button'
 import useScrollToTop from '../../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../../hooks/useResetFiliterHome'
 
 const AdminPromotionProduct = () => {
    const [searchQuery, setSearchQuery] = useState('')
@@ -13,6 +14,7 @@ const AdminPromotionProduct = () => {
 
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { baseData, status } = useSelector((state) => state.promotion)
 
    useEffect(() => {

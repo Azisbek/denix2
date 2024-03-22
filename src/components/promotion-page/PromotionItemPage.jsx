@@ -4,9 +4,13 @@ import { useParams } from 'react-router-dom'
 import { getPagePromotion } from '../../store/promotionItemPageSlice'
 import Loading from '../ui/Loading'
 import classes from './PromotionItemPage.module.css'
+import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const PromotionItemPage = () => {
    const dispatch = useDispatch()
+   useScrollToTop()
+   useResetFiliterHome()
    const { id } = useParams()
 
    const { dataPage, status, error } = useSelector(

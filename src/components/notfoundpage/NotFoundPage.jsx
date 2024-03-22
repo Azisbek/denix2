@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './NotFoundPage.module.css'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const NotFoundPage = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <section className={classes.container}>
          <h1>Пшш…Страница не найдена</h1>

@@ -7,6 +7,7 @@ import checkmark from '../../../assets/icon/checkmark.png'
 import commentIcon from '../../../assets/icon/commentIcon.png'
 import { Rating } from '../../svg/Rating'
 import PathBasket from './PathBasket'
+import tire from '../../../assets/image/tire.png'
 
 const Characteristics = ({ data, id }) => {
    const [averageRating, setAverageRating] = useState(0)
@@ -69,7 +70,8 @@ const Characteristics = ({ data, id }) => {
          <div className={classes.blockContainer}>
             <div className={classes.boxCharacteristics}>
                <div className={classes.img}>
-                  <img src={data.img} alt="Фото характеристика" />
+                  {/* <img src={data.img} alt="Фото характеристика" /> */}
+                  <img src={tire} alt="Фото характеристика" />
                </div>
                <div className={classes.shortDescription}>
                   <h3>Краткое описание</h3>

@@ -12,16 +12,16 @@ const ProductList = () => {
    const dispatch = useDispatch()
    const data = useSelector((state) => state.product.products)
    const status = useSelector((state) => state.product.loading)
-   const { filtered, showFilteredProducts } = useSelector(
-      (state) => state.filtered
-   )
+   const { filtered, showFilteredProducts, showFilteredProductsFromHome } =
+      useSelector((state) => state.filtered)
 
    // const filteredProducts = data.map((el) => ({
    //    ...el,
    //    comment: Object.values(el.comment),
    // }))
 
-   const products = showFilteredProducts ? filtered : data
+   const products =
+      showFilteredProducts || showFilteredProductsFromHome ? filtered : data
 
    useEffect(() => {
       dispatch(getProducts())
@@ -42,7 +42,14 @@ const ProductList = () => {
                   <p>
                      Товаров: <span>{products.length}</span>
                   </p>
-                  <Button onClick={openFilterHandler} id={classes.filter}>
+                  <Button
+                     onClick={openFilterHandler}
+                     id={
+                        showFilteredProducts || showFilteredProductsFromHome
+                           ? classes.activeFilter
+                           : classes.filter
+                     }
+                  >
                      Фильтр
                   </Button>
                </div>

@@ -7,10 +7,12 @@ import { getNewsItem } from '../../store/newsPageSlice'
 import Loading from '../ui/Loading'
 import { setUseParams } from '../../store/useParamsSlice'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const NewsPage = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { newsItem, isLoading } = useSelector((state) => state.newsItem)
    const { id } = useParams()
 

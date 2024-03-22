@@ -6,8 +6,10 @@ import icon2 from '../../assets/image/Шины (Copy) (1)/Icon 16/time.png'
 import Button from '../ui/Button'
 import useScrollToTop from '../../hooks/useScrollToTop'
 import { getOrderProduct } from '../../store/orderTireProductSlice'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const OrderPage = () => {
+   useResetFiliterHome()
    useScrollToTop()
    const dispatch = useDispatch()
    const { data } = useSelector((state) => state.order)

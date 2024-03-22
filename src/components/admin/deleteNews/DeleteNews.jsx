@@ -5,10 +5,12 @@ import DeleteNewsItem from './DeleteNewsItem'
 import Loading from '../../ui/Loading'
 import { getNewsInAdmin } from '../../../store/adminNewsSlice'
 import useScrollToTop from '../../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../../hooks/useResetFiliterHome'
 
 const DeleteNews = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { adminNews, isLoading } = useSelector((state) => state.adminNews)
    const [searchQuery, setSearchQuery] = useState('')
    const [filteredNews, setFilteredNews] = useState([])

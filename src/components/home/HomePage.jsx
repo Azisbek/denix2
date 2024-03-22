@@ -5,17 +5,17 @@ import Partners from './main-section/Partners'
 import Ticker from './main-section/Ticker'
 import Promotions from './main-section/Promotions'
 import Selection from './main-section/Selection'
-import Options from './main-section/Options'
 import useScrollToTop from '../../hooks/useScrollToTop'
 import NewsHome from './main-section/NewsHome'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const HomePage = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <>
          <MainSlider />
          <Selection />
-         <Options />
          <PopTires />
          <Promotions />
          <NewsHome />

@@ -20,13 +20,13 @@ import {
 import {
    setFilteredProducts,
    setShowFiltered,
+   setShowFilteredFromHome,
 } from '../../../store/filteredProductsSlice'
 
 const CatalodSideBar = () => {
    const dispatch = useDispatch()
    const { sideBar } = useSelector((state) => state.toggle)
    const { products } = useSelector((state) => state.product)
-   const { showFilteredProducts } = useSelector((state) => state.filtered)
    const all = 'Все'
    const newTireTypeOption = tireTypeOption?.map((el) => ({
       ...el,
@@ -460,6 +460,7 @@ const CatalodSideBar = () => {
 
       showFilteredProductsHandler()
       dispatch(setFilteredProducts(filteredProducts))
+      dispatch(setSideBar(false))
       window.scrollTo(0, 0)
    }
 
@@ -487,14 +488,11 @@ const CatalodSideBar = () => {
       })
       setShowAllManufacturers(false)
       setSearchQuery('')
+      dispatch(setSideBar(false))
+      dispatch(setShowFiltered(false))
+      dispatch(setShowFilteredFromHome(false))
       window.scrollTo(0, 0)
    }
-
-   useEffect(() => {
-      if (showFilteredProducts) {
-         showFilteredProductsHandler()
-      }
-   }, [selectedFilters])
 
    return (
       <form>

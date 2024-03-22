@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './AdminPanel.module.css'
 import useScrollToTop from '../../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../../hooks/useResetFiliterHome'
 
 function AdminPanel() {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <div className={classes.adminPanelContainer}>
          <h1>Админка</h1>

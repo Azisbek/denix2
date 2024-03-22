@@ -5,10 +5,12 @@ import classes from './Favorites.module.css'
 import { getFavorites } from '../../store/favoritesSlice'
 import useScrollToTop from '../../hooks/useScrollToTop'
 import Loading from '../ui/Loading'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const FavoritesPage = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const { favorites, isLoading } = useSelector((state) => state.favorites)
    useEffect(() => {
       dispatch(getFavorites())
