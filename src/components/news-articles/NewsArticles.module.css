@@ -1,13 +1,15 @@
 .container {
    margin: 0 auto;
    max-width: 1340px;
-   padding: 24px 30px 0;
+   padding-top: 24px;
 }
 
 .block {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-   grid-gap: 30px; /* Задаем промежуток между элементами в сетке */
+   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+   /* grid-template-columns: 1fr 1fr 1fr; */
+   grid-gap: 30px;
+   /* margin: 0 auto; */
 }
 
 .titleMain {

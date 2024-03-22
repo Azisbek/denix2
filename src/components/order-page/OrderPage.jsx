@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import classes from './OrderPage.module.css'
 import icon from '../../assets/image/Шины (Copy)/Icon 16/ok.png'
 import icon2 from '../../assets/image/Шины (Copy) (1)/Icon 16/time.png'
 import Button from '../ui/Button'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import { getOrderProduct } from '../../store/orderTireProductSlice'
 
 const OrderPage = () => {
    useScrollToTop()
+   const dispatch = useDispatch()
+   const { data } = useSelector((state) => state.order)
+
+   useEffect(() => {
+      dispatch(getOrderProduct())
+   }, [dispatch])
+   console.log(data, 123123123)
+
    return (
       <div className={classes.orderContainer}>
          <h1 className={classes.orderTitle}>Оформление заказа</h1>

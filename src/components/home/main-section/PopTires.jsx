@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import classes from './PopTires.module.css'
-// import Button from '../../ui/Button'
+import Button from '../../ui/Button'
 import { getProducts } from '../../../store/addNewProductSlice'
 import ProductItem from '../../Product/ProductItem'
 
@@ -53,7 +53,10 @@ const PopTires = () => {
                   return <ProductItem key={el.id} data={el} />
                })}
             </div>
-            <Link to="/catalog">Посмотреть все шины</Link>
+
+            <Link to="/catalog">
+               <Button> Посмотреть все шины </Button>
+            </Link>
          </div>
       </section>
    )

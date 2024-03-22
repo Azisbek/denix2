@@ -233,8 +233,8 @@ input[type='radio']:checked {
       gap: 8px;
    }
 }
-.span{
-    color: #4C65BD;
+.span {
+   color: #4c65bd;
 }
 .totalQuantityBox {
    display: flex;

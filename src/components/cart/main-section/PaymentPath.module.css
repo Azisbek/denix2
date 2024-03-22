@@ -85,6 +85,11 @@
    cursor: pointer;
 }
 
+.orderBtn a {
+   text-decoration: none;
+   color: white;
+}
+
 @media screen and (max-width: 400px) and (min-width: 320px) {
    #btnPaymentPath {
       padding: 12px 40px;

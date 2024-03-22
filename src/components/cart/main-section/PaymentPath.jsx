@@ -1,14 +1,15 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+// import { postOrderProduct } from '../../../store/orderTireProductSlice'
 import Button from '../../ui/Button'
 import classes from './PaymentPath.module.css'
+import Loading from '../../ui/Loading'
 
 const PaymentPath = ({ items }) => {
-   const navigate = useNavigate()
-
-   const clickNavigateShopHandler = () => {
-      navigate('/cart/order')
-   }
+   const [cart, setCart] = useState([])
+   const { loading } = useSelector((state) => state.order)
+   // const dispatch = useDispatch()
 
    const totalQuantityPrice = items.reduce(
       (accumulator, currentItem) =>
@@ -18,27 +19,26 @@ const PaymentPath = ({ items }) => {
       0
    )
 
-   // const totalDiscountPrice = items.reduce((accumulator, currentItem) => {
-   //    const price = parseFloat(currentItem.price)
-   //    const discount = parseFloat(currentItem.discount)
-
-   //    if (!Number.isNaN(price) && !Number.isNaN(discount)) {
-   //       return (
-   //          accumulator + (discount && price - discount) * currentItem.quantity
-   //       )
-   //    }
-
-   //    console.error('Invalid price or discount value:', currentItem)
-   //    return accumulator
-   // }, 0)
-
    const totalQuantity = items.reduce(
       (accumulator, currentItem) => accumulator + Number(currentItem.quantity),
       0
    )
 
+   useEffect(() => {
+      const arrayCartOrder = items.filter((el) => {
+         return el.quantity > 0
+      })
+      setCart(arrayCartOrder)
+   }, [])
+
+   const clickNavigateShopHandler = () => {
+      // dispatch(postOrderProduct(cart))
+      console.log(cart)
+   }
+
    return (
       <div>
+         {loading === 'loading' && <Loading />}
          <div className={classes.blockPaymentPath}>
             <div className={classes.totalQuantityBox}>
                <p> количество товара</p>
@@ -54,13 +54,15 @@ const PaymentPath = ({ items }) => {
                <p>Итоговая цена</p>
                <span>{totalQuantityPrice} C</span>
             </div>
+
             <Button
                onClick={clickNavigateShopHandler}
                id={classes.btnPaymentPath}
                className={classes.orderBtn}
             >
-               Оформить заказ
+               <Link to="/cart/order">Оформить заказ</Link>
             </Button>
+
             <form className={classes.iconLabel}>
                <input
                   type="text"

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import classes from './CartCard.module.css'
 import dostavka from '../../../assets/icon/dostavka.png'
 import close from '../../../assets/icon/close.png'
+import tire from '../../../assets/image/tire.png'
 import Checkmark from '../../svg/Checkmark'
 import {
    cardDeleteAsync,
@@ -50,7 +51,8 @@ const CartCard = ({ data }) => {
          {loading === 'loading' && <Loading />}
          <div className={classes.cart}>
             <div className={classes.cartImg}>
-               <img src={data.img} alt="Картинка товара" />
+               {/* <img src={data.img} alt="Картинка товара" /> */}
+               <img src={tire} alt="Картинка товара" />
             </div>
             <div className={classes.description}>
                <h4>{data.title}</h4>

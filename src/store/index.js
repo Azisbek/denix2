@@ -14,6 +14,7 @@ import { newsPage } from './newsPageSlice'
 import { promotionItemPageSlice } from './promotionItemPageSlice'
 import { adminNews } from './adminNewsSlice'
 import { filteredProducts } from './filteredProductsSlice'
+import { orderTireProductSlice } from './orderTireProductSlice'
 
 export const store = configureStore({
    reducer: {
@@ -32,5 +33,6 @@ export const store = configureStore({
       promotionPageId: promotionItemPageSlice.reducer,
       adminNews: adminNews.reducer,
       filtered: filteredProducts.reducer,
+      order: orderTireProductSlice.reducer,
    },
 })

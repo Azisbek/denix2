@@ -41,6 +41,7 @@ export const getFavorites = createAsyncThunk(
          Object.keys(data).forEach((key) => {
             transformedData.push({
                id: key,
+               comment: data[key].comment,
                width: data[key].width,
                wetGrip: data[key].wetGrip,
                title: data[key].title,
@@ -59,6 +60,10 @@ export const getFavorites = createAsyncThunk(
                img: data[key].img,
                description: data[key].description,
                isFavorites: data[key].isFavorites,
+               inStock: data[key].inStock,
+               discount: data[key].discount,
+               runflat: data[key].runflat,
+               offRoad: data[key].offRoad,
             })
          })
          return transformedData
