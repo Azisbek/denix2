@@ -1,28 +1,28 @@
-.optionsTitle h1 {
-   color: #1a1e29;
+.containerTitle {
+   padding: 0 20px 0 20px;
+}
+
+.optionsTitle h3 {
+   text-align: center;
+   padding: 0 10px 0 10px;
+   color: rgb(76, 101, 189);
    font-size: 22px;
    font-style: normal;
    font-weight: 500;
    line-height: 32px;
+   max-width: 500px;
+   border-bottom: solid #ff7e00;
+   border-width: 1px;
 }
 .optionsTitle {
+   display: flex;
+   justify-content: center;
    padding: 23px 0px;
    margin: 0 auto;
-   text-align: center;
    border-radius: 10px;
    background: white;
    transform: translate(0px, -30px);
-   max-width: 1173px;
+   max-width: 1000px;
    width: 100%;
    overflow: hidden;
-}
-
-.optionsTitle .dashed {
-   color: #4c65bd;
-   border-bottom: dashed rgb(153, 153, 204);
-   border-width: 1px;
-}
-.optionsTitle .solid {
-   border-bottom: solid #ff7e00;
-   border-width: 1px;
 }

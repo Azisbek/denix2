@@ -106,7 +106,6 @@ const allRoutes = () => {
                }
             />
             <Route path="/news" element={<NewsArticles />} />
-            <Route path="/home/news" element={<NewsArticles />} />
             <Route path="/news/:id" element={<NewsPage />} />
             <Route path="/home/news/:id" element={<NewsPage />} />
             <Route path="*" element={<NotFoundPage />} />

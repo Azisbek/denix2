@@ -4,9 +4,11 @@ import icon from '../../assets/image/Шины (Copy)/Icon 16/ok.png'
 import icon2 from '../../assets/image/Шины (Copy) (1)/Icon 16/time.png'
 import Button from '../ui/Button'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const OrderPage = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <div className={classes.orderContainer}>
          <h1 className={classes.orderTitle}>Оформление заказа</h1>

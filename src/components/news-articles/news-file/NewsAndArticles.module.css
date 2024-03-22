@@ -54,3 +54,8 @@
    margin: 8px 16px 16px; /* Изменены отступы для времени и даты */
    gap: 8px;
 }
+
+.timeChess {
+    width: 16px;
+   height: 16px;
+}

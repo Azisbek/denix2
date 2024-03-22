@@ -6,9 +6,11 @@ import iconn from '../../assets/icon/Icon 16/Link.png'
 import Queston from '../svg/Queston'
 import Button from '../ui/Button'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const PersonalAccount = () => {
    useScrollToTop()
+   useResetFiliterHome()
 
    const handleScrollToHistory = () => {
       const historyElement = document.getElementById('history')

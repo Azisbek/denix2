@@ -2,9 +2,11 @@ import React from 'react'
 import photo from '../../assets/image/фото.png'
 import classes from './AboutCompanyPage.module.css'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const AboutCompanyPage = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <div className={classes.container}>
          <div className={classes.blockContainer}>

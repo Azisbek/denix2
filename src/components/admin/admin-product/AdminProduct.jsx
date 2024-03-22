@@ -5,10 +5,12 @@ import { getProducts } from '../../../store/addNewProductSlice'
 import Loading from '../../ui/Loading'
 import AdminProductItem from './AdminProductItem'
 import useScrollToTop from '../../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../../hooks/useResetFiliterHome'
 
 const AdminProduct = () => {
    const dispatch = useDispatch()
    useScrollToTop()
+   useResetFiliterHome()
    const [searchQuery, setSearchQuery] = useState('')
    const [filteredProduct, setFilteredProduct] = useState([])
    const { products, status } = useSelector((state) => state.product)

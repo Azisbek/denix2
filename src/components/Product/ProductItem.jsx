@@ -5,6 +5,7 @@ import Notice from '../ui/Notice'
 import classes from './ProductItem.module.css'
 import summerIcon from '../../assets/icon/summerIcon.png'
 import commentIcon from '../../assets/icon/commentIcon.png'
+import tire from '../../assets/image/tire.png'
 import { Rating } from '../svg/Rating'
 import Like from '../svg/Like'
 import {
@@ -73,7 +74,8 @@ const ProductItem = ({ data }) => {
          {isSelected && <Notice />}
          <div className={classes.cardProduct}>
             <div className={classes.boxImage}>
-               <img src={data.img} alt="Популярная шина" />
+               {/* <img src={data.img} alt="Популярная шина" /> */}
+               <img src={tire} alt="Популярная шина" />
                <img
                   id={classes.summerIcon}
                   src={summerIcon}

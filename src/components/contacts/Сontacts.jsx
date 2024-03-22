@@ -8,9 +8,11 @@ import Button from '../ui/Button'
 import messageImg from '../../assets/image/mail-send 1.png'
 import telegramImg from '../../assets/image/telegram (1) 1.png'
 import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const Сontacts = () => {
    useScrollToTop()
+   useResetFiliterHome()
    return (
       <div className={classes.container}>
          <h1>Контактная информация</h1>

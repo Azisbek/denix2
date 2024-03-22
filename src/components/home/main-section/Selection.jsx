@@ -1,17 +1,17 @@
 import React from 'react'
 import classes from './Selection.module.css'
+import Options from './Options'
 
 const Selection = () => {
    return (
-      <div className={classes.containerTitle}>
-         <div className={classes.optionsTitle}>
-            <h1>
-               Подберём
-               <span className={classes.solid}>шины по марке автомобиля </span>
-               или <span className={classes.dashed}>параметрам товара</span>
-            </h1>
+      <>
+         <div className={classes.containerTitle}>
+            <div className={classes.optionsTitle}>
+               <h3>Подберём шины по характеристикам</h3>
+            </div>
          </div>
-      </div>
+         <Options />
+      </>
    )
 }
 

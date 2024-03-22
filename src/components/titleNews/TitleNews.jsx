@@ -2,8 +2,12 @@ import React from 'react'
 import classes from './TitleNews.module.css'
 import time from '../../assets/icon/time.png'
 import proverka from '../../assets/image/proverka.png'
+import useScrollToTop from '../../hooks/useScrollToTop'
+import useResetFiliterHome from '../../hooks/useResetFiliterHome'
 
 const TitleNews = ({ news }) => {
+   useScrollToTop()
+   useResetFiliterHome()
    return (
       <section className={classes.container}>
          <h1>{news.title}</h1>
