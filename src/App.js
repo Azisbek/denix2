@@ -1,12 +1,10 @@
 import React from 'react'
-import MainSlider from './components/main-section/MainSlider'
 import Layout from './layout/Layout'
-import PopTires from './components/main-section/PopTires'
+import AllRoutes from './pages/allRoutes'
 
 const App = () => (
    <Layout>
-      <MainSlider />
-      <PopTires />
+      <AllRoutes />
    </Layout>
 )
 

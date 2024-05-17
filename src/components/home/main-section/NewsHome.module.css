@@ -1,0 +1,93 @@
+.content {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 0 0 0;
+}
+
+.content h2 {
+   color: black;
+   text-align: center;
+   font-size: 32px;
+   font-weight: 600;
+   line-height: 48px;
+   margin-bottom: 15px;
+}
+
+.selection {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 25px;
+}
+
+.btnSelection {
+   padding: 10px 16px;
+   background-color: white;
+   border: none;
+   color: #4c65bd;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+   border-bottom: 1px solid #e5e5e5;
+   cursor: pointer;
+}
+
+.activeBtnSelection {
+   padding: 10px 16px;
+   background-color: white;
+   border: none;
+   color: #ff7e00;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+   border-bottom: 1px solid #ff7e00;
+   cursor: pointer;
+}
+
+.cardProducts {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+   margin-bottom: 34px;
+   padding-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+   .cardProducts {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .selection {
+      display: flex;
+      flex-wrap: wrap;
+   }
+}
+
+@media screen and (max-width: 610px) and (min-width: 0) {
+   .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width: 960px) and (min-width: 610px) {
+   .cardProducts {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 18.12rem);
+   }
+}
+@media screen and (max-width: 1280px) and (min-width: 960px) {
+   .cardProducts {
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 18.12rem);
+   }
+}

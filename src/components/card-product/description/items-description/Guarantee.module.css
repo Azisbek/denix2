@@ -1,0 +1,108 @@
+.contentBox {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 20px;
+}
+.contentBox div {
+   padding: 0 20px;
+}
+
+.boxDescriptionGuarantee {
+   max-width: 600px;
+   /* margin-top: 20px; */
+}
+.boxDescriptionGuarantee p {
+   padding-top: 20px;
+   color: rgb(106, 106, 106);
+   font-family: IBM Plex Sans;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: 0%;
+}
+.boxDescriptionGuarantee2 p {
+   padding-top: 20px;
+   color: rgb(106, 106, 106);
+   font-family: IBM Plex Sans;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: 0%;
+}
+.boxDescriptionGuarantee2 h2 {
+   padding-top: 20px;
+   color: rgb(26, 30, 41);
+   font-family: IBM Plex Sans;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+   letter-spacing: 0%;
+}
+.boxDescriptionGuarantee h2 {
+   /* padding-top: 20px; */
+   color: rgb(26, 30, 41);
+   font-family: IBM Plex Sans;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+   letter-spacing: 0%;
+}
+.containerUl {
+   /* background-color: red; */
+   display: flex;
+   gap: 30px;
+   flex-wrap: wrap;
+   margin-top: 20px;
+}
+.containerUl li {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   max-width: 288px;
+}
+
+.numberСircleBox {
+   width: 48px;
+   height: 48px;
+   background-color: rgb(255, 126, 0);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   font-weight: 500;
+   line-height: 62px;
+   font-size: 48px;
+   color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1314px) {
+   .contentBox div {
+      max-width: fit-content;
+      /* margin: 0 auto; */
+   }
+   .containerUl {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .containerUl li p {
+      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .containerUl {
+      display: grid;
+      /* grid-template-columns: 1fr; */
+   }
+}
+
+@media screen and (max-width: 359px) {
+   .containerUl {
+      display: grid;
+      grid-template-columns: 1fr;
+   }
+}

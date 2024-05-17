@@ -1,0 +1,137 @@
+@keyframes slideDown {
+   from {
+      transform: translateY(-100%);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+
+.menuProducts {
+   animation: slideDown 0.3s ease-in-out;
+   width: 100%;
+   position: absolute;
+   z-index: 3;
+   background-color: #2b3143;
+   display: block;
+   padding-bottom: 30px;
+}
+
+.container {
+   max-width: 1340px;
+   width: 100%;
+   margin: 0 auto;
+   padding: 32px 20px;
+   display: flex;
+   justify-content: space-between;
+   /* display: grid; */
+   /* grid-template-columns: 5fr 3fr; */
+   gap: 20px;
+}
+
+.blockForm {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   gap: 16px;
+}
+
+.blockForm h1 {
+   color: #ff850e;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 32px;
+}
+.textContent {
+   display: flex;
+   align-items: center;
+   margin-top: 10px;
+   color: #ffffff; /* Set the text color */
+}
+
+.checkbox[type='checkbox'] {
+   width: 16px;
+   height: 16px;
+   background-color: #ff7e00;
+   margin-right: 8px;
+}
+.checkbox[type='checkbox']:checked {
+   background-color: #00ff00;
+}
+
+.textContent p {
+   margin: 0;
+   font-size: 14px;
+   line-height: 16px;
+}
+
+.line,
+.lineMenu {
+   border: 1px solid #3e465f;
+}
+
+.form {
+   display: flex;
+   gap: 20px;
+   /* flex-wrap: wrap; */
+}
+
+.form button {
+   background-color: #ff7e00;
+   color: white;
+   border-radius: 2px;
+   padding: 12px 24px;
+   white-space: nowrap;
+}
+
+.form input {
+   width: 300px;
+   padding: 12px 16px;
+}
+
+@media screen and (max-width: 850px) and (min-width: 0) {
+   .container {
+      display: flex;
+      flex-direction: column;
+   }
+   .form {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+   }
+   .blockForm {
+      display: flex;
+      align-items: center;
+   }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1000px) {
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .form {
+      display: flex;
+      gap: 20px;
+      /* flex-wrap: wrap; */
+      justify-content: center;
+   }
+}
+
+@media screen and (max-width: 1180px) and (min-width: 820px) {
+   .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+   }
+
+   .form {
+      display: flex;
+      gap: 20px;
+      /* flex-wrap: wrap; */
+      justify-content: center;
+   }
+}

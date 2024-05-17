@@ -1,0 +1,36 @@
+.navClient {
+   display: flex;
+   padding: 0;
+}
+
+.navAdmin {
+   display: flex;
+   padding: 0;
+}
+
+.notActive {
+   color: #6a6a6a;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   text-decoration: none;
+}
+
+.active {
+   color: #ff7e00;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   text-decoration: none;
+}
+
+.notActiveAdmin {
+   color: #fff;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   text-decoration: none;
+}

@@ -1,0 +1,118 @@
+.selectBox {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 27px 30px 45px 0;
+
+   select {
+      padding: 12px 159px 12px 16px;
+      border-radius: 2px;
+      border: 1px solid #e5e5e5;
+      outline: none;
+      color: #1a1e29;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      cursor: pointer;
+   }
+
+   p,
+   span {
+      color: #6a6a6a;
+      text-align: right;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+   }
+}
+
+.list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+}
+.container {
+   padding-left: 29px;
+}
+
+.filter {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+#filter {
+   display: none;
+   margin: 0;
+   padding: 5.5px 10px;
+   border-radius: 3px;
+   background-color: white;
+   color: #ff7e00;
+}
+
+#filter:hover {
+   transform: scale(1.1);
+   transition: 500ms;
+}
+
+#filter:not(:hover) {
+   transform: scale(1);
+   transition: 500ms;
+}
+
+#activeFilter {
+   display: none;
+   margin: 0;
+   padding: 5.5px 10px;
+   border-radius: 3px;
+   background-color: #ff7e00;
+   color: white;
+}
+
+#activeFilter:hover {
+   transform: scale(1.1);
+   transition: 500ms;
+}
+
+#activeFilter:not(:hover) {
+   transform: scale(1);
+   transition: 500ms;
+}
+@media screen and (max-width: 900px) {
+   .selectBox {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 20px 0;
+
+      p {
+         border: #6a6a6a solid 1px;
+         padding: 6px 10px;
+         border-radius: 3px;
+      }
+   }
+   .list {
+      justify-content: center;
+   }
+
+   #filter {
+      display: inline-block;
+   }
+
+   #activeFilter {
+      display: inline-block;
+   }
+}
+@media screen and (max-width: 965px) {
+   .list {
+      display: flex;
+      justify-content: center;
+   }
+   .container {
+      padding-top: 20px;
+      padding-left: 0;
+   }
+}

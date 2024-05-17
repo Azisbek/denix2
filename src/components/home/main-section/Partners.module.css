@@ -1,0 +1,45 @@
+.contentPartners {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.boxPartners {
+   display: flex;
+   gap: 53px;
+   padding: 33px 0 145px 0;
+   flex-wrap: wrap;
+   margin: 0 auto;
+   justify-content: center;
+}
+
+.columnPartners {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+
+   img {
+      width: 200px;
+      height: 46px;
+      opacity: 0.5;
+   }
+   img:hover {
+      opacity: 1;
+      transition: 0.4s;
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .boxPartners {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0px;
+   }
+
+   .contentPartners {
+      display: none;
+   }
+}

@@ -1,0 +1,35 @@
+.container {
+   display: flex;
+   justify-content: center;
+}
+
+.slideDown {
+   padding: 15px 20px;
+   background-color: #fff;
+   opacity: 1;
+   box-shadow: 0 0 2px #ff7e00;
+   border-radius: 8px;
+   max-width: 300px;
+   width: 100%;
+   position: fixed;
+   z-index: 20;
+   top: -55px;
+   animation: slideDown 3s cubic-bezier(0.2, 1.1, 0.2, 1.1);
+
+   p {
+      color: #ff7e00;
+      text-align: center;
+   }
+}
+
+@keyframes slideDown {
+   from {
+      transform: translateY(0);
+   }
+   50% {
+      transform: translateY(70px);
+   }
+   to {
+      transform: translateY(0);
+   }
+}

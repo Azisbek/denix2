@@ -1,0 +1,87 @@
+.tabsFlex {
+   display: flex;
+   flex-wrap: wrap;
+   list-style: none;
+   gap: 30px;
+   border-bottom: 1px solid #e5e5e5;
+   padding: 35px 10px 12px;
+   color: #4c65bd;
+}
+.tabsItem {
+   position: relative;
+   cursor: pointer;
+   a {
+      text-decoration: none;
+      color: #4c65bd;
+   }
+}
+
+.tabsItem::before {
+   content: '';
+   width: 100%;
+   height: 1px;
+   background: #ff7e00;
+   position: absolute;
+   left: 0;
+   bottom: -14px;
+   transform: scaleX(0);
+   transition: transform 0.25s;
+   transform-origin: left;
+}
+.tabsItem:hover::before {
+   content: '';
+   width: 100%;
+   height: 3px;
+   background: #ff7e00;
+   position: absolute;
+   left: 0;
+   bottom: -14px;
+   transform: scaleX(1);
+   transition: transform 0.25s;
+   transform-origin: left;
+}
+.blockCard {
+   display: flex;
+   gap: 24px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+}
+.block {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   padding-top: 24px;
+}
+.titleCard {
+   color: #1a1e29;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 32px;
+}
+.textCard {
+   color: #6a6a6a;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   padding-top: 16px;
+   padding-bottom: 24px;
+}
+
+@media screen and (max-width: 900px) {
+   .tabsFlex {
+      justify-content: center;
+   }
+   .textCard {
+      padding: 0;
+   }
+   .titleCard {
+      /* text-align: center; */
+      padding-top: 20px;
+      padding-bottom: 16px;
+   }
+
+   .blockCard {
+      display: flex;
+      flex-direction: column;
+   }
+}
