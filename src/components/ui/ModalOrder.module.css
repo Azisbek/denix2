@@ -1,0 +1,102 @@
+.modalBackground {
+   position: fixed; /* Оставьте только эту строку */
+   z-index: 30;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+   background-color: #fefefe;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 50%;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.modalContent h2 {
+   margin-bottom: 10px;
+}
+
+.productCardModal {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.uiButton {
+   display: flex;
+   gap: 10px;
+}
+
+button {
+   padding: 10px 20px;
+   color: white;
+   background-color: green;
+   font-weight: 600;
+   font-size: 18px;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #ff7f00;
+}
+
+@media only screen and (max-width: 1200px) {
+   .modalContent {
+      width: 70%;
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .modalContent {
+      width: 80%;
+   }
+}
+
+.quantityOrder {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   border-bottom: dotted 2px #e5e5e5;
+   gap: 20px;
+}
+.productCardModal {
+   border-bottom: dotted 2px #e5e5e5;
+   /* gap: 20px; */
+}
+
+.quantityOrder h2 {
+   margin-right: 10px; /* Optional: Add some space between the title and the quantity */
+}
+
+.quantityValue {
+   /* font-weight: bold; */
+}
+
+.titleName {
+   color: #6a6a6a;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: 16px;
+   /* max-width: 300px; */
+   word-break: break-all;
+}
+.modalOpen {
+   overflow: hidden; /* Prevent background scrolling when modal is open */
+}

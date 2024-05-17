@@ -11,7 +11,9 @@ const Promotion = ({ data }) => {
          <img src={promotion} alt="Проверка" />
          <div className={classes.boxDescription}>
             <div className={classes.mobile}>
-               <Link to={`/promotion/${data.id}`}>{data.title}</Link>
+               <Link className={classes.linkTitle} to={`/promotion/${data.id}`}>
+                  {data.title}
+               </Link>
                <div className={classes.boxBtn}>
                   <button>Диски</button>
                   <button>Шины</button>

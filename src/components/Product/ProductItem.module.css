@@ -2,7 +2,9 @@
    border: 1px solid #e5e5e5;
    display: flex;
    flex-direction: column;
+   /* align-items: center; */
    padding: 20px;
+   width: 290px;
 }
 .cardProduct:hover {
    h3 {

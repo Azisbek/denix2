@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-// import { postOrderProduct } from '../../../store/orderTireProductSlice'
+import { useDispatch, useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
+import {
+   getOrderProduct,
+   // postOrderProduct,
+} from '../../../store/orderTireProductSlice'
 import Button from '../../ui/Button'
 import classes from './PaymentPath.module.css'
 import Loading from '../../ui/Loading'
+import ModalOrder from '../../ui/ModalOrder'
 
 const PaymentPath = ({ items }) => {
    const [cart, setCart] = useState([])
-   const { loading } = useSelector((state) => state.order)
-   // const dispatch = useDispatch()
+   const [openModal, setOpenModal] = useState(false)
+   const { loading, data } = useSelector((state) => state.order)
+   const dispatch = useDispatch()
 
    const totalQuantityPrice = items.reduce(
       (accumulator, currentItem) =>
@@ -31,13 +36,25 @@ const PaymentPath = ({ items }) => {
       setCart(arrayCartOrder)
    }, [])
 
+   useEffect(() => {
+      dispatch(getOrderProduct())
+   }, [dispatch])
+
    const clickNavigateShopHandler = () => {
-      // dispatch(postOrderProduct(cart))
-      console.log(cart)
+      console.log(cart, data)
+      setOpenModal(true)
    }
 
    return (
       <div>
+         {openModal && (
+            <ModalOrder
+               items={items}
+               setOpenModal={setOpenModal}
+               totalQuantity={totalQuantity}
+               totalQuantityPrice={totalQuantityPrice}
+            />
+         )}
          {loading === 'loading' && <Loading />}
          <div className={classes.blockPaymentPath}>
             <div className={classes.totalQuantityBox}>
@@ -60,7 +77,8 @@ const PaymentPath = ({ items }) => {
                id={classes.btnPaymentPath}
                className={classes.orderBtn}
             >
-               <Link to="/cart/order">Оформить заказ</Link>
+               {/* <Link to="/cart/order">Оформить заказ</Link> */}
+               Оформить заказ
             </Button>
 
             <form className={classes.iconLabel}>

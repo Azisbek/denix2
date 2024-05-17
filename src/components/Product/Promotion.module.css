@@ -9,6 +9,17 @@
       width: 100%;
    }
 }
+.linkTitle {
+   width: 224px;
+   word-break: break-all;
+   color: #1a1e29;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 32px;
+   padding-bottom: 41px;
+   text-decoration: none;
+}
 
 .boxDescription {
    padding: 25px 18px 39px;

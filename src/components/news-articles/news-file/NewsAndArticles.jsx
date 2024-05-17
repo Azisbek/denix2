@@ -13,7 +13,7 @@ const NewsAndArticles = ({ news }) => {
          <div className={classes.main}>
             {/* <img className={classes.mainFoto} src={chess2} alt="" /> */}
             <img className={classes.mainFoto2} src={chess2} alt="" />
-            <Link to={`${pathname}/${news.id}`}>
+            <Link className={classes.link} to={`${pathname}/${news.id}`}>
                <h3 className={classes.text}>{news.title}</h3>
             </Link>
             <div className={classes.tags}>

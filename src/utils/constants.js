@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://tirewordreact-default-rtdb.firebaseio.com'
+export const BASE_URL = 'https://tirewebsite-default-rtdb.firebaseio.com'
 
 // export const BASE_URL =
 //    'https://project1-7250d-default-rtdb.asia-southeast1.firebasedatabase.app'

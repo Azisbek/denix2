@@ -4,6 +4,7 @@ import img1 from '../../../assets/image/slider1.png'
 import img2 from '../../../assets/image/img2.png'
 import img3 from '../../../assets/image/techslider2.png'
 import classes from './MainSlider.module.css'
+import Button from '../../ui/Button'
 
 const MainSlider = () => {
    const navigate = useNavigate()
@@ -68,9 +69,9 @@ const MainSlider = () => {
          <div className={classes.sliderInfo}>
             <div className={classes.slidFix}>
                <h1>{currentSlide.title}</h1>
-               <button onClick={currentSlide.actionHandler}>
+               <Button type="button" onClick={currentSlide.actionHandler}>
                   {currentSlide.buttonText}
-               </button>
+               </Button>
 
                <div className={classes.fix}>
                   {[0, 1, 2].map((index) => (

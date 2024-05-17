@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { BASE_URL } from '../utils/constants'
 
 export const postOrderProduct = createAsyncThunk(
-   'orderPost/postOrderProduct',
+   'order/postOrderProduct',
    async function (dataOrder, { rejectWithValue }) {
       try {
          const response = await fetch(`${BASE_URL}/order.json`, {
@@ -25,7 +25,7 @@ export const postOrderProduct = createAsyncThunk(
 )
 
 export const getOrderProduct = createAsyncThunk(
-   'orderGet/getOrderProduct',
+   'order/getOrderProduct',
    async function (_, { rejectWithValue }) {
       try {
          const response = await fetch(`${BASE_URL}/order.json`)

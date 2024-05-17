@@ -182,8 +182,17 @@
       gap: 2px;
    }
 
-   .ulContainer li,
-   .divContainerUl li {
+   .ulContainer li {
+      display: none;
+   }
+   .personalAcc {
+      display: none;
+   }
+   .headerIconCart {
+      margin: 0;
+      padding: 0;
+   }
+   .headerIconCart p {
       display: none;
    }
 
@@ -270,7 +279,7 @@
    }
 }
 
-@media screen and (max-width: 365px) and (min-width: 0) {
+@media screen and (max-width: 400px) and (min-width: 0) {
    .headerLogo {
       width: 61px;
    }

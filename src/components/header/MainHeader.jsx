@@ -149,7 +149,7 @@ const MainHeader = () => {
                         onClick={personalClickHandler}
                         className={personalToggle ? classes.color : ''}
                      >
-                        <div>
+                        <div className={classes.personalAcc}>
                            <NavLink className={classes.link} to="/personal">
                               Личный кабинет
                            </NavLink>
