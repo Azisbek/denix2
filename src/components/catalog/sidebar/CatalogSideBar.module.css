@@ -1,0 +1,182 @@
+.tieresSpan {
+   font-size: 10px;
+   color: #c4c4c4;
+   border: 1px solid;
+   padding: 2px 6px;
+   border-radius: 50%;
+}
+.tieresTitle {
+   color: grey;
+}
+.tireType label {
+   color: grey;
+}
+
+.tireType p {
+   padding-bottom: 5px;
+   padding-top: 10px;
+}
+.tireType label:hover {
+   color: black;
+   transition: 0.3s;
+}
+
+.containerCheckBox p {
+   padding-bottom: 5px;
+   padding-top: 10px;
+}
+
+.containerCheckBox button {
+   border: none;
+   background-color: white;
+   font-size: 16px;
+   cursor: pointer;
+   color: rgb(76, 101, 189);
+}
+
+.containerCheckBox button:hover {
+   transform: scale(1.1);
+   transition: 500ms;
+}
+.containerCheckBox button:not(:hover) {
+   transform: scale(1);
+   transition: 500ms;
+}
+
+.containerCheckBox label {
+   color: grey;
+}
+.containerCheckBox label:hover {
+   color: black;
+   transition: 0.3s;
+}
+
+.indexSpeed p {
+   padding-bottom: 20px;
+}
+.tieres select {
+   padding: 10px 0px 10px 16px;
+   width: 287px;
+   /* width: 100%; */
+   text-align: start;
+   font-size: 17px;
+   border-color: #e5e5e5;
+   outline: none;
+}
+.tieres {
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+   border-right: 1px solid #e5e5e5;
+   padding-right: 20px;
+   /* padding-left: 20px; */
+}
+.tieres p {
+   font-size: 14px;
+   color: #6a6a6a;
+}
+.price input {
+   outline: none;
+   border-color: #eee5e5;
+   border-width: 1px;
+   padding: 10px 0px 10px 15px;
+   width: 144px;
+   font-size: 17px;
+}
+.priceitemInput {
+   display: flex;
+}
+.price input::placeholder {
+   font-weight: bold;
+   color: #1a1e29;
+}
+
+.price p {
+   padding-bottom: 20px;
+}
+label {
+   display: flex;
+   gap: 10px;
+   margin: 9px 0px;
+}
+.inputContainer {
+   position: relative;
+   max-width: 300px;
+
+   p {
+      padding-bottom: 20px;
+   }
+}
+.inputContainer input {
+   max-width: 287px;
+   width: 100%;
+   padding: 10px 0px 10px 10px;
+}
+.icon {
+   position: absolute;
+   top: 46px;
+   left: 90%;
+   transform: translateX(-50%);
+}
+
+.uiButtonContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+.uiButtonContainer button {
+   border-radius: 2px;
+}
+
+.uiButtonContainer button:hover {
+   background-color: #ff7e00;
+}
+
+.close {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   button {
+      display: none;
+      background-color: white;
+      border: solid 1px #6a6a6a;
+      cursor: pointer;
+      padding: 5px 5px 0 5px;
+      margin: 0;
+
+      img {
+         width: 20px;
+         height: 20px;
+      }
+   }
+}
+
+.close button:hover {
+   background-color: white;
+   color: #ff7e00;
+   transform: scale(1.1);
+   transition: 500ms;
+}
+
+.close button:not(:hover) {
+   transform: scale(1);
+   transition: 500ms;
+}
+
+@media (max-width: 900px) {
+   .tieres {
+      display: grid;
+      justify-content: center;
+      border: none;
+      padding: 0;
+   }
+
+   .close button {
+      display: inline-block;
+   }
+
+   .none {
+      display: none;
+   }
+}

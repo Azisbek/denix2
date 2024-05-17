@@ -1,0 +1,45 @@
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: #3e465f;
+   padding: 42px 0 361px 0;
+
+   h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 48px;
+   }
+
+   div {
+      padding: 17px 0 48px 0;
+   }
+}
+
+.btnNotFound {
+   padding: 15px 13px;
+   border: 1px solid #ff7e00;
+   background: #fff;
+   color: #ff7e00;
+   cursor: pointer;
+   text-decoration: none;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+}
+
+.btnNotFound:hover {
+   color: #fff;
+   background-color: #ff7e00;
+   transform: scale(1.1);
+   transition: 0.4s;
+}
+
+.btnNotFound:not(:hover) {
+   transform: scale(1);
+   transition: 0.4s;
+}

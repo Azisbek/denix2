@@ -1,0 +1,115 @@
+.container {
+   background: #3e465f;
+   padding: 73px 0 118px 0;
+}
+
+.container h1 {
+   color: #fff;
+   font-size: 64px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   text-align: center;
+}
+
+.form {
+   margin: 0 auto;
+   max-width: 1340px;
+   padding: 30px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.form input,
+.form textarea {
+   background: #3e465f;
+   border: solid 1px #aeaeae;
+   outline: none;
+   color: #fff;
+   padding: 15px 10px;
+   width: 569px;
+}
+
+.boxInputFile {
+   display: flex;
+   flex-direction: column;
+   padding-bottom: 12px;
+   padding-top: 10px;
+}
+
+.boxInputFile h3 {
+   color: #fff;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   margin-bottom: 13px;
+}
+
+.boxInputFile label {
+   color: #ff7e00;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+   cursor: pointer;
+}
+
+.boxInputFile input {
+   display: none;
+}
+
+.img {
+   background: #d9d9d9;
+   width: 19.6rem;
+   height: 16rem;
+   /* align-items: center; */
+   /* justify-content: center; */
+}
+
+.img img {
+   width: 100%;
+   height: 100%;
+}
+
+.img p {
+   color: red;
+   font-size: 20px;
+}
+
+.blockImg {
+   display: flex;
+   flex-direction: column;
+}
+
+.gallery {
+   display: grid;
+   grid-template-columns: repeat(2, 120px);
+   gap: 20px 9px;
+}
+
+.galleryItem {
+   background: #d9d9d9;
+   width: 120px;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.galleryItem img {
+   width: 100%;
+   height: 100%;
+}
+
+.galleryItem p {
+   color: red;
+   font-size: 15px;
+}
+
+.uiContainerButton {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-top: 30px;
+}

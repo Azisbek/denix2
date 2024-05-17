@@ -1,0 +1,46 @@
+.tickerContent {
+   padding: 43px 0;
+
+   h2 {
+      color: #1a1e29;
+      text-align: center;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 48px;
+      margin-bottom: 43px;
+   }
+}
+
+.tickerContainer {
+   overflow: hidden;
+   border-top: solid 1px #e5e5e5;
+   border-bottom: solid 1px #e5e5e5;
+   padding: 60px 0;
+}
+
+.ticker {
+   display: flex;
+   align-items: center;
+}
+
+.tickerItem {
+   display: flex;
+   align-items: center;
+   padding: 0px 53px;
+   width: calc(306px *60);
+   animation: ticker 35s linear infinite;
+   img {
+      width: 200px;
+      height: 46px;
+   }
+}
+
+@keyframes ticker {
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(calc(-306px * 30));
+   }
+}

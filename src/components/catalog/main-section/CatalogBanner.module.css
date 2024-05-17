@@ -1,0 +1,80 @@
+.banner {
+   max-width: 912px;
+   width: 100%;
+   display: flex;
+   border-radius: 5px;
+   margin-left: auto;
+   align-items: center;
+   position: relative;
+
+   background: linear-gradient(
+      270deg,
+      #5a20b8 0%,
+      #4c65bd 44.42%,
+      rgba(76, 101, 189, 0) 100%
+   );
+}
+
+.banner::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-image: url('../../../assets/image/bannerCatalog.jpg');
+   background-size: auto 100%;
+   background-repeat: no-repeat;
+   background-position: left center;
+   z-index: -1;
+   border-radius: 5px;
+}
+
+.banner button {
+   margin-top: 16px;
+   padding: 12px 24px;
+}
+
+.content {
+   margin-left: auto;
+   padding: 32px 36px;
+   display: flex;
+   flex-direction: column;
+   align-items: self-start;
+   gap: 8px;
+   overflow: visible;
+}
+.content {
+   color: white;
+}
+
+.content p {
+   max-width: 600px;
+   width: 100%;
+}
+
+@media screen and (max-width: 500px) and (min-width: 0) {
+   .banner::before {
+      background-image: url('../../../assets/image/bannerCatalogMobile.jpg');
+   }
+}
+
+@media screen and (max-width: 870px) and (min-width: 0) {
+   .banner {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      background: linear-gradient(
+         270deg,
+         #5a20b8 0%,
+         #4c65bd 40.42%,
+         rgba(76, 101, 189, 0) 100%
+      );
+   }
+   .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+}

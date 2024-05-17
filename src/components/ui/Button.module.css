@@ -1,14 +1,13 @@
-.btnToggleTires {
+.button {
    padding: 15px 13px;
-   width: 196px;
    border: 1px solid #ff7e00;
    background: #fff;
    color: #ff7e00;
-   margin-bottom: 22px;
    cursor: pointer;
 }
 
-.btnToggleTires:hover {
+.button:hover {
    color: #fff;
    background-color: #ff7e00;
+   transition: 0.4s;
 }
